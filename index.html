@@ -11,12 +11,12 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="icon" href="icons/icon-192.png">
-<title>BURST V7.03 — Grand Finale Loadout Variant</title>
+<title>BURST V9.0</title>
 <style>
 :root{
   --bg:#07090d;--panel:#10141b;--panel2:#151b24;--text:#f4f7fb;--muted:#aab4c2;
   --border:#2a3442;--accent:#ffffff;
-  --comet:#D55E00;--ring:#56B4E9;--crossette:#009E73;--palm:#F0E442;--peony:#CC79A7;
+  --comet:#D55E00;--ring:#56B4E9;--crossette:#009E73;--gold:#F0E442;--peony:#CC79A7;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
@@ -189,7 +189,7 @@ select,.btn{background:var(--panel);color:var(--text);border:1px solid var(--bor
 .card svg{width:58%;max-width:62px;height:auto}
 .card .label{font-size:11px;margin-top:2px}
 .comet{--fw:var(--comet)}.ring{--fw:var(--ring)}.crossette{--fw:var(--crossette)}
-.palm{--fw:var(--palm)}.peony{--fw:var(--peony)}
+.peony{--fw:var(--peony)}
 .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
 .metric{background:var(--panel);border:1px solid var(--border);border-radius:13px;padding:9px}
 .metric .k{font-size:12px;color:var(--muted)}.metric .v{font-size:22px;font-weight:800}
@@ -794,7 +794,7 @@ footer{display:none}
   pointer-events:none;
   color:#fff;
   font-weight:1000;
-  text-shadow:0 0 7px #fff,0 0 18px var(--palm),0 0 38px var(--comet),0 4px 7px #000;
+  text-shadow:0 0 7px #fff,0 0 18px var(--gold),0 0 38px var(--comet),0 4px 7px #000;
 }
 .solo-final-banner .grand{
   display:block;
@@ -805,7 +805,7 @@ footer{display:none}
   display:block;
   margin-top:5px;
   font-size:clamp(15px,4.5vw,24px);
-  color:var(--palm);
+  color:var(--gold);
 }
 .solo-progress{
   margin-top:8px;
@@ -863,7 +863,7 @@ footer{display:none}
 .card-total-hint{font-size:10px;color:var(--muted);text-align:center;margin-top:4px}
 
 .dud-percent-option{display:block}
-.dud-symmetry-track{display:grid;grid-template-columns:repeat(20,minmax(0,1fr));align-items:end;height:14px;margin:0 7px 1px;pointer-events:none}
+.dud-symmetry-track{display:grid;grid-template-columns:repeat(50,minmax(0,1fr));align-items:end;height:14px;margin:0 7px 1px;pointer-events:none}
 .dud-symmetry-tick{justify-self:center;width:1px;height:4px;background:rgba(255,255,255,.16);border-radius:999px}
 .dud-symmetry-tick.exact{width:2px;height:12px;background:rgba(255,255,255,.86);box-shadow:0 0 5px rgba(255,255,255,.2)}
 .dud-symmetry-summary{margin-top:7px;font-size:10px;line-height:1.45;color:var(--muted)}
@@ -961,7 +961,7 @@ footer{display:none}
 }
 
 
-/* v20: selected powers, spent solo powers, slide swap, and solo outcomes */
+/* Selected powers, spent solo powers, and outcomes */
 .power.chosen{
   border-color:#fff!important;
   background:#202733!important;
@@ -983,21 +983,7 @@ footer{display:none}
   border-color:var(--fw)!important;
   box-shadow:0 0 7px #fff,0 0 17px var(--fw)!important;
 }
-.board.slide-swap .card{
-  touch-action:none;
-  user-select:none;
-}
-.card.slide-origin{
-  z-index:20;
-  transition:none!important;
-  box-shadow:0 0 8px #fff,0 0 22px var(--fw);
-  filter:brightness(1.2);
-}
-.card.slide-target{
-  outline:3px solid #fff;
-  outline-offset:2px;
-  box-shadow:0 0 10px #fff,0 0 24px var(--fw);
-}
+
 .board.peony-target .card:not(.empty){
   cursor:crosshair;
 }
@@ -1023,7 +1009,7 @@ footer{display:none}
 }
 .solo-splash-overlay.win-outcome .solo-splash-title{
   font-size:clamp(42px,13vw,78px);
-  text-shadow:0 0 7px #fff,0 0 20px var(--palm),0 0 42px var(--ring),0 0 64px var(--comet);
+  text-shadow:0 0 7px #fff,0 0 20px var(--gold),0 0 42px var(--ring),0 0 64px var(--comet);
 }
 .solo-splash-overlay.fail-outcome .solo-splash-title{
   font-size:clamp(31px,9vw,52px);
@@ -1058,10 +1044,7 @@ footer{display:none}
 }
 
 
-.card.slide-settle{
-  box-shadow:0 0 7px #fff,0 0 19px var(--fw)!important;
-  filter:brightness(1.22);
-}
+
 
 
 .setup-subsection{
@@ -1368,6 +1351,71 @@ footer{display:none}
  .power-grid .power strong{font-size:12px!important}
  .power-grid .power>span:not(.counttag):not(.readytag){font-size:9px!important}
 }
+.board.swipe-enabled button.card{touch-action:none;user-select:none;-webkit-user-select:none}
+.infinite-goal{position:sticky;top:0;z-index:4;box-shadow:0 5px 14px #0008}
+.infinite-goal,.infinite-history{margin:10px 0;padding:12px;border:1px solid #6ca1d2;border-radius:12px;background:#142237;color:#f2f7ff}
+.infinite-goal-label{font-size:11px;letter-spacing:.1em;color:#9cccf2;font-weight:800}
+.infinite-goal strong{display:block;font-size:17px;margin:7px 0}
+#infiniteGoalProgress{font-size:22px;font-weight:900}
+#infiniteForfeit{margin-top:9px}
+#infiniteTotals{font-size:12px;margin:10px 0 0}
+.infinite-history summary{cursor:pointer;font-weight:750}
+.infinite-history li{margin:8px 0;line-height:1.4}
+.infinite-notice:not(:empty){margin-top:7px;color:#96e5aa;font-weight:800}
+
+/* Readable player rows on every screen size. */
+.setup-names{grid-template-columns:minmax(0,1fr);gap:12px}
+.setup-player-row{grid-template-columns:minmax(0,1fr) auto;gap:10px;padding:12px}
+.setup-player-row .player-name-wrap{grid-column:1/-1}
+.setup-player-row .setup-name{font-size:16px;min-height:46px;padding:10px 12px}
+.setup-bot-wrap{justify-self:start}
+.bot-reroll{justify-self:end}
+.setup-options{grid-template-columns:minmax(0,1fr)}
+.scoreboard{grid-template-columns:minmax(0,1fr)}
+.scoreboard .score{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center;padding:10px 12px}
+.scoreboard .score .name{font-size:16px;line-height:1.35;white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;color:var(--text)}
+.scoreboard .score .value{grid-column:2;grid-row:1/3;font-size:26px}
+.scoreboard .score .small{grid-column:1;font-size:12px;line-height:1.35}
+
+.written-help{margin:12px 0;padding:10px;border:1px solid var(--border);border-radius:10px;font-size:14px;line-height:1.5}
+.written-help summary{cursor:pointer;font-weight:750}
+#tutorialStart{margin-top:14px}
+.setup-player-row{grid-template-columns:auto minmax(0,1fr) auto;align-items:center}
+.setup-player-row .setup-bot-wrap{grid-column:1;grid-row:2}
+.setup-player-row .setup-bot-difficulty{grid-column:2;grid-row:2;min-width:0;padding:4px 8px;gap:3px}
+.setup-player-row .bot-reroll{grid-column:3;grid-row:2}
+.setup-bot-difficulty .bot-diff-copy{font-size:11px}
+.tutorial-overlay{position:fixed;inset:0;z-index:200;background:#07090df5;overflow:auto;padding:16px;display:none}
+.tutorial-overlay.open{display:block}
+.tutorial-box{max-width:560px;margin:auto}
+.tutorial-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.tutorial-guide{position:sticky;top:0;z-index:3;background:#152032;border:1px solid #56b4e9;border-radius:12px;padding:14px;margin:12px 0;box-shadow:0 6px 25px #0008}
+.tutorial-guide h3{margin:0 0 8px}.tutorial-guide p{margin:0;line-height:1.5}
+.tutorial-board{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;margin:14px 0}
+.tutorial-board .card{opacity:.22;transition:opacity .2s,transform .3s;touch-action:manipulation}
+.tutorial-board .card.focus{opacity:1;outline:2px solid white;outline-offset:1px}
+.tutorial-board .card.chosen{outline:3px solid #f0e442;transform:scale(.94)}
+.tutorial-board .card.tut-clear{transform:scale(.1);opacity:0}
+.tutorial-board .card.tut-flip{transform:rotateY(90deg)}
+.tutorial-board .card.tutorial-anchor{opacity:1;border:3px dashed #fff}
+.tutorial-actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.tutorial-meter{font-size:14px;color:#b9d9ff}
+
+.tutorial-bank{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:10px 0;font-size:13px}
+.tutorial-bank .power{display:flex;align-items:center;gap:7px;min-width:130px}
+.tutorial-bank svg{width:30px;height:30px}.tutorial-bank .armed{outline:2px solid #fff}
+body:has(.tutorial-overlay.open) .power-earned-callout,body:has(.tutorial-overlay.open) .power-bank-dock,body:has(.tutorial-overlay.open) .bank-spark,body:has(.tutorial-overlay.open) .bank-shot{z-index:250!important}
+
+#tutorialBank{margin:14px 0}
+#tutorialOverlay .board-shell{margin-top:22px}
+.tutorial-finished .tutorial-box{min-height:80vh;display:flex;flex-direction:column;justify-content:center}
+.tutorial-finished .board-shell,.tutorial-finished #tutorialBank,.tutorial-finished #tutorialMeter{display:none}
+.tutorial-finished #tutorialGuide{text-align:center;padding:30px 16px}
+.tutorial-finished #tutorialActions{justify-content:center}
+
+.tutorial-celebrating #tutorialGuide{position:fixed;top:18%;left:50%;transform:translateX(-50%);width:min(88vw,470px);text-align:center;z-index:8;background:rgba(10,19,34,.9);box-shadow:0 0 35px #56b4e944;pointer-events:none}
+.tutorial-celebrating #tutorialGuide h3{font-size:clamp(24px,6vw,36px)}
+.tutorial-celebrating #tutorialBank,.tutorial-celebrating #tutorialActions{visibility:hidden}
 </style>
 </head>
 <body>
@@ -1409,6 +1457,8 @@ footer{display:none}
         </div>
       </div>
 
+      <section id="infiniteGoalPanel" class="infinite-goal" style="display:none" aria-live="polite"><div class="infinite-goal-label">BURST INFINITE · CURRENT GOAL</div><strong id="infiniteGoalDescription"></strong><div id="infiniteGoalProgress"></div><div id="infiniteNotice" class="infinite-notice" role="status"></div><button id="infiniteForfeit" class="btn" type="button">Forfeit Goal</button><p id="infiniteTotals"></p></section>
+
       <div class="board-shell"><div id="fxLayer" class="fx-layer"></div><div id="board" class="board"></div></div>
 
       <section class="power-bank-inline">
@@ -1417,6 +1467,7 @@ footer{display:none}
           <button id="cancelTarget" class="btn compact-cancel" style="display:none">Cancel</button>
         </div>
         <div id="powers" class="power-grid"></div>
+        <details id="infiniteHistoryPanel" class="infinite-history" style="display:none"><summary id="infiniteHistorySummary">Goals Completed: 0</summary><ol id="infiniteHistoryList"></ol></details>
       </section>
 
       <div class="play-status-stack">
@@ -1445,26 +1496,14 @@ footer{display:none}
       <details class="panel">
         <summary>Quick rules</summary>
         <div class="rules">
-          <p><b>Competitive BURST:</b> 2–10 players. Play the selected 3–6 rounds. Score points from Matches and use Powers at any time. Discards reshuffle into the draw pile as needed. If Finale is ON, bank Powers through all earlier rounds; the final round is Powers only. Highest score wins.</p>
-          <p><b>Swap:</b> move a card orthogonally to create a Match 3+. With Slide ON, the chosen card may move 1 or 2 spaces; a 2-space move shifts the displaced cards backward along its path. Choose Tap Swap or Slide-to-Match input when starting the game.</p>
-          <p><b>Glitter:</b> choose one visible firework type. Global flips every card showing it. For Adjacent, choose Glitter Action and tap any firework card to flip it and matching cards in its 8 surrounding spaces. With Tap to Glitter ON, a quick tap on a card performs Glitter immediately while sliding still performs a Swap.</p>
-          <p><b>Board size:</b> choose 3–8 columns (X) and 3–8 rows (Y). Matching, gravity, powers, and bot search use the selected dimensions.</p>
-           <p><b>Bot difficulty:</b> Easy evaluates only the current move and randomly chooses among its top 3 moves. Medium looks one deterministic visible Match wave ahead and randomly chooses among its top 3 moves. Hard evaluates the current Match plus two subsequent cascade Match waves and chooses the strongest expected move, using only public odds for unknown refills or hidden flips. Bots never inspect hidden reverse faces, future draw cards, or deck order.</p>
-           <p><b>Firework types:</b> each firework card face and its Power can be enabled independently in setup. Card OFF removes that type from the deck and disables its Power; Power OFF keeps the card matching/scoring normally but Match 4+ does not award that Power.</p>
-          <p><b>Dud Firework (optional):</b> Dud is an optional non-scoring card face set from 1% to 20% of all card faces. It moves normally and can be Glittered, cleared, or flipped by powers. Flipping reveals its normal opposite face, which can match. Dud has no power and is not required for the Finale. If Dud self-match flip is ON, any 3+ Dud formation recognized by the same merged match geometry as Fireworks flips itself in place. Dud formations score 0 and never earn Powers.</p>
-          <p><b>Match 3:</b> +1 point, clear, cascade, refill.</p>
-          <p><b>Merged Match:</b> same-firework matching lines that overlap or touch orthogonally score as one match. Count unique cards to determine 4+ power eligibility. A T made of two 3-card lines is one 5-card match: 1 point and a power. Diagonal-only contact and separate matches remain separate. A lone 3-card match remains Match 3.</p>
-          <p><b>Match 4+:</b> +1 point, clear, and create/earn its firework power.</p>
-          <p><b>Powers:</b> Comet, Ring, Crossette, and Peony can each be set to Clear or Flip their normal target pattern. Palm is always an Extra Swap and does nothing beyond the Match created by that Swap. Comet normally targets a column; with the Row/Column option on, the player chooses either direction each time Comet is fired.</p>
-          <p><b>BURST: Grand Finale:</b> 1–10 players. Work alone or together. The draw pile is finite and never reshuffled. Earn each active Power exactly once into the shared bank. Once all are earned, normal actions stop; fire every Power before the draw pile runs out.</p>
-          <p><b>SHORT FUSE:</b> 2–10 players. Play the selected 3–6 rounds with a finite draw pile. Score Match Points normally. If your turn needs a refill card and none remain, <b>BUST!</b> The round ends immediately. The Busted player takes last place and 1 Finish Point; everyone else ranks by Match Points, with 1st earning N Finish Points, 2nd N−1, and so on. The Busted player starts the next round. After the selected number of rounds, most Finish Points wins.</p>
-          <p><b>Power limit:</b> when One Power per round is ON, each player may fire one Power in each regular round. In the final round the limit is removed, including for Powers earned during that round.</p>
-          <p><b>Earn cap:</b> when Max one of each Power earned per round is ON, each player can earn each active Power type only once during that round, even if the Power is spent before another 4+ match of that type.</p>
-          <p><b>Unlimited earning before final round:</b> when ON, every enabled Match 4+ in non-final rounds earns its Power and duplicates may stack. In the final round, Match 4+ still scores but earns no new Power. This setting overrides the duplicate-bank and per-type earn limits while active.</p>
-          <p><b>Next-round Powers:</b> when Earned Powers usable next round is ON, newly earned Powers are queued and become usable when the next round begins. They cannot be fired in the round they are earned.</p>
-          <p><b>Glitter / Peony targeting:</b> choose Both Global, Glitter Adjacent / Peony Global, or Glitter Global / Peony Adjacent. Adjacent targeting affects the tapped center card and matching cards in the 8 surrounding spaces.</p>
-          <p><b>Crossette:</b> affects the center card and four orthogonally adjacent cards (+) by default. The alternate X pattern may be selected in setup.</p>
-          <p>Cards cleared directly by a power score 0. Matches caused afterward score normally.</p>
+          <p><b>Controls:</b> Swipe to Match moves the selected card directly with your finger; release at least halfway toward a neighbor to Swap, or earlier to return it. Tap to Glitter, when enabled, responds only to a quick unmoved tap. Both controls can be chosen in Gameplay Options.</p>
+          <p><b>Competitive:</b> Highest score after the selected rounds wins. Swap an orthogonally adjacent card to make a Match 3+, or Glitter a selected card and matching cards in its eight neighboring spaces. A Match 3+ scores one point; Match 4+ also earns its firework Power. Duplicate Powers stack.</p>
+          <p><b>Powers:</b> One Power may be used per regular round. Crossette clears the center and its four orthogonal neighbors (+). Ring flips the eight cards around its center. Peony flips every visible card of the selected type. Comet clears a chosen row or column.</p>
+          <p><b>Finale:</b> Powers earned before the final round are banked. During the final round, Swap and Glitter remain available, all banked Powers may be used, and Match 4+ scores and cascades normally without earning another Power.</p>
+          <p><b>BURST Infinite:</b> Play alone without rounds or a natural end. Complete randomized goals, use Powers freely, and forfeit any goal to get a new one. T and L goals count in all four quarter-turn orientations. Session score, matches, and goal history continue until you start a new game.</p>
+          <p><b>Short Fuse:</b> The finite draw supply makes refills risky; when a refill cannot be drawn, that player busts and the round ends.</p>
+          <p><b>Grand Finale Challenge:</b> Collect all four Powers in the shared bank, then fire them before the finite draw supply runs out.</p>
+          <p><b>Duds:</b> 20% of the deck’s card faces are Duds. They never match, score, or earn Powers. Glitter and applicable Powers can flip them; clearing Powers can remove them.</p>
         </div>
       </details>
     </aside>
@@ -1487,8 +1526,8 @@ footer{display:none}
     <section class="panel"><h2>Average Matches per Round</h2><div id="matchAverages" class="log"></div></section>
     <section class="panel"><h2>Cascade Depth</h2><p style="margin:0 0 8px">Counts only successful follow-up match waves after the initial match wave. Chains with no follow-up match count as 0.</p><div id="cascadeStats" class="log"></div></section>
   </div>
-  <div class="in-game-version" aria-label="App version">BURST V7.03</div>
-  <footer>BURST V7.03. Adds the Grand Finale duplicate-loadout Challenge variant, per-Power multiplayer Finale rotation, and duplicate-averse Challenge bot strategy.</footer>
+  <div class="in-game-version" aria-label="App version">BURST V9.0</div>
+  <footer>BURST V9.0 · 5×5 · 100 cards · 20% Dud faces · Two actions per turn.</footer>
 </div>
 
 
@@ -1511,22 +1550,33 @@ footer{display:none}
   <div class="setup-box">
     <h2 id="setupTitle">New BURST Game</h2>
     <p class="sub">Choose the number of players and enter their names.</p>
+    <div class="settings-group" id="allSettings">
+      <h3>Settings</h3>
     <label for="setupGameMode">Game Mode</label>
     <select id="setupGameMode">
       <option value="competitive" selected>Competitive BURST</option>
       <option value="bust">SHORT FUSE</option>
       <option value="challenge">Grand Finale Challenge</option>
+      <option value="infinite">BURST Infinite</option>
     </select>
-    <div id="setupModeInstructions" class="mode-instructions"></div>
-    <div class="settings-group setup-players-group">
-      <h3>Players</h3>
+    <details class="written-help"><summary>Game Mode — Description &amp; Instructions</summary><div id="setupModeInstructions" class="mode-instructions"></div></details>
+    <div class="setup-players-group">
+      <h4>Players</h4>
       <label for="setupPlayerCount">Number of players</label>
       <select id="setupPlayerCount"></select>
       <div id="setupNameFields" class="setup-names" style="margin-top:10px"></div>
     </div>
+    <button id="tutorialStart" class="btn primary" type="button">Tutorial</button>
+    <details class="written-help"><summary>How to Play — Text Instructions</summary>
+    <p>Swap neighboring cards to make a line of three or more matching fireworks. You have two actions each turn: Swap or Glitter, in any combination.</p>
+    <p>Glitter flips the chosen card and matching cards touching it, including diagonally. Duds never match, but Glitter and applicable Powers can flip them.</p>
+    <p>Each distinct match earns 1 point, regardless of its size or shape. Connected same-type matching lines merge into one match. Replacement cards can cascade into further matches, each worth another point.</p>
+    <p>A match with 4 or more cards also earns that firework’s Power. In Competitive, bank Powers until the final round. Then use all banked Powers alongside your two normal actions. No new Powers are earned in that round.</p>
+    <p><b>Comet:</b> clear a chosen row or column. <b>Crossette:</b> clear the center and its four orthogonal neighbors (+). <b>Ring:</b> flip the eight surrounding cards; the center stays. <b>Peony:</b> flip every card of a chosen face type across the board. Select a Power in the bank first, then tap any grid card to target it. The target need not match the Power, and its firework type does not have to appear on the grid. Direct Power clears do not score; matches created afterward do.</p>
+    <p>In Competitive, the highest score after the chosen number of rounds wins. Expand Game Mode instructions above for the other modes.</p>
+    </details>
     <div class="setup-options">
-      <div class="settings-group">
-        <h3>Game Length</h3>
+      <div class="round-settings">
 
         <label class="setup-option card-count-option" for="setupRounds">
           <span class="card-count-top">
@@ -1540,236 +1590,26 @@ footer{display:none}
           <span class="card-count-scale"><span>3</span><span>6</span></span>
         </label>
 
-        <div class="setup-subsection">
-          <h3>Board Size</h3>
-          <div class="subnote">Set the display dimensions independently. X = columns; Y = rows.</div>
-          <label class="setup-option card-count-option" for="setupBoardCols">
-            <span class="card-count-top"><span class="opt-copy"><span class="opt-title">Columns (X)</span><span class="opt-sub">3–8 cards wide.</span></span><span id="boardColsValue" class="card-count-value">5</span></span>
-            <input id="setupBoardCols" class="card-count-slider" type="range" min="3" max="8" step="1" value="5">
-            <span class="card-count-scale"><span>3</span><span>8</span></span>
-          </label>
-          <label class="setup-option card-count-option" for="setupBoardRows">
-            <span class="card-count-top"><span class="opt-copy"><span class="opt-title">Rows (Y)</span><span class="opt-sub">3–8 cards tall.</span></span><span id="boardRowsValue" class="card-count-value">5</span></span>
-            <input id="setupBoardRows" class="card-count-slider" type="range" min="3" max="8" step="1" value="5">
-            <span class="card-count-scale"><span>3</span><span>8</span></span>
-          </label>
-          <div id="boardSizeSummary" class="subnote" style="margin-top:8px;font-weight:850;color:var(--text)">5 × 5 = 25 cards on the display.</div>
-        </div>
+
 
       </div>
 
-      <div class="settings-group">
-        <h3>Core Match &amp; Glitter Rules</h3>
+      <div class="control-settings">
         <label class="setup-option">
-          <span class="opt-copy">
-            <span class="opt-title">Swipe to Match</span>
-            <span class="opt-sub">Off: tap a start card and destination. On: swipe the chosen card to its destination.</span>
-          </span>
-          <span class="switch">
-            <input id="setupSlideSwap" type="checkbox" checked>
-            <span class="switch-track"></span>
-          </span>
+          <span class="opt-copy"><span class="opt-title">Swipe to Match</span><span class="opt-sub">Drag a card toward one orthogonally adjacent card to Swap. Release past halfway to complete the move; release before halfway to return it.</span></span>
+          <span class="switch"><input id="setupSwipeMatch" type="checkbox" checked><span class="switch-track"></span></span>
+        </label>
+        <label class="setup-option">
+          <span class="opt-copy"><span class="opt-title">Tap to Glitter</span><span class="opt-sub">With Swipe to Match on, a quick single tap Glitters a firework or Dud card. Moving the card, then letting go, never Glitters it.</span></span>
+          <span class="switch"><input id="setupTapGlitter" type="checkbox" checked><span class="switch-track"></span></span>
         </label>
 
-        <label class="setup-option">
-          <span class="opt-copy">
-            <span class="opt-title">Slide</span>
-            <span class="opt-sub">Allow a Swap to move the chosen card 1 or 2 spaces orthogonally. A 2-space move shifts the displaced cards backward to fill the path.</span>
-          </span>
-          <span class="switch">
-            <input id="setupLongSlide" type="checkbox">
-            <span class="switch-track"></span>
-          </span>
-        </label>
 
-        <label class="setup-option">
-          <span class="opt-copy">
-            <span class="opt-title">Tap to Glitter</span>
-            <span class="opt-sub">On: a quick single tap on a firework card uses Glitter immediately. Slide the card instead to Swap. Requires Swipe to Match.</span>
-          </span>
-          <span class="switch">
-            <input id="setupTapGlitter" type="checkbox">
-            <span class="switch-track"></span>
-          </span>
-        </label>
-
-        <div class="power-setting-row">
-          <label for="setupGlitterScope">Glitter / Peony targeting</label>
-          <select id="setupGlitterScope">
-            <option value="bothGlobal">Both Global</option>
-            <option value="glitterAdjacent" selected>Glitter Adjacent · Peony Global</option>
-            <option value="peonyAdjacent">Glitter Global · Peony Adjacent</option>
-          </select>
-        </div>
-        <div class="subnote">Adjacent Glitter = choose Glitter Action, then tap any firework card. Adjacent Peony = activate Peony, then tap any firework card. The tapped center card and matching cards in the 8 surrounding spaces are affected.</div>
       </div>
 
-      <div class="settings-group">
-        <h3>Power Rules</h3>
-
-        <label class="setup-option">
-          <span class="opt-copy">
-            <span class="opt-title">One Power per round</span>
-            <span class="opt-sub">On: in every regular round, each player may fire only one Firework Power. In the final round, all banked and newly earned Powers may be fired.</span>
-          </span>
-          <span class="switch">
-            <input id="setupOnePowerPerTurn" type="checkbox" checked>
-            <span class="switch-track"></span>
-          </span>
-        </label>
-
-
-        <label class="setup-option">
-          <span class="opt-copy">
-            <span class="opt-title">Finale</span>
-            <span id="finaleSub" class="opt-sub">Off: normal play continues through the final round. On: bank Powers until the final round, which becomes Powers only.</span>
-          </span>
-          <span class="switch">
-            <input id="setupFinale" type="checkbox">
-            <span class="switch-track"></span>
-          </span>
-        </label>
-
-        <label class="setup-option" id="setupChallengeBankDuplicatesRow">
-          <span class="opt-copy">
-            <span class="opt-title">Challenge: Bank duplicate Powers</span>
-            <span class="opt-sub">Grand Finale Challenge only. During collection, every Match 4+ banks its Power, including duplicates. The Finale begins once at least one of every active type is banked; then no new Powers are earned and every banked copy must be fired.</span>
-          </span>
-          <span class="switch">
-            <input id="setupChallengeBankDuplicates" type="checkbox">
-            <span class="switch-track"></span>
-          </span>
-        </label>
-
-        <label class="setup-option">
-          <span class="opt-copy">
-            <span class="opt-title">Unlimited duplicate Powers</span>
-            <span class="opt-sub">Off: max 1 of each type. On: the same Power can stack.</span>
-          </span>
-          <span class="switch">
-            <input id="setupUnlimited" type="checkbox" checked>
-            <span class="switch-track"></span>
-          </span>
-        </label>
-
-        <label class="setup-option">
-          <span class="opt-copy">
-            <span class="opt-title">Max one of each Power earned per round</span>
-            <span class="opt-sub">On: each player can earn Comet, Ring, Crossette, and Peony at most once each during a round, even if a copy is spent.</span>
-          </span>
-          <span class="switch">
-            <input id="setupOneEarnPerTypeRound" type="checkbox" checked>
-            <span class="switch-track"></span>
-          </span>
-        </label>
-
-        <label class="setup-option">
-          <span class="opt-copy">
-            <span class="opt-title">Unlimited earning before final round</span>
-            <span class="opt-sub">On: during every non-final round, every Match 4+ can earn its enabled Power and duplicates may stack. In the final round, Match 4+ still scores but earns no new Power. This overrides the duplicate-bank and one-per-type earning limits while active.</span>
-          </span>
-          <span class="switch">
-            <input id="setupUnlimitedEarnBeforeFinal" type="checkbox">
-            <span class="switch-track"></span>
-          </span>
-        </label>
-
-        <label class="setup-option">
-          <span class="opt-copy">
-            <span class="opt-title">Earned Powers usable next round</span>
-            <span class="opt-sub">On: every Power earned this round is queued and becomes usable when the next round begins. Powers earned in the final round cannot be used.</span>
-          </span>
-          <span class="switch">
-            <input id="setupPowersNextRound" type="checkbox">
-            <span class="switch-track"></span>
-          </span>
-        </label>
-      </div>
-
-      <div class="settings-group">
-        <h3>Firework &amp; Power Configuration</h3>
-        <div class="subnote">Turn each firework card face and its earned Power on or off independently. Turning a card off also disables that Power because it cannot be earned.</div>
-        <div id="fireworkToggleGrid" class="firework-toggle-grid">
-          <div class="firework-toggle-head" aria-hidden="true"><span>Firework</span><span>Card</span><span>Power</span></div>
-          <div class="firework-toggle-row comet" data-firework-type="comet">
-            <div class="firework-identity"><span class="firework-dot"></span><span class="firework-name">Comet</span></div>
-            <label class="firework-state-toggle" title="Include Comet cards"><input id="setupCardComet" type="checkbox" checked aria-label="Comet card enabled"><span class="firework-state-pill"></span></label>
-            <label class="firework-state-toggle" title="Enable Comet Power"><input id="setupPowerComet" type="checkbox" checked aria-label="Comet Power enabled"><span class="firework-state-pill"></span></label>
-          </div>
-          <div class="firework-toggle-row ring" data-firework-type="ring">
-            <div class="firework-identity"><span class="firework-dot"></span><span class="firework-name">Ring</span></div>
-            <label class="firework-state-toggle" title="Include Ring cards"><input id="setupCardRing" type="checkbox" checked aria-label="Ring card enabled"><span class="firework-state-pill"></span></label>
-            <label class="firework-state-toggle" title="Enable Ring Power"><input id="setupPowerRing" type="checkbox" checked aria-label="Ring Power enabled"><span class="firework-state-pill"></span></label>
-          </div>
-          <div class="firework-toggle-row crossette" data-firework-type="crossette">
-            <div class="firework-identity"><span class="firework-dot"></span><span class="firework-name">Crossette</span></div>
-            <label class="firework-state-toggle" title="Include Crossette cards"><input id="setupCardCrossette" type="checkbox" checked aria-label="Crossette card enabled"><span class="firework-state-pill"></span></label>
-            <label class="firework-state-toggle" title="Enable Crossette Power"><input id="setupPowerCrossette" type="checkbox" checked aria-label="Crossette Power enabled"><span class="firework-state-pill"></span></label>
-          </div>
-          <div class="firework-toggle-row peony" data-firework-type="peony">
-            <div class="firework-identity"><span class="firework-dot"></span><span class="firework-name">Peony</span></div>
-            <label class="firework-state-toggle" title="Include Peony cards"><input id="setupCardPeony" type="checkbox" checked aria-label="Peony card enabled"><span class="firework-state-pill"></span></label>
-            <label class="firework-state-toggle" title="Enable Peony Power"><input id="setupPowerPeony" type="checkbox" checked aria-label="Peony Power enabled"><span class="firework-state-pill"></span></label>
-          </div>
-        </div>
-        <div id="fireworkConfigStatus" class="firework-config-status">4 card types · 4 Powers active.</div>
-
-        <div class="power-setting-row"><label for="effectComet">Comet</label><select id="effectComet"><option value="clear" selected>Clear cards</option><option value="flip">Flip cards</option></select></div>
-        <label class="setup-option" for="setupCometEither">
-          <span class="opt-copy">
-            <span class="opt-title">Comet: choose Row or Column</span>
-            <span class="opt-sub">Off: Comet always targets a column. On: choose either a row or column each time it is fired.</span>
-          </span>
-          <span class="switch"><input id="setupCometEither" type="checkbox" checked><span class="switch-track"></span></span>
-        </label>
-        <div class="power-setting-row"><label for="effectRing">Ring</label><select id="effectRing"><option value="clear">Clear cards</option><option value="flip" selected>Flip cards</option></select></div>
-        <div class="power-setting-row"><label for="effectCrossette">Crossette</label><select id="effectCrossette"><option value="clear" selected>Clear cards</option><option value="flip">Flip cards</option></select></div>
-        <label class="setup-option" for="setupCrossetteOrthogonal">
-          <span class="opt-copy"><span class="opt-title">Crossette: Orthogonal (+) pattern</span><span class="opt-sub">Off: center + diagonal neighbors (X). On: center + orthogonal neighbors (+). Uses the Clear/Flip setting above.</span></span>
-          <span class="switch"><input id="setupCrossetteOrthogonal" type="checkbox" checked><span class="switch-track"></span></span>
-        </label>
-        <div class="power-setting-row"><label for="effectPeony">Peony</label><select id="effectPeony"><option value="clear">Clear chosen type</option><option value="flip" selected>Flip chosen type</option></select></div>
-
-        <input id="setupPalm" type="checkbox" hidden disabled>
-        <label class="setup-option" for="setupDud">
-          <span class="opt-copy"><span class="opt-title">Dud Firework</span><span class="opt-sub">Add Dud as a non-scoring card face. Duds move normally and can be Glittered or affected by powers. With Dud self-match flip ON, 3+ Duds can form Dud formations that flip themselves, but they still score 0 and never earn a Power. Off: four normal types only.</span></span>
-          <span class="switch"><input id="setupDud" type="checkbox" checked><span class="switch-track"></span></span>
-        </label>
-        <label class="setup-option" for="setupMatchFlipsDuds">
-          <span class="opt-copy"><span class="opt-title">Dud self-match flip</span><span class="opt-sub">On: 3+ Duds use the same merged formation rules as Fireworks (lines, T/L/+ shapes, etc.). The involved Duds score 0, earn no Power, and flip in place. A swap that creates only a Dud formation is still legal and uses the action.</span></span>
-          <span class="switch"><input id="setupMatchFlipsDuds" type="checkbox" checked><span class="switch-track"></span></span>
-        </label>
-        <label class="setup-option card-count-option" for="setupCardTotal">
-          <span class="card-count-top">
-            <span class="opt-copy">
-              <span class="opt-title">Total cards</span>
-              <span id="cardCountSub" class="opt-sub">25 on the grid + 75 in the draw supply.</span>
-            </span>
-            <span id="cardCountValue" class="card-count-value">100</span>
-          </span>
-          <input id="setupCardTotal" class="card-count-slider" type="range" min="75" max="200" step="1" value="100">
-          <div id="cardTotalSnapTrack" class="card-total-snap-track" aria-hidden="true"></div>
-          <span class="card-count-scale"><span>75</span><span>100</span><span>125</span><span>150</span><span>175</span><span>200</span></span>
-          <div class="card-total-adjust"><button id="cardTotalMinus" class="card-total-nudge" type="button" aria-label="Remove one card">−1</button><button id="cardTotalPlus" class="card-total-nudge" type="button" aria-label="Add one card">+1</button></div>
-          <div class="card-total-hint">Dragging snaps to the nearest 5 on release. Use −1 / +1 for exact card counts.</div>
-        </label>
-
-        <div id="dudPercentRow" class="setup-option card-count-option dud-percent-option">
-          <span class="card-count-top">
-            <span class="opt-copy">
-              <span class="opt-title">Dud face distribution</span>
-              <span class="opt-sub">Choose any whole percentage. Bright notches mark percentages that produce an exactly symmetrical physical deck for the current card count and enabled firework types.</span>
-            </span>
-            <span id="dudPercentValue" class="card-count-value">8%</span>
-          </span>
-          <input id="setupDudPercent" class="card-count-slider" type="range" min="1" max="20" step="1" value="8" aria-label="Dud face percentage">
-          <div id="dudSymmetryTrack" class="dud-symmetry-track" aria-hidden="true"></div>
-          <div class="card-count-scale"><span>1%</span><span>20%</span></div>
-          <div id="dudSymmetrySummary" class="dud-symmetry-summary"></div>
-        </div>
-      </div>
     </div>
-    <div class="setup-version" aria-label="App version">BURST V7.03</div>
+    </div>
+    <div class="setup-version" aria-label="App version">BURST V9.0</div>
     <div class="setup-actions">
       <button id="setupCancel" class="btn" type="button">Cancel</button>
       <button id="setupStart" class="btn primary" type="button">Start Game</button>
@@ -1779,43 +1619,42 @@ footer{display:none}
 
 <div id="nextPlayerOverlay" aria-live="polite" aria-hidden="true"><span>NEXT PLAYER</span></div>
 
+<div id="tutorialOverlay" class="tutorial-overlay" role="dialog" aria-modal="true" aria-labelledby="tutorialTitle">
+ <div class="tutorial-box"><div class="tutorial-top"><h2 id="tutorialTitle">Learn to BURST</h2><button id="tutorialExit" class="btn">Exit Tutorial</button></div>
+ <div id="tutorialGuide" class="tutorial-guide" aria-live="polite"></div><div id="tutorialMeter" class="tutorial-meter" aria-live="polite"></div>
+ <div class="board-shell"><div id="tutorialFx" class="fx-layer"></div><div id="tutorialBoard" class="tutorial-board"></div></div><div id="tutorialBank" class="power-grid" aria-label="Tutorial Power bank"></div><div id="tutorialActions" class="tutorial-actions"></div></div>
+</div>
 <script>
 const TYPES=[
  {id:'comet',name:'Comet',power:'Line Blast'},
  {id:'ring',name:'Ring',power:'Ring Blast'},
- {id:'crossette',name:'Crossette',power:'X Blast'},
- {id:'palm',name:'Palm',power:'Extra Swap'},
+ {id:'crossette',name:'Crossette',power:'+ Blast'},
  {id:'peony',name:'Peony',power:'Glitter'}
 ];
 const TYPE=Object.fromEntries([...TYPES,{id:'dud',name:'Dud',power:null}].map(x=>[x.id,x]));
-const CORE_FIREWORK_IDS=TYPES.filter(t=>t.id!=='palm').map(t=>t.id);
+const ALL_FIREWORK_IDS=TYPES.map(t=>t.id);
+const DEFAULT_FIREWORK_IDS=TYPES.map(t=>t.id);
+const CORE_FIREWORK_IDS=DEFAULT_FIREWORK_IDS; // legacy name for the standard four-type default
 function normalizedFireworkIds(ids){
- const raw=Array.isArray(ids)?ids:CORE_FIREWORK_IDS;
- return CORE_FIREWORK_IDS.filter(id=>raw.includes(id));
+ const raw=Array.isArray(ids)?ids:DEFAULT_FIREWORK_IDS;
+ return ALL_FIREWORK_IDS.filter(id=>raw.includes(id));
 }
 function enabledCardTypes(config=state?.config){
  const ids=normalizedFireworkIds(config?.enabledCards);
- return TYPES.filter(t=>t.id!=='palm'&&ids.includes(t.id));
+ return TYPES.filter(t=>ids.includes(t.id));
 }
 function enabledPowerTypes(config=state?.config){
  const cards=new Set(enabledCardTypes(config).map(t=>t.id));
  const ids=normalizedFireworkIds(config?.enabledPowers);
- return TYPES.filter(t=>t.id!=='palm'&&cards.has(t.id)&&ids.includes(t.id));
+ return TYPES.filter(t=>cards.has(t.id)&&ids.includes(t.id));
 }
 function activeTypes(config=state?.config){return enabledCardTypes(config)}
 function cardTypes(config=state?.config){return [...enabledCardTypes(config),...(config?.includeDud?[TYPE.dud]:[])];}
 function powerEnabled(type,config=state?.config){return enabledPowerTypes(config).some(t=>t.id===type)}
 function powerGoal(){return enabledPowerTypes().length}
 
-function glitterScopeMode(){
- return state.config?.glitterScope||'glitterAdjacent';
-}
-function glitterActionAdjacent(){
- return glitterScopeMode()==='glitterAdjacent';
-}
-function peonyPowerAdjacent(){
- return glitterScopeMode()==='peonyAdjacent';
-}
+function glitterActionAdjacent(){return true}
+function peonyPowerAdjacent(){return false}
 function sameTypeNeighborCells(center,type){
  const rows=boardRows(),cols=boardCols();
  const r=rowOf(center,cols),c=colOf(center,cols),cells=[];
@@ -1831,9 +1670,7 @@ function sameTypeNeighborCells(center,type){
 function crossetteCells(i){
  const rows=boardRows(),cols=boardCols();
  const r=rowOf(i,cols),c=colOf(i,cols),cells=[i];
- const offsets=state.config?.crossetteOrthogonal
-  ?[[-1,0],[0,-1],[0,1],[1,0]]
-  :[[-1,-1],[-1,1],[1,-1],[1,1]];
+ const offsets=[[-1,0],[0,-1],[0,1],[1,0]];
  for(const [dr,dc] of offsets){
   const rr=r+dr,cc=c+dc;
   if(inBoard(rr,cc,rows,cols))cells.push(cellIndex(rr,cc,cols));
@@ -1844,12 +1681,51 @@ function escapeHtml(value){
  return String(value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 }
 function powerName(type){
- return type==='crossette'&&state.config?.crossetteOrthogonal?'+ Blast':TYPE[type].power;
+ return TYPE[type].power;
 }
 const DEFAULT_ROUNDS=5;
 let uid=1,state={};
 
 function clampBoardDim(v){return Math.max(3,Math.min(8,Math.round(Number(v)||5)))}
+function baseNormalActionLimit(){
+ if(!state?.config)return 1;
+ if(state.challenge&&state.soloFinale)return 0;
+ if(state.infinite)return 2;
+ return state.config.twoActions?2:1;
+}
+function normalActionLimit(){return baseNormalActionLimit()}
+function normalActionsUsedCount(){return Math.max(0,Number(state.normalActionsUsed||0))}
+function normalActionsRemaining(){return Math.max(0,normalActionLimit()-normalActionsUsedCount())}
+function syncNormalUsed(){state.normalUsed=normalActionsRemaining()<=0;return state.normalUsed}
+function resetNormalActions(){
+ state.normalActionsUsed=0;
+ state.normalActionHistory=[];
+ state.normalActionUsed=null;
+ syncNormalUsed();
+}
+function consumeNormalAction(kind){
+ state.normalActionsUsed=normalActionsUsedCount()+1;
+ if(!Array.isArray(state.normalActionHistory))state.normalActionHistory=[];
+ state.normalActionHistory.push(kind);
+ state.normalActionUsed=kind;
+ if(state.infinite)infiniteAction(kind);
+ syncNormalUsed();
+ return normalActionsRemaining();
+}
+
+function forceCompleteNormalActions(){
+ state.normalActionsUsed=normalActionLimit();
+ syncNormalUsed();
+}
+function normalActionRuleText(){
+ const base=baseNormalActionLimit();
+ return base===2?'Take two Swap/Glitter actions in any order.':'Take one Swap or Glitter action.';
+}
+function normalActionStatusMessage(){
+ const remaining=normalActionsRemaining();
+ if(remaining>0)return `${remaining} action${remaining===1?'':'s'} remaining — choose Swap or Glitter${hasReadyPower()?', or use a Power':''}.`;
+ return hasReadyPower()?'Normal actions complete. Use an available Power, or end your turn.':'Normal actions complete.';
+}
 function boardRows(){return clampBoardDim(state?.rows ?? state?.config?.boardRows ?? 5)}
 function boardCols(){return clampBoardDim(state?.cols ?? state?.config?.boardCols ?? 5)}
 function boardCellCount(rows=boardRows(),cols=boardCols()){return rows*cols}
@@ -1886,37 +1762,36 @@ Element.prototype.animate=function(keyframes,options){
 
 const $=id=>document.getElementById(id);
 const els={
+ infiniteGoalPanel:$('infiniteGoalPanel'),infiniteGoalDescription:$('infiniteGoalDescription'),infiniteGoalProgress:$('infiniteGoalProgress'),infiniteNotice:$('infiniteNotice'),infiniteForfeit:$('infiniteForfeit'),infiniteTotals:$('infiniteTotals'),infiniteHistoryPanel:$('infiniteHistoryPanel'),infiniteHistorySummary:$('infiniteHistorySummary'),infiniteHistoryList:$('infiniteHistoryList'),
  playerCount:$('playerCount'),newGame:$('newGame'),roundCounter:$('roundCounter'),scoreboard:$('scoreboard'),board:$('board'),cardsRemainingBox:$('cardsRemainingBox'),cardsRemainingLabel:$('cardsRemainingLabel'),cardsRemainingBig:$('cardsRemainingBig'),
  turnBadge:$('turnBadge'),modeText:$('modeText'),message:$('message'),turnPoints:$('turnPoints'),
  turnTime:$('turnTime'),avgTime:$('avgTime'),swapAction:$('swapAction'),glitterTypes:$('glitterTypes'),glitterAction:$('glitterAction'),glitterHeading:$('glitterHeading'),
  powers:$('powers'),cancelTarget:$('cancelTarget'),endTurn:$('endTurn'),deckCount:$('deckCount'),
  eventLog:$('eventLog'),history:$('history'),matchAverages:$('matchAverages'),cascadeStats:$('cascadeStats'),nextPlayerOverlay:$('nextPlayerOverlay'),fxLayer:$('fxLayer'),
  gameSetupOverlay:$('gameSetupOverlay'),setupPlayerCount:$('setupPlayerCount'),setupNameFields:$('setupNameFields'),
- setupCrossetteOrthogonal:$('setupCrossetteOrthogonal'),
  setupCancel:$('setupCancel'),setupStart:$('setupStart'),
  powersTitle:$('powersTitle'),powersHelp:$('powersHelp'),gameFormat:$('gameFormat'),turnEndPrompt:$('turnEndPrompt'),
- setupGameMode:$('setupGameMode'),setupModeInstructions:$('setupModeInstructions'),setupRounds:$('setupRounds'),roundCountValue:$('roundCountValue'),roundCountSub:$('roundCountSub'),setupOnePowerPerTurn:$('setupOnePowerPerTurn'),setupGlitterScope:$('setupGlitterScope'),setupFinale:$('setupFinale'),setupChallengeBankDuplicates:$('setupChallengeBankDuplicates'),setupChallengeBankDuplicatesRow:$('setupChallengeBankDuplicatesRow'),setupUnlimited:$('setupUnlimited'),setupOneEarnPerTypeRound:$('setupOneEarnPerTypeRound'),setupUnlimitedEarnBeforeFinal:$('setupUnlimitedEarnBeforeFinal'),setupPowersNextRound:$('setupPowersNextRound'),setupPalm:$('setupPalm'),setupDud:$('setupDud'),setupMatchFlipsDuds:$('setupMatchFlipsDuds'),setupDudPercent:$('setupDudPercent'),dudPercentValue:$('dudPercentValue'),dudSymmetryTrack:$('dudSymmetryTrack'),dudSymmetrySummary:$('dudSymmetrySummary'),dudPercentRow:$('dudPercentRow'),finaleSub:$('finaleSub'),
- effectComet:$('effectComet'),effectRing:$('effectRing'),effectCrossette:$('effectCrossette'),effectPeony:$('effectPeony'),setupCometEither:$('setupCometEither'),
- setupCardComet:$('setupCardComet'),setupCardRing:$('setupCardRing'),setupCardCrossette:$('setupCardCrossette'),setupCardPeony:$('setupCardPeony'),setupPowerComet:$('setupPowerComet'),setupPowerRing:$('setupPowerRing'),setupPowerCrossette:$('setupPowerCrossette'),setupPowerPeony:$('setupPowerPeony'),fireworkConfigStatus:$('fireworkConfigStatus'),
- setupCardTotal:$('setupCardTotal'),cardCountValue:$('cardCountValue'),cardCountSub:$('cardCountSub'),cardTotalSnapTrack:$('cardTotalSnapTrack'),cardTotalMinus:$('cardTotalMinus'),cardTotalPlus:$('cardTotalPlus'),setupBoardCols:$('setupBoardCols'),setupBoardRows:$('setupBoardRows'),boardColsValue:$('boardColsValue'),boardRowsValue:$('boardRowsValue'),boardSizeSummary:$('boardSizeSummary'),
+ setupGameMode:$('setupGameMode'),setupModeInstructions:$('setupModeInstructions'),setupRounds:$('setupRounds'),roundCountValue:$('roundCountValue'),roundCountSub:$('roundCountSub'),setupSwipeMatch:$('setupSwipeMatch'),setupTapGlitter:$('setupTapGlitter'),
+ 
+ 
+ 
  soloSplash:$('soloSplash'),soloSplashKicker:$('soloSplashKicker'),soloSplashTitle:$('soloSplashTitle'),
  soloSplashBody:$('soloSplashBody'),soloSplashNote:$('soloSplashNote'),soloSplashButton:$('soloSplashButton'),soloSplashSecondaryButton:$('soloSplashSecondaryButton'),
- soloOutcomeFx:$('soloOutcomeFx'),setupSlideSwap:$('setupSlideSwap'),setupLongSlide:$('setupLongSlide'),setupTapGlitter:$('setupTapGlitter')
+ soloOutcomeFx:$('soloOutcomeFx')
 };
 
 function icon(t){
- if(t==='dud')return `<svg viewBox='0 0 64 64' fill='none' stroke='currentColor' stroke-width='4' stroke-linecap='round'><path d='M23 27h18v25H23zM32 27v-8q0-8 9-8'/><path d='M27 35l10 10m0-10L27 45'/></svg>`;
+ if(t==='dud')return `<svg viewBox='0 0 64 64' fill='none' stroke='currentColor' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'><circle cx='32' cy='38' r='18'/><path d='M27 20v-5h10v5M32 15c0-6 4-9 10-10 3-.5 5-2 6-5'/><path d='M25 31l14 14M39 31L25 45'/></svg>`;
  const a="viewBox='0 0 64 64' fill='none' stroke='currentColor' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'";
  if(t==='ring')return `<svg ${a}><circle cx='32' cy='32' r='20'/></svg>`;
  if(t==='comet')return `<svg ${a}><circle cx='32' cy='13' r='5'/><path d='M32 20v45'/><path d='M24 31l8 20 8-20' opacity='.45'/></svg>`;
  if(t==='crossette')return `<svg ${a}><g transform='rotate(${state.config?.crossetteOrthogonal?45:0} 32 32)'><path d='M14 14l36 36M50 14L14 50'/><path d='M14 14h10M14 14v10M50 14H40M50 14v10M14 50h10M14 50V45M50 50H40M50 50V45'/></g></svg>`;
- if(t==='palm')return `<svg ${a}><path d='M32 52V45'/><path d='M32 31C24 25 19 19 14 12M32 31C28 23 27 16 27 10M32 31C36 23 37 16 37 10M32 31C40 25 45 19 50 12'/></svg>`;
  return `<svg ${a}><path d='M32 8v48M8 32h48M15 15l34 34M49 15L15 49'/><circle cx='32' cy='8' r='2' fill='currentColor'/><circle cx='56' cy='32' r='2' fill='currentColor'/><circle cx='32' cy='56' r='2' fill='currentColor'/><circle cx='8' cy='32' r='2' fill='currentColor'/></svg>`;
 }
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
-function buildDeck(totalCards=100,includePalm=false,includeDud=false,dudPercent=14,enabledCards=null){
+function buildDeck(totalCards=100,includeDud=false,dudPercent=14,enabledCards=null){
  totalCards=Math.max(75,Math.min(200,Math.round(Number(totalCards)||100)));
- dudPercent=Math.max(1,Math.min(20,Math.round(Number(dudPercent)||8)));
+ dudPercent=Math.max(1,Math.min(50,Math.round(Number(dudPercent)||8)));
  const normalTypes=normalizedFireworkIds(enabledCards);
  if(normalTypes.length<2)throw new Error('BURST requires at least two active firework card types.');
  const totalFaces=totalCards*2;
@@ -2006,19 +1881,7 @@ function soloPowersRemaining(){
  if(!state.challenge)return 0;
  return enabledPowerTypes().reduce((s,t)=>s+powerCount(state.challengePowers,t.id),0);
 }
-function soloCanUsePalm(){
- const rows=boardRows(),cols=boardCols();
- for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
-  const i=cellIndex(r,c,cols);
-  for(const j of [c<cols-1?i+1:-1,r<rows-1?i+cols:-1]){
-   if(j<0||!state.board[i]||!state.board[j])continue;
-   const b=[...state.board];
-   [b[i],b[j]]=[b[j],b[i]];
-   if(findMatches(b).length)return true;
-  }
- }
- return false;
-}
+
 function soloHasRegularCard(){
  return state.board.some(c=>c&&!c.gridPower);
 }
@@ -2235,37 +2098,20 @@ function showSoloFinaleSplash(){
 function powerCount(p,t){return Number(p?.[t]||0)}
 function addBankedPower(p,t){
  const current=powerCount(p,t);
- if(!state.config.powerUnlimited&&!state.config.unlimitedEarnBeforeFinal&&current>=1)return false;
+
  p[t]=current+1;
  return true;
-}
-function playerPendingBank(player){
- if(!player.pendingPowers)player.pendingPowers=blankPowers();
- return player.pendingPowers;
 }
 function playerEarnedThisRound(player){
  if(!player.earnedThisRound)player.earnedThisRound=blankPowers();
  return player.earnedThisRound;
 }
 function canEarnPowerForPlayer(player,type){
- if(!player||!type||!powerEnabled(type))return false;
- const unlimitedBeforeFinal=!!state.config.unlimitedEarnBeforeFinal;
- if(unlimitedBeforeFinal&&isFinalRound())return false;
- const target=state.config.powersNextRound?playerPendingBank(player):player.powers;
- if(!target)return false;
- if(unlimitedBeforeFinal)return true;
- const earned=playerEarnedThisRound(player);
- if(state.config.oneEarnPerTypePerRound&&powerCount(earned,type)>=1)return false;
- if(!state.config.powerUnlimited){
-  const held=powerCount(player.powers,type)+powerCount(playerPendingBank(player),type);
-  if(held>=1)return false;
- }
- return true;
+ return !!(player&&type&&powerEnabled(type)&&!(state.config.finale&&isFinalRound())&&!state.challenge);
 }
 function awardEarnedPower(player,type){
  if(!canEarnPowerForPlayer(player,type))return false;
- const target=state.config.powersNextRound?playerPendingBank(player):player.powers;
- target[type]=powerCount(target,type)+1;
+ player.powers[type]=powerCount(player.powers,type)+1;
  playerEarnedThisRound(player)[type]=powerCount(playerEarnedThisRound(player),type)+1;
  return true;
 }
@@ -2274,17 +2120,7 @@ function resetRoundEarnTracking(){
 }
 function releaseNextRoundPowers({shortFuse=false}={}){
  state.players?.forEach(player=>{
-  const pending=playerPendingBank(player);
   if(shortFuse)player.powers=blankPowers();
-  if(state.config.powersNextRound){
-   for(const t of enabledPowerTypes().map(x=>x.id)){
-    const qty=powerCount(pending,t);
-    if(!qty)continue;
-    if(state.config.powerUnlimited||state.config.unlimitedEarnBeforeFinal)player.powers[t]=powerCount(player.powers,t)+qty;
-    else player.powers[t]=Math.min(1,powerCount(player.powers,t)+qty);
-   }
-  }
-  player.pendingPowers=blankPowers();
   player.earnedThisRound=blankPowers();
  });
 }
@@ -2308,13 +2144,19 @@ function powersUnlocked(){
  return !state.config.finale||isFinalRound();
 }
 function canUseAnotherPower(){
- if(state.challenge)return !!state.soloFinale;
- if(!state.config?.onePowerPerTurn)return true;
- if(isFinalRound())return true;
- return Number(state.powerUsesThisTurn||0)<1;
+ if(state.challenge){
+  if(!state.soloFinale)return false;
+  return Number(state.powerUsesThisTurn||0)<1;
+ }
+ if(state.infinite)return true;
+ if(state.config.finale&&isFinalRound())return true;
+ const player=state.players[state.current];
+ return player.lastPowerRound!==state.round;
 }
 function recordPowerUse(type){
  state.powerUsesThisTurn=Number(state.powerUsesThisTurn||0)+1;
+ if(state.infinite)infinitePowerUsed(type);
+ else if(!state.challenge)state.players[state.current].lastPowerRound=state.round;
 }
 function gridHasPowerType(t){
  return state.board.some(c=>c?.gridPower&&c.powerType===t);
@@ -2323,21 +2165,16 @@ function gridHasPowerType(t){
 function isSolo(){return !!state.solo}
 function makeGridPower(t){return {id:uid++,gridPower:true,powerType:t,faces:[t,t],side:0}}
 function cloneBoard(board){return board.map(c=>c?{...c,faces:c.faces?[...c.faces]:undefined}:null)}
-function hasPotentialMoveBoard(board,rows=boardRows(),cols=boardCols(),allowDudMatches=(!!state?.config?.includeDud&&!!state?.config?.matchFlipsDuds),allowLongSlide=(!!state?.config?.longSlide)){
+function hasPotentialMoveBoard(board,rows=boardRows(),cols=boardCols(),allowDudMatches=(!!state?.config?.includeDud&&!!state?.config?.matchFlipsDuds)){
  for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
   const i=cellIndex(r,c,cols);
   const candidates=[];
   for(const [dr,dc] of [[0,1],[1,0]]){
    const rr=r+dr,cc=c+dc;if(inBoard(rr,cc,rows,cols))candidates.push(cellIndex(rr,cc,cols));
   }
-  if(allowLongSlide){
-   for(const [dr,dc] of [[0,2],[0,-2],[2,0],[-2,0]]){
-    const rr=r+dr,cc=c+dc;if(inBoard(rr,cc,rows,cols))candidates.push(cellIndex(rr,cc,cols));
-   }
-  }
   for(const j of candidates){
    if(j<0||!board[i]||!board[j])continue;
-   const b=[...board];applySwapOrSlide(b,i,j,cols);
+   const b=[...board];applySwap(b,i,j,cols);
    if(findMatches(b,rows,cols,allowDudMatches).length)return true;
   }
  }
@@ -2390,11 +2227,11 @@ async function activateGridPower(act){
 
 function findMatches(board,rows=boardRows(),cols=boardCols(),allowDudMatches=(!!state?.config?.includeDud&&!!state?.config?.matchFlipsDuds)){
  const out=[];
- for(let r=0;r<rows;r++){let c=0;while(c<cols){let startC=c,t=face(board[cellIndex(r,c,cols)]);if(!t||(t==='dud'&&!allowDudMatches)){c++;continue}
+ for(let r=0;r<rows;r++){let c=0;while(c<cols){let startC=c,t=face(board[cellIndex(r,c,cols)]);if(!t||t==='dud'){c++;continue}
   while(c+1<cols&&face(board[cellIndex(r,c+1,cols)])===t)c++;let l=c-startC+1;
   if(l>=3)out.push({type:t,length:l,cells:Array.from({length:l},(_,k)=>cellIndex(r,startC+k,cols))});c++;
  }}
- for(let c=0;c<cols;c++){let r=0;while(r<rows){let startR=r,t=face(board[cellIndex(r,c,cols)]);if(!t||(t==='dud'&&!allowDudMatches)){r++;continue}
+ for(let c=0;c<cols;c++){let r=0;while(r<rows){let startR=r,t=face(board[cellIndex(r,c,cols)]);if(!t||t==='dud'){r++;continue}
   while(r+1<rows&&face(board[cellIndex(r+1,c,cols)])===t)r++;let l=r-startR+1;
   if(l>=3)out.push({type:t,length:l,cells:Array.from({length:l},(_,k)=>cellIndex(startR+k,c,cols))});r++;
  }}
@@ -2410,13 +2247,13 @@ function findMatches(board,rows=boardRows(),cols=boardCols(),allowDudMatches=(!!
  }
  return merged;
 }
-function stableDeal(totalCards=100,requireMove=false,includePalm=false,includeDud=false,dudPercent=14,rows=5,cols=5,enabledCards=null,allowDudMatches=false,allowLongSlide=false){
+function stableDeal(totalCards=100,requireMove=false,includeDud=false,dudPercent=14,rows=5,cols=5,enabledCards=null,allowDudMatches=false){
  rows=clampBoardDim(rows);cols=clampBoardDim(cols);const cells=rows*cols;
  for(let k=0;k<800;k++){
-  let d=buildDeck(totalCards,includePalm,includeDud,dudPercent,enabledCards),b=Array.from({length:cells},()=>d.pop());
-  if(!findMatches(b,rows,cols,allowDudMatches).length&&(!requireMove||hasPotentialMoveBoard(b,rows,cols,allowDudMatches,allowLongSlide)))return{deck:d,board:b}
+  let d=buildDeck(totalCards,includeDud,dudPercent,enabledCards),b=Array.from({length:cells},()=>d.pop());
+  if(!findMatches(b,rows,cols,allowDudMatches).length&&(!requireMove||hasPotentialMoveBoard(b,rows,cols,allowDudMatches)))return{deck:d,board:b}
  }
- let d=buildDeck(totalCards,includePalm,includeDud,dudPercent,enabledCards);
+ let d=buildDeck(totalCards,includeDud,dudPercent,enabledCards);
  return{deck:d,board:Array.from({length:cells},()=>d.pop())}
 }
 
@@ -2427,7 +2264,7 @@ function defaultPowerEffects(){
  return {comet:'clear',ring:'flip',crossette:'clear',peony:'flip'};
 }
 function powerEffect(type){
- return state.config?.powerEffects?.[type] || defaultPowerEffects()[type] || 'clear';
+ return defaultPowerEffects()[type] || 'clear';
 }
 function flipCells(cells){
  let n=0;
@@ -2454,97 +2291,82 @@ async function clearOrFlipPattern(type,cells){
 function newGame(playerNames=null,options=null){
  const names=playerNames&&playerNames.length?playerNames:Array.from({length:+els.playerCount.value},(_,i)=>`Player ${i+1}`);
  const opts=options||{
-  finale:false,
+  finale:true,
   rounds:DEFAULT_ROUNDS,
-  onePowerPerTurn:true,
-  glitterScope:'glitterAdjacent',
-  crossetteOrthogonal:true,
-  powerUnlimited:true,
-  oneEarnPerTypePerRound:true,
-  unlimitedEarnBeforeFinal:false,
-  challengeBankDuplicates:false,
-  powersNextRound:false,
-  enabledCards:[...CORE_FIREWORK_IDS],
-  enabledPowers:[...CORE_FIREWORK_IDS],
+  twoActions:true,
+  swipeMatch:true,
+  tapGlitter:true,
   bonusGlitter:false,
   mergedMatch:true,
   cardTotal:100,
   boardCols:5,
   boardRows:5,
-  slideSwap:true,
-  longSlide:false,
-  tapGlitter:false,
-  includePalm:false,
+  
   includeDud:true,
-  matchFlipsDuds:true,
-  dudPercent:8,
-  powerEffects:defaultPowerEffects(),
-  cometEither:true,
+  matchFlipsDuds:false,
+  dudPercent:20,
   challenge:false,
   gameMode:'competitive'
  };
- const cardTotal=Math.max(75,Math.min(200,Math.round(Number(opts.cardTotal)||100)));
+ const cardTotal=100;
  const n=names.length;
  const gameMode=opts.gameMode||(opts.challenge?'challenge':'competitive');
  const challenge=gameMode==='challenge';
  const bust=gameMode==='bust';
+ const infinite=gameMode==='infinite';
  const solo=n===1;
- const includePalm=false;
- const includeDud=!!opts.includeDud;
- const dudPercent=Math.max(1,Math.min(20,Math.round(Number(opts.dudPercent)||8)));
- let enabledCards=normalizedFireworkIds(opts.enabledCards);
- if(enabledCards.length<2)enabledCards=[...CORE_FIREWORK_IDS];
- const enabledPowers=normalizedFireworkIds(opts.enabledPowers).filter(id=>enabledCards.includes(id));
- const rows=clampBoardDim(opts.boardRows),cols=clampBoardDim(opts.boardCols);
- const d=stableDeal(cardTotal,challenge||bust,includePalm,includeDud,dudPercent,rows,cols,enabledCards,includeDud&&!!opts.matchFlipsDuds,!!opts.longSlide);
+ const includeDud=true;
+ const dudPercent=20;
+ const enabledCards=[...CORE_FIREWORK_IDS];
+ const enabledPowers=[...CORE_FIREWORK_IDS];
+ const rows=5,cols=5;
+ const d=stableDeal(cardTotal,challenge||bust,includeDud,dudPercent,rows,cols,enabledCards,false);
  els.playerCount.value=String(n);
- state={board:d.board,deck:d.deck,discard:[],rows,cols,players:Array.from({length:n},(_,i)=>({name:names[i]||`Player ${i+1}`,bot:!!opts.botFlags?.[i],difficulty:normalizeBotDifficulty(opts.botDifficulties?.[i]||'medium'),score:0,finishPoints:0,powers:blankPowers(),pendingPowers:blankPowers(),earnedThisRound:blankPowers()})),
-  solo,challenge,bust,current:0,round:1,normalUsed:false,normalActionUsed:null,mode:'swap',selected:[],resolving:false,gameOver:false,
+ state={board:d.board,deck:d.deck,discard:[],rows,cols,players:Array.from({length:n},(_,i)=>({name:names[i]||`Player ${i+1}`,bot:!!opts.botFlags?.[i],difficulty:normalizeBotDifficulty(opts.botDifficulties?.[i]||'medium'),score:0,finishPoints:0,powers:blankPowers(),earnedThisRound:blankPowers()})),
+  solo,challenge,bust,infinite,infiniteMatches:0,infiniteGoalsCompleted:0,infiniteHistory:[],infiniteGoal:null,infiniteActionType:null,infinitePowerSet:[],infiniteRecent:[],current:0,round:1,normalUsed:false,normalActionsUsed:0,normalActionHistory:[],normalActionUsed:null,mode:'swap',selected:[],resolving:false,gameOver:false,
   config:{
-   finale:(challenge||bust)?false:!!opts.finale,
+   finale:gameMode==='competitive',
+   swipeMatch:opts.swipeMatch!==false,
+   tapGlitter:!!opts.tapGlitter&&opts.swipeMatch!==false,
+   onePowerPerTurn:true,
+   powerUnlimited:true,
+   oneEarnPerTypePerRound:false,
+   unlimitedEarnBeforeFinal:false,
+   crossetteOrthogonal:true,
+   cometEither:true,
+   glitterScope:'glitterAdjacent',
+   powerEffects:defaultPowerEffects(),
+   enabledCards:[...CORE_FIREWORK_IDS],
+   enabledPowers:[...CORE_FIREWORK_IDS],
    rounds:Math.max(3,Math.min(6,Math.round(Number(opts.rounds)||DEFAULT_ROUNDS))),
-   onePowerPerTurn:challenge?false:opts.onePowerPerTurn!==false,
-   glitterScope:['bothGlobal','glitterAdjacent','peonyAdjacent'].includes(opts.glitterScope)?opts.glitterScope:'glitterAdjacent',
-   crossetteOrthogonal:opts.crossetteOrthogonal!==false,
-   powerUnlimited:challenge?false:!!opts.powerUnlimited,
-   oneEarnPerTypePerRound:challenge?false:!!opts.oneEarnPerTypePerRound,
-   unlimitedEarnBeforeFinal:challenge?false:!!opts.unlimitedEarnBeforeFinal,
-   challengeBankDuplicates:challenge&&!!opts.challengeBankDuplicates,
-   powersNextRound:challenge?false:!!opts.powersNextRound,
-   enabledCards:[...enabledCards],
-   enabledPowers:[...enabledPowers],
-   bonusGlitter:false,
+    twoActions:true,
+        challengeBankDuplicates:challenge,
+     bonusGlitter:false,
    mergedMatch:true,
    cardTotal,
    boardRows:rows,
    boardCols:cols,
-   slideSwap:!!opts.slideSwap,
-   longSlide:!!opts.longSlide,
-   tapGlitter:!!opts.tapGlitter&&!!opts.slideSwap,
-   includePalm,
-   includeDud,
-   matchFlipsDuds:includeDud&&!!opts.matchFlipsDuds,
+      includeDud,
+   matchFlipsDuds:false,
    dudPercent,
-   powerEffects:{...defaultPowerEffects(),...(opts.powerEffects||{})},
-   cometEither:!!opts.cometEither,
-   challenge,
+     challenge,
    bust,
    gameMode
   },
   soloFinale:false,soloWon:false,soloEarned:blankPowers(),soloSpent:blankPowers(),challengePowers:blankPowers(),hotSeatAnnounced:false,powerUsesThisTurn:0,glitterType:null,
   turnStart:Date.now(),turnPoints:0,turnMatches:0,turnHistoryRecorded:false,history:[],cascadeChains:[],
   log:[challenge
-   ?`Grand Finale Challenge begins with ${cardTotal} total cards (${cardTotal-rows*cols} in the draw supply). ${opts.challengeBankDuplicates?'Bank at least one of every shared Power type; duplicates also enter the Finale loadout.':'Load all '+enabledPowers.length+' shared Powers.'}`
+   ?`Grand Finale Challenge begins with ${cardTotal} total cards (${cardTotal-rows*cols} in the draw supply). Load all ${enabledPowers.length} shared powers before the draw supply runs out.`
    :bust
     ?`SHORT FUSE begins. Round 1 of ${Math.max(3,Math.min(6,Math.round(Number(opts.rounds)||DEFAULT_ROUNDS)))}. The draw pile is finite; ${names[0]} begins.`
-    :`New display ready with ${cardTotal} cards. ${includePalm?'Palm included.':'Palm removed.'} ${names[0]} begins.`],
+    :`New display ready with ${cardTotal} cards. ${names[0]} begins.`],
   message:challenge
-   ?(opts.challengeBankDuplicates
-     ?`Bank at least one of all ${enabledPowers.length} shared Power types. Every duplicate earned also joins the Finale loadout.`
-     :`Load all ${enabledPowers.length} unique shared powers before the draw supply runs out.`)
+   ?`Load all ${enabledPowers.length} unique shared powers before the draw supply runs out.`
    :bust
     ?`Round 1/${Math.max(3,Math.min(6,Math.round(Number(opts.rounds)||DEFAULT_ROUNDS)))} — ${d.deck.length} cards remain. Score Match Points, but if a refill is needed after the deck is empty, you BUST.`
-    :(opts.longSlide?'Move a card 1 or 2 spaces orthogonally to make a match, use a Power, or choose Glitter.':'Move a card 1 space orthogonally to make a match, use a Power, or choose Glitter.')};
+    :`Take two Swap/Glitter actions in any order. ${opts.swipeMatch===false?'Tap two adjacent cards':'Swipe one card toward a neighbor'} to Swap. Powers may be used separately.`};
+ resetNormalActions();
+ if(infinite)assignInfiniteGoal();
  render();
  if(challenge)setTimeout(showSoloStartSplash,40);
  else scheduleBotTurn(650);
@@ -2577,8 +2399,8 @@ function currentSetupNames(){
 }
 function rebuildPlayerCountOptions(preferred=null){
  const mode=els.setupGameMode.value;
- const min=mode==='challenge'?1:2;
- const max=10;
+ const min=(mode==='challenge'||mode==='infinite')?1:2;
+ const max=mode==='infinite'?1:10;
  const current=preferred!==null ? Number(preferred) : Number(els.setupPlayerCount.value||0);
  const chosen=Math.max(min,Math.min(max,current|| (mode==='challenge'?1:4)));
  els.setupPlayerCount.innerHTML=Array.from({length:max-min+1},(_,k)=>{
@@ -2592,6 +2414,7 @@ function rebuildPlayerCountOptions(preferred=null){
 
 function renderModeInstructions(){
  const mode=els.setupGameMode.value;
+ if(mode==='infinite'){els.setupModeInstructions.innerHTML=`<div class="mode-title">BURST Infinite</div>Complete an endless series of random goals. Score and match totals keep running. Earn and use powers freely; forfeit a goal at any time. ${els.setupSwipeMatch.checked?'Swipe past halfway to Swap.':'Tap two adjacent cards to Swap.'}${els.setupSwipeMatch.checked&&els.setupTapGlitter.checked?' A quick single tap Glitters.':''}`;return;}
  const n=Number(els.setupPlayerCount.value||1);
  const rounds=Math.max(3,Math.min(6,Math.round(Number(els.setupRounds.value)||DEFAULT_ROUNDS)));
 
@@ -2600,13 +2423,14 @@ function renderModeInstructions(){
    <div class="mode-title">Competitive BURST</div>
    <b>Goal:</b> score the most points after ${rounds} rounds.
    <ul>
-    <li>Take one normal action each turn: Swap or Glitter.</li>
-    ${els.setupLongSlide.checked?'<li>Slide: a Swap may move the chosen card 1 or 2 spaces orthogonally; displaced cards backfill along the path.</li>':''}
-    ${els.setupDud.checked&&els.setupMatchFlipsDuds.checked?'<li>3+ Duds use normal merged match geometry, score 0, and flip themselves in place. A Dud-forming swap is legal and uses the action.</li>':''}
-    <li>Use Powers at any time during your turn.</li>
-    <li>Match 4+ earns that Firework's Power${els.setupPowersNextRound.checked?' for use starting next round':''}.</li>
-    ${els.setupUnlimitedEarnBeforeFinal.checked?'<li>Every Match 4+ may earn its Power in non-final rounds; no new Powers are earned in the final round.</li>':els.setupOneEarnPerTypeRound.checked?'<li>Each Power type can be earned at most once per player per round.</li>':''}
-    <li>If Finale is ON, bank Powers until the final round. Round ${rounds} is Powers only.</li>
+    <li>Take two normal actions each turn in any order; Swap and Glitter may each be used twice.</li>
+    
+    <li>Duds do not match. Glitter and applicable Powers can flip them.</li>
+    <li>Bank Powers for the final round, when they may be used during your turn.</li>
+    <li>Match 4+ earns that Firework's Power.</li>
+    <li>${els.setupSwipeMatch.checked?'Swipe a card at least halfway toward a neighboring card to Swap.':'Tap a card, then an adjacent card to Swap.'}${els.setupSwipeMatch.checked&&els.setupTapGlitter.checked?' A quick single tap Glitters.':''}</li>
+
+    <li>Finale ON: bank Powers until the final round. Swap and Glitter remain available there; Match 4+ scores but earns no Power.</li>
     <li>Discarded cards reshuffle into the draw pile as needed.</li><li>Highest score wins.</li>
    </ul>`;
  }else if(mode==='bust'){
@@ -2615,10 +2439,11 @@ function renderModeInstructions(){
    <b>Goal:</b> earn the most Finish Points over ${rounds} rounds.
    <ul>
     <li>The draw pile is finite and never reshuffled.</li>
+    <li>Take two Swap/Glitter actions per turn in any order; the same action may be used twice.</li>
     <li>Score Match Points normally during the round.</li>
-    ${els.setupDud.checked&&els.setupMatchFlipsDuds.checked?'<li>3+ Duds use normal merged match geometry, score 0, and flip themselves in place. A Dud-forming swap is legal and uses the action.</li>':''}
-    ${els.setupPowersNextRound.checked?'<li>Powers earned this round become usable next round.</li>':''}
-    ${els.setupUnlimitedEarnBeforeFinal.checked?'<li>Every Match 4+ may earn its Power in non-final rounds; no new Powers are earned in the final round.</li>':els.setupOneEarnPerTypeRound.checked?'<li>Each Power type can be earned at most once per player per round.</li>':''}
+    <li>${els.setupSwipeMatch.checked?'Swipe past halfway to Swap.':'Tap two adjacent cards to Swap.'}${els.setupSwipeMatch.checked&&els.setupTapGlitter.checked?' A quick single tap Glitters.':''}</li>
+    <li>Duds do not match. Glitter and applicable Powers can flip them.</li>
+
     <li>At 10 cards remaining, the table enters <b>HOT SEAT</b>.</li><li>If your turn needs a refill card and none remain, <b>BUST!</b> The round ends immediately.</li>
     <li>The Busted player takes last place and earns 1 Finish Point.</li>
     <li>Everyone else ranks by Match Points. With ${n} players, 1st earns ${n} Finish Points, 2nd earns ${Math.max(1,n-1)}, then ${Math.max(1,n-2)}, and so on.</li>
@@ -2626,12 +2451,12 @@ function renderModeInstructions(){
     <li>After ${rounds} rounds, most Finish Points wins.</li>
    </ul>`;
  }else{
-  const bankDuplicates=!!els.setupChallengeBankDuplicates?.checked;
+  const bankDuplicates=true;
   els.setupModeInstructions.innerHTML=`
    <div class="mode-title">BURST: GRAND FINALE</div>
    <b>Goal:</b> ${n===1?'work alone':'work together'} to earn every active Power and complete the Grand Finale before the draw pile runs out.
    <ul>
-    <li>Take normal turns. With 2+ players, the board rotates for each new player's perspective.</li>
+    <li>Take normal turns: two Swap/Glitter actions in any order. ${els.setupSwipeMatch.checked?'Swipe past halfway to Swap.':'Tap two adjacent cards to Swap.'}${els.setupSwipeMatch.checked&&els.setupTapGlitter.checked?' A quick single tap Glitters.':''} With 2+ players, the board rotates for each new player's perspective.</li>
     <li>The draw pile is finite and never reshuffled.</li>
     <li>${bankDuplicates?'Every Match 4+ banks its Power, including duplicates. You need at least one of every active type.':'Earn each active Power exactly once into the shared bank.'}</li>
     <li>Powers stay locked until every active Power type has been earned.</li>
@@ -2652,11 +2477,10 @@ function renderSetupNames(preservedPlayers=null){
   const challenge=mode==='challenge';
   const bust=mode==='bust';
   const sub=els.gameSetupOverlay.querySelector('.sub');
+ if(mode==='infinite'){els.setupNameFields.innerHTML='<div class="setup-player-row"><label class="player-name-wrap"><span>Player</span><input class="setup-name" value="'+escapeHtml(typed[0]?.name||existing[0]?.name||'Player 1')+'" maxlength="24"></label></div>';if(sub)sub.textContent='Single-player endless play. Complete goals, keep scoring, and stop when you choose.';updateSetupOptionState();return;}
 
   if(sub)sub.textContent=challenge
-   ?(els.setupChallengeBankDuplicates?.checked
-     ?`Grand Finale Challenge: ${n===1?'play alone':'work together'} to bank at least one of each active Power type, including any duplicates earned, then fire every banked Power before the finite draw supply runs out.`
-     :`Grand Finale Challenge: ${n===1?'play alone':'work together'} to load each of the ${setupEnabledPowerIds().length} active Power${setupEnabledPowerIds().length===1?'':'s'}, then fire them all before the finite draw supply runs out.`)
+   ?`Grand Finale Challenge: ${n===1?'play alone':'work together'} to load each of the ${setupEnabledPowerIds().length} active Power${setupEnabledPowerIds().length===1?'':'s'}, then fire them all before the finite draw supply runs out.`
    :bust
     ?`SHORT FUSE: ${els.setupRounds.value} rounds. Score Match Points, but needing a refill with an empty deck causes a BUST, ends the round, and gives that player last place.`
     :`Competitive BURST: 2–10 players, ${els.setupRounds.value} rounds, highest score wins.`;
@@ -2677,7 +2501,7 @@ function renderSetupNames(preservedPlayers=null){
       <label class="setup-bot-wrap"><input class="setup-bot" type="checkbox" ${bot?'checked':''}> BOT</label>
       <button class="bot-reroll" type="button" title="Randomize bot name" aria-label="Randomize Player ${i+1} bot name" ${bot?'':'disabled'}>↻</button>
       <div class="setup-bot-difficulty ${bot?'active':''}">
-        <span class="bot-diff-copy">Difficulty · Easy = immediate only · Medium = top 3 with 1-step · Hard = best with 2-step</span>
+        <span class="bot-diff-copy">Difficulty</span>
         <span class="bot-diff-value">${botDifficultyLabel(difficulty)}</span>
         <input class="setup-bot-diff" type="range" min="0" max="2" step="1" value="${diffIndex}" data-difficulty="${difficulty}" aria-label="Player ${i+1} bot difficulty" ${bot?'':'disabled'}>
       </div>
@@ -2686,15 +2510,8 @@ function renderSetupNames(preservedPlayers=null){
 
   updateSetupOptionState();
   renderModeInstructions();
-  updateCardCountDisplay();
+  
 }
-
-let setupLastMode='competitive';
-let setupModeRuleDrafts={competitive:null,bust:null};
-function defaultStandardRuleDraft(){return {finale:false,onePowerPerTurn:true,powerUnlimited:true,oneEarnPerTypeRound:true,unlimitedEarnBeforeFinal:false,powersNextRound:false}}
-function readStandardRuleDraft(){return {finale:!!els.setupFinale.checked,onePowerPerTurn:!!els.setupOnePowerPerTurn.checked,powerUnlimited:!!els.setupUnlimited.checked,oneEarnPerTypeRound:!!els.setupOneEarnPerTypeRound.checked,unlimitedEarnBeforeFinal:!!els.setupUnlimitedEarnBeforeFinal.checked,powersNextRound:!!els.setupPowersNextRound.checked}}
-function applyStandardRuleDraft(draft){const d={...defaultStandardRuleDraft(),...(draft||{})};els.setupFinale.checked=!!d.finale;els.setupOnePowerPerTurn.checked=!!d.onePowerPerTurn;els.setupUnlimited.checked=!!d.powerUnlimited;els.setupOneEarnPerTypeRound.checked=!!d.oneEarnPerTypeRound;els.setupUnlimitedEarnBeforeFinal.checked=!!d.unlimitedEarnBeforeFinal;els.setupPowersNextRound.checked=!!d.powersNextRound}
-function handleSetupModeRuleChange(nextMode){const previous=setupLastMode;if(previous!=='challenge')setupModeRuleDrafts[previous]=readStandardRuleDraft();if(nextMode!=='challenge')applyStandardRuleDraft(setupModeRuleDrafts[nextMode]||defaultStandardRuleDraft());setupLastMode=nextMode}
 
 function updateSetupMode(preserveNames=true){
  const players=preserveNames?currentSetupPlayers():[];
@@ -2708,123 +2525,21 @@ function updateRoundCountDisplay(){
  const rounds=Math.max(3,Math.min(6,Math.round(Number(els.setupRounds.value)||DEFAULT_ROUNDS)));
  els.roundCountValue.textContent=String(rounds);
  const challenge=els.setupGameMode.value==='challenge';
- els.setupRounds.disabled=challenge;
+ els.setupRounds.disabled=challenge||els.setupGameMode.value==='infinite';
  els.roundCountSub.textContent=challenge
   ?'Grand Finale Challenge ends by completing the shared Finale, not by round count.'
-  :`${rounds} round${rounds===1?'':'s'}. The last round lifts the one-Power-per-turn limit.`;
+  :`${rounds} round${rounds===1?'':'s'}.`;
 }
-function updateBoardSizeDisplay(){
- const cols=clampBoardDim(els.setupBoardCols.value),rows=clampBoardDim(els.setupBoardRows.value);
- els.boardColsValue.textContent=String(cols);
- els.boardRowsValue.textContent=String(rows);
- els.boardSizeSummary.textContent=`${cols} × ${rows} = ${cols*rows} cards on the display.`;
- updateCardCountDisplay();
-}
-function clampCardTotal(v){return Math.max(75,Math.min(200,Math.round(Number(v)||100)))}
-function updateCardCountDisplay(){
- const total=clampCardTotal(els.setupCardTotal.value);
- els.setupCardTotal.value=String(total);
- const rows=clampBoardDim(els.setupBoardRows?.value||5),cols=clampBoardDim(els.setupBoardCols?.value||5);
- const grid=rows*cols;
- els.cardCountValue.textContent=String(total);
- els.cardCountSub.textContent=`${grid} on the grid + ${Math.max(0,total-grid)} in the draw supply.`;
- if(els.cardTotalSnapTrack)els.cardTotalSnapTrack.innerHTML=Array.from({length:26},(_,i)=>{const v=75+i*5;return `<span class="card-total-snap-tick${v%25===0?' major':''}"></span>`}).join('');
-}
-function setCardTotalExact(v){
- els.setupCardTotal.value=String(clampCardTotal(v));
- updateCardCountDisplay();updateDudPercentDisplay();updateFireworkTypeToggleState();
-}
-function snapCardTotalToFive(){setCardTotalExact(Math.round(clampCardTotal(els.setupCardTotal.value)/5)*5)}
-
-function setupCardToggleMap(){return {comet:els.setupCardComet,ring:els.setupCardRing,crossette:els.setupCardCrossette,peony:els.setupCardPeony}}
-function setupPowerToggleMap(){return {comet:els.setupPowerComet,ring:els.setupPowerRing,crossette:els.setupPowerCrossette,peony:els.setupPowerPeony}}
-function setupEnabledCardIds(){const m=setupCardToggleMap();return CORE_FIREWORK_IDS.filter(id=>!!m[id]?.checked)}
-function setupEnabledPowerIds(){const cards=new Set(setupEnabledCardIds()),m=setupPowerToggleMap();return CORE_FIREWORK_IDS.filter(id=>cards.has(id)&&!!m[id]?.checked)}
-function setSetupFireworkToggles(cardIds=CORE_FIREWORK_IDS,powerIds=CORE_FIREWORK_IDS){
- const cards=new Set(normalizedFireworkIds(cardIds)),powers=new Set(normalizedFireworkIds(powerIds));
- const cm=setupCardToggleMap(),pm=setupPowerToggleMap();
- CORE_FIREWORK_IDS.forEach(id=>{cm[id].checked=cards.has(id);pm[id].checked=cards.has(id)&&powers.has(id)});
- updateFireworkTypeToggleState();
-}
-function clampDudPercent(v){return Math.max(1,Math.min(20,Math.round(Number(v)||8)))}
-function exactDeckSymmetryAt(total,n,pct){
- total=Math.max(75,Math.min(200,Math.round(Number(total)||100)));
- n=Math.max(0,Math.round(Number(n)||0));pct=clampDudPercent(pct);
- if(n<2)return null;
- const totalFaces=total*2,scaled=totalFaces*pct;
- if(scaled%100!==0)return null;
- const dudFaces=scaled/100,normalFaces=totalFaces-dudFaces;
- if(dudFaces%n!==0||normalFaces%n!==0)return null;
- const dudPairEach=dudFaces/n,normalEach=normalFaces/n,remainingPerType=normalEach-dudPairEach;
- if(remainingPerType<0||remainingPerType%(n-1)!==0)return null;
- const normalPairEach=remainingPerType/(n-1);
- if(n*dudPairEach+(n*(n-1)/2)*normalPairEach!==total)return null;
- return {pct,dudFaces,dudPairEach,normalEach,normalPairEach};
-}
-function setupSymmetryPercentages(){
- const n=setupEnabledCardIds().length,total=Math.max(75,Math.min(200,Math.round(Number(els.setupCardTotal?.value)||100))),out=[];
- for(let pct=1;pct<=20;pct++)if(exactDeckSymmetryAt(total,n,pct))out.push(pct);
- return out;
-}
-function setupExactDeckSymmetry(){
- const n=setupEnabledCardIds().length,total=Math.max(75,Math.min(200,Math.round(Number(els.setupCardTotal?.value)||100)));
- if(n<2)return false;
- if(els.setupDud?.checked)return !!exactDeckSymmetryAt(total,n,clampDudPercent(els.setupDudPercent?.value));
- const normalFaces=total*2;
- return normalFaces%n===0&&Number.isInteger((normalFaces/n)/(n-1));
-}
-function updateDudPercentDisplay(){
- if(!els.setupDudPercent)return;
- const pct=clampDudPercent(els.setupDudPercent.value);els.setupDudPercent.value=String(pct);
- if(els.dudPercentValue)els.dudPercentValue.textContent=`${pct}%`;
- const n=setupEnabledCardIds().length,total=Math.max(75,Math.min(200,Math.round(Number(els.setupCardTotal?.value)||100)));
- const totalFaces=total*2,dudFaces=Math.round(totalFaces*pct/100),exact=exactDeckSymmetryAt(total,n,pct),notches=setupSymmetryPercentages();
- if(els.dudSymmetryTrack){const set=new Set(notches);els.dudSymmetryTrack.innerHTML=Array.from({length:20},(_,i)=>`<span class="dud-symmetry-tick${set.has(i+1)?' exact':''}"></span>`).join('')}
- if(els.dudSymmetrySummary){
-  const intro=exact?`<b>${pct}% is exact:</b> ${dudFaces} Dud faces; all ${n} firework types have equal face counts and balanced pairings.`:`${pct}% uses ${dudFaces} Dud face${dudFaces===1?'':'s'} of ${totalFaces}. Playable, but not exactly pair-symmetrical.`;
-  const jumps=notches.length?`<div class="dud-symmetry-chips">${notches.map(v=>`<button type="button" class="dud-symmetry-chip${v===pct?' selected':''}" data-dud-pct="${v}">${v}%</button>`).join('')}</div>`:`<div style="margin-top:5px">No whole-number 1–20% value is exactly symmetrical at ${total} cards with ${n} active firework types. Adjust the total-card count if exact symmetry is required.</div>`;
-  els.dudSymmetrySummary.innerHTML=`${intro}<div style="margin-top:4px">Exact symmetry notches:</div>${jumps}`;
- }
-}
-function updateFireworkTypeToggleState(){
- const cm=setupCardToggleMap(),pm=setupPowerToggleMap();
- CORE_FIREWORK_IDS.forEach(id=>{
-  if(!cm[id].checked)pm[id].checked=false;
-  pm[id].disabled=!cm[id].checked;
- });
- const powerIds=setupEnabledPowerIds(),cardIds=setupEnabledCardIds();
- updateDudPercentDisplay();
- const powerSet=new Set(powerIds);
- els.effectComet.disabled=!powerSet.has('comet');
- els.effectRing.disabled=!powerSet.has('ring');
- els.effectCrossette.disabled=!powerSet.has('crossette');
- els.effectPeony.disabled=!powerSet.has('peony');
- els.setupCometEither.disabled=!powerSet.has('comet');
- els.setupCrossetteOrthogonal.disabled=!powerSet.has('crossette');
- const validCards=cardIds.length>=2;
- const challenge=els.setupGameMode?.value==='challenge';
- const validPowers=!challenge||powerIds.length>=1;
- const valid=validCards&&validPowers;
- if(els.setupStart)els.setupStart.disabled=!valid;
- if(els.fireworkConfigStatus){
-  const exact=setupExactDeckSymmetry();
-  els.fireworkConfigStatus.classList.toggle('invalid',!valid);
-  els.fireworkConfigStatus.classList.toggle('warning',valid&&!exact);
-  els.fireworkConfigStatus.textContent=!validCards
-   ?'Select at least 2 firework card types so physical cards can have two different faces.'
-   :!validPowers
-    ?'Grand Finale Challenge needs at least 1 active Power.'
-    :`${cardIds.length} card type${cardIds.length===1?'':'s'} · ${powerIds.length} Power${powerIds.length===1?'':'s'} active · ${exact?'exact physical pairing symmetry ✓':'current card total / Dud mix is not perfectly pair-symmetrical'}.`;
- }
- renderModeInstructions();
-}
+function setupEnabledCardIds(){return [...CORE_FIREWORK_IDS]}
+function setupEnabledPowerIds(){return [...CORE_FIREWORK_IDS]}
+function updateFireworkTypeToggleState(){renderModeInstructions()}
 
 function initSetupCollapsibles(){
  const headings=[...document.querySelectorAll('.settings-group>h3,.setup-subsection>h3')];
  headings.forEach((h,i)=>{
   h.setAttribute('role','button');h.setAttribute('tabindex','0');
   const box=h.parentElement;
-  if(box.classList.contains('settings-group')&&i>0)box.classList.add('collapsed');
+  // The single Settings section starts open and can be collapsed.
   if(box.classList.contains('setup-subsection'))box.classList.add('collapsed');
   const sync=()=>h.setAttribute('aria-expanded',box.classList.contains('collapsed')?'false':'true');
   const toggle=()=>{box.classList.toggle('collapsed');sync()};
@@ -2836,109 +2551,47 @@ function initSetupCollapsibles(){
 
 function updateSetupOptionState(){
  const mode=els.setupGameMode.value;
- const challenge=mode==='challenge';
- const bust=mode==='bust';
-
- // Tap to Glitter uses a quick tap while Swipe to Match owns the drag gesture.
- if(!els.setupSlideSwap.checked)els.setupTapGlitter.checked=false;
- els.setupTapGlitter.disabled=!els.setupSlideSwap.checked;
-
- els.setupFinale.disabled=challenge||bust;
- els.setupChallengeBankDuplicates.disabled=!challenge;
- els.setupChallengeBankDuplicatesRow.style.opacity=challenge?'1':'.5';
- els.setupUnlimitedEarnBeforeFinal.disabled=challenge;
- const unlimitedEarnRule=!challenge&&!!els.setupUnlimitedEarnBeforeFinal.checked;
- els.setupUnlimited.disabled=challenge||unlimitedEarnRule;
- els.setupOnePowerPerTurn.disabled=challenge;
- els.setupOneEarnPerTypeRound.disabled=challenge||unlimitedEarnRule;
- els.setupPowersNextRound.disabled=challenge;
- if(els.dudPercentRow)els.dudPercentRow.style.display=els.setupDud.checked?'block':'none';
- if(els.setupDudPercent)els.setupDudPercent.disabled=!els.setupDud.checked;
- if(els.setupMatchFlipsDuds)els.setupMatchFlipsDuds.disabled=!els.setupDud.checked;
+ els.setupRounds.closest('.round-settings').style.display=(mode==='infinite'||mode==='challenge')?'none':'';
+ els.setupTapGlitter.disabled=!els.setupSwipeMatch.checked;
  updateRoundCountDisplay();
-
-
- els.finaleSub.textContent=challenge
-  ?(els.setupChallengeBankDuplicates.checked
-    ?`Grand Finale Challenge: bank every 4+ Power (duplicates included) until at least one of each active type is loaded, then fire every banked copy before the finite supply runs out.`
-    :`Grand Finale Challenge uses its own Finale: load all ${setupEnabledPowerIds().length} active shared Power${setupEnabledPowerIds().length===1?'':'s'}, then fire them before the finite supply runs out.`)
-  :bust
-   ?`SHORT FUSE has no Finale. The finite draw pile is the round-ending pressure.`
-   :`Off: normal play continues through Round ${els.setupRounds.value}. On: bank Powers until Round ${els.setupRounds.value}; the final round has no Swap or Glitter — only Powers fire.`;
- updateFireworkTypeToggleState();
+ renderModeInstructions();
 }
 
 function openGameSetup(initial=false){
   const existingCount=state.players?.length || +els.playerCount.value || 4;
 
   if(state.config){
-   els.setupGameMode.value=state.challenge?'challenge':state.bust?'bust':'competitive';
-   els.setupFinale.checked=!state.challenge&&!state.bust&&!!state.config.finale;
-   els.setupChallengeBankDuplicates.checked=state.challenge&&!!state.config.challengeBankDuplicates;
+   els.setupGameMode.value=state.infinite?'infinite':state.challenge?'challenge':state.bust?'bust':'competitive';
+
    els.setupRounds.value=String(state.config.rounds||DEFAULT_ROUNDS);
-   els.setupOnePowerPerTurn.checked=state.challenge?true:state.config.onePowerPerTurn!==false;
-   els.setupGlitterScope.value=state.config.glitterScope||'glitterAdjacent';
-   els.setupCrossetteOrthogonal.checked=!!state.config.crossetteOrthogonal;
-   els.setupUnlimited.checked=state.challenge?true:!!state.config.powerUnlimited;
-   els.setupOneEarnPerTypeRound.checked=!!state.config.oneEarnPerTypePerRound;
-   els.setupUnlimitedEarnBeforeFinal.checked=state.challenge?false:!!state.config.unlimitedEarnBeforeFinal;
-   els.setupPowersNextRound.checked=state.challenge?false:!!state.config.powersNextRound;
-   els.setupSlideSwap.checked=!!state.config.slideSwap;
-   els.setupLongSlide.checked=!!state.config.longSlide;
-   els.setupTapGlitter.checked=!!state.config.tapGlitter&&!!state.config.slideSwap;
-   els.setupPalm.checked=false;
-   els.setupDud.checked=!!state.config.includeDud;
-   els.setupMatchFlipsDuds.checked=!!state.config.matchFlipsDuds;
-   els.setupDudPercent.value=String(state.config.dudPercent||8);
-   els.setupCardTotal.value=String(state.config.cardTotal||100);
-   els.setupBoardCols.value=String(state.config.boardCols||5);
-   els.setupBoardRows.value=String(state.config.boardRows||5);
-   setSetupFireworkToggles(state.config.enabledCards||CORE_FIREWORK_IDS,state.config.enabledPowers||CORE_FIREWORK_IDS);
-   const pe={...defaultPowerEffects(),...(state.config.powerEffects||{})};
-   els.effectComet.value=pe.comet;
-   els.effectRing.value=pe.ring;
-   els.effectCrossette.value=pe.crossette;
-   els.effectPeony.value=pe.peony;
-   els.setupCometEither.checked=!!state.config.cometEither;
+
+   els.setupSwipeMatch.checked=state.config.swipeMatch!==false;
+   els.setupTapGlitter.checked=!!state.config.tapGlitter;
+
+
+
+
+
   }else{
-   els.setupGameMode.value=existingCount===1?'challenge':'competitive';
-   els.setupFinale.checked=false;
-   els.setupChallengeBankDuplicates.checked=false;
+   els.setupGameMode.value='competitive';
+
    els.setupRounds.value=String(DEFAULT_ROUNDS);
-   els.setupOnePowerPerTurn.checked=true;
-   els.setupGlitterScope.value='glitterAdjacent';
-   els.setupCrossetteOrthogonal.checked=true;
-   els.setupUnlimited.checked=true;
-   els.setupOneEarnPerTypeRound.checked=true;
-   els.setupUnlimitedEarnBeforeFinal.checked=false;
-   els.setupPowersNextRound.checked=false;
-   els.setupSlideSwap.checked=true;
-   els.setupLongSlide.checked=false;
-   els.setupTapGlitter.checked=false;
-   els.setupCardTotal.value='100';
-   els.setupBoardCols.value='5';
-   els.setupBoardRows.value='5';
-   setSetupFireworkToggles(CORE_FIREWORK_IDS,CORE_FIREWORK_IDS);
-   els.setupPalm.checked=false;
-   els.setupDud.checked=true;
-   els.setupMatchFlipsDuds.checked=true;
-   els.setupDudPercent.value='8';
-   const pe=defaultPowerEffects();
-   els.effectComet.value=pe.comet;
-   els.effectRing.value=pe.ring;
-   els.effectCrossette.value=pe.crossette;
-   els.effectPeony.value=pe.peony;
-   els.setupCometEither.checked=true;
+
+   els.setupSwipeMatch.checked=true;
+   els.setupTapGlitter.checked=true;
+
+
+
+
+
   }
 
-  setupLastMode=els.setupGameMode.value;
-  setupModeRuleDrafts={competitive:defaultStandardRuleDraft(),bust:defaultStandardRuleDraft()};
-  if(setupLastMode!=='challenge')setupModeRuleDrafts[setupLastMode]=readStandardRuleDraft();
-  updateDudPercentDisplay();
+
+  
   rebuildPlayerCountOptions(existingCount);
   updateRoundCountDisplay();
-  updateBoardSizeDisplay();
-  updateCardCountDisplay();
+  
+  
   els.setupCancel.style.display=initial&&!state.players?'none':'block';
   renderSetupNames(state.players?state.players.map(p=>({name:p.name,bot:!!p.bot,difficulty:normalizeBotDifficulty(p.difficulty||'medium')})):[]);
   els.gameSetupOverlay.classList.add('open');
@@ -2969,32 +2622,20 @@ function collectGameOptions(){
  return {
   gameMode:els.setupGameMode.value,
   challenge:els.setupGameMode.value==='challenge',
-  finale:!!els.setupFinale.checked,
-  challengeBankDuplicates:!!els.setupChallengeBankDuplicates.checked,
+  finale:true,
   rounds:Math.max(3,Math.min(6,Math.round(Number(els.setupRounds.value)||DEFAULT_ROUNDS))),
-  onePowerPerTurn:!!els.setupOnePowerPerTurn.checked,
-  glitterScope:els.setupGlitterScope.value,
-  crossetteOrthogonal:els.setupCrossetteOrthogonal.checked,
-  powerUnlimited:!!els.setupUnlimited.checked,
-  oneEarnPerTypePerRound:!!els.setupOneEarnPerTypeRound.checked,
-  unlimitedEarnBeforeFinal:!!els.setupUnlimitedEarnBeforeFinal.checked,
-  powersNextRound:!!els.setupPowersNextRound.checked,
-  enabledCards:setupEnabledCardIds(),
-  enabledPowers:setupEnabledPowerIds(),
+  twoActions:true,
+  swipeMatch:!!els.setupSwipeMatch.checked,
+  tapGlitter:!!els.setupSwipeMatch.checked&&!!els.setupTapGlitter.checked,
   bonusGlitter:false,
   mergedMatch:true,
-  slideSwap:!!els.setupSlideSwap.checked,
-  longSlide:!!els.setupLongSlide.checked,
-  tapGlitter:!!els.setupTapGlitter.checked&&!!els.setupSlideSwap.checked,
-  includePalm:false,
-  includeDud:!!els.setupDud.checked,
-  matchFlipsDuds:!!els.setupDud.checked&&!!els.setupMatchFlipsDuds.checked,
-  dudPercent:clampDudPercent(els.setupDudPercent.value),
-  powerEffects:{comet:els.effectComet.value,ring:els.effectRing.value,crossette:els.effectCrossette.value,peony:els.effectPeony.value},
-  cometEither:!!els.setupCometEither.checked,
-  cardTotal:Math.max(75,Math.min(200,Math.round(Number(els.setupCardTotal.value)||100))),
-  boardCols:clampBoardDim(els.setupBoardCols.value),
-  boardRows:clampBoardDim(els.setupBoardRows.value),
+  
+  includeDud:true,
+  matchFlipsDuds:false,
+  dudPercent:20,
+  cardTotal:100,
+  boardCols:5,
+  boardRows:5,
   botFlags:collectBotFlags(),
   botDifficulties:collectBotDifficulties()
  };
@@ -3021,7 +2662,7 @@ function gravity(){
  return missing;
 }
 
-function clearCells(xs){[...new Set(xs)].forEach(i=>{const c=state.board[i];if(c){if(!c.gridPower)state.discard.push(c);state.board[i]=null}})}
+function clearCells(xs){[...new Set(xs)].forEach(i=>{const c=state.board[i];if(c){if(state.infinite&&face(c)==='dud')infiniteDudCleared();if(!c.gridPower)state.discard.push(c);state.board[i]=null}})}
 function flipType(t){let n=0;state.board.forEach(c=>{if(c&&face(c)===t){c.side=1-c.side;n++}});return n}
 
 
@@ -3372,19 +3013,12 @@ function playCrossetteSound(){
   })
 }
 
-function playPalmSound(){
-  if(!soundEnabled)return;
-  ensureAudio();
-  noiseBurst(.025,.070,0,'highpass',1200);
-  tone(180,.08,.075,'triangle',0,88);
-  sparkleCluster(4,.02,.10,1900,.018);
-}
+
 
 function playPowerSound(t){
   if(t==='comet')playCometSound();
   else if(t==='ring')playRingSound();
   else if(t==='crossette')playCrossetteSound();
-  else if(t==='palm')playPalmSound();
   else if(t==='peony')playGlitterSound(true);
 }
 
@@ -3818,16 +3452,7 @@ async function animatePeonyPower(cells,colorOverride=null){
   clearFx();
 }
 
-async function animatePalmPower(cells){
-  clearFx();
-  const color=powerFxColor('palm');
-  cells.forEach((cell,idx)=>{
-    sparkleOneCard(cell,color,idx*70,1.15);
-    playSparkSnap(idx*.07,1.05+idx*.12,cellPan(cell),1.0);
-  });
-  await wait(430);
-  clearFx();
-}
+
 
 
 function getMatchViewportCenter(match){
@@ -3883,7 +3508,7 @@ async function animatePowerBankLoad(type,source){
   const dock=document.createElement('div');
   dock.className='power-bank-dock';
   dock.style.setProperty('--fw',color);
-  dock.innerHTML=`<b>${TYPE[type].name.toUpperCase()}</b> ${state.config?.powersNextRound&&!state.challenge?'POWER QUEUED':'POWER LOADED'}`;
+  dock.innerHTML=`<b>${TYPE[type].name.toUpperCase()}</b> POWER LOADED`;
   document.body.appendChild(dock);
   dock.animate([
     {opacity:0,transform:'translateX(-50%) translateY(14px) scale(.9)'},
@@ -3973,7 +3598,7 @@ function showCascadeCheer(text,tier,location,delay=0){
     el.textContent=text;
     el.style.left=`${location.x}px`;
     el.style.top=`${location.y}px`;
-    el.style.color=tier==='boom'?'#fff':tier==='lucky'?'var(--palm)':tier==='great'?'var(--peony)':'var(--ring)';
+    el.style.color=tier==='boom'?'#fff':tier==='lucky'?'var(--gold)':tier==='great'?'var(--peony)':'var(--ring)';
     shell.appendChild(el);
     setTimeout(()=>el.remove(),1520);
   },delay);
@@ -4097,7 +3722,7 @@ function bustRoundSummary(bustIndex,awards){
 }
 async function startNextBustRound(startIndex){
  state.rows=clampBoardDim(state.config.boardRows);state.cols=clampBoardDim(state.config.boardCols);
- const d=stableDeal(state.config.cardTotal,true,false,state.config.includeDud,state.config.dudPercent,state.rows,state.cols,state.config.enabledCards,state.config.includeDud&&!!state.config.matchFlipsDuds,!!state.config.longSlide);
+ const d=stableDeal(state.config.cardTotal,true,state.config.includeDud,state.config.dudPercent,state.rows,state.cols,state.config.enabledCards,state.config.includeDud&&!!state.config.matchFlipsDuds);
  state.board=d.board;
  state.deck=d.deck;
  state.discard=[];
@@ -4105,8 +3730,7 @@ async function startNextBustRound(startIndex){
  state.current=startIndex;
  state.round++;
  releaseNextRoundPowers({shortFuse:true});
- state.normalUsed=false;
- state.normalActionUsed=null;
+ resetNormalActions();
  state.mode='swap';
  state.selected=[];
  state.turnStart=Date.now();
@@ -4290,6 +3914,7 @@ async function resolveMatches(){
    state.players[state.current].score+=pts;
    state.turnPoints+=pts;
    state.turnMatches+=normalMatches.length;
+   if(state.infinite){state.infiniteMatches+=normalMatches.length;normalMatches.forEach(infiniteRecordMatch);}
    playMatchSound(normalMatches,turnBefore);
    normalMatches.forEach((match,idx)=>cheerForTurnMatch(turnBefore+idx+1,match,idx*180));
    if(waves>1)cascadeMatches+=normalMatches.length;
@@ -4346,8 +3971,9 @@ async function resolveMatches(){
     :awardEarnedPower(player,candidate.type);
 
    if(added){
-    const destination=state.config.powersNextRound&&!state.challenge?' (queued for next round)':'';
-    const shownCount=state.config.powersNextRound?powerCount(playerPendingBank(player),candidate.type):powerCount(player.powers,candidate.type);
+    if(state.infinite)infinitePowerEarned(candidate.type);
+    const destination='';
+    const shownCount=powerCount(player.powers,candidate.type);
     const challengeQty=state.challenge?powerCount(state.challengePowers,candidate.type):0;
     addLog(`Earned ${TYPE[candidate.type].name}: ${powerName(candidate.type)}${destination}${state.challenge?` (shared${state.config.challengeBankDuplicates?` ×${challengeQty}`:''})`:(state.config.powerUnlimited||state.config.unlimitedEarnBeforeFinal)?` (x${shownCount})`:''}.`);
     render();
@@ -4389,7 +4015,7 @@ async function resolveMatches(){
    return;
   }
   state.soloFinale=true;
-  state.normalUsed=true;
+  resetNormalActions();
   state.mode='idle';
   state.message=`GRAND FINALE! Fire all ${soloPowersRemaining()} banked Powers. ${state.deck.length} cards remain.`;
   addLog(`All ${powerGoal()} Power types loaded — GRAND FINALE begins with ${soloPowersRemaining()} banked Power${soloPowersRemaining()===1?'':'s'}!`);
@@ -4435,402 +4061,133 @@ async function animateSwapExchange(a,b,reject=false){
  }
 }
 
-async function animateSwapOrSlide(a,b,reject=false){
- const d=orthogonalMoveDistance(a,b);
- if(d!==2)return animateSwapExchange(a,b,reject);
- const m=middleCell(a,b),ea=els.board.querySelector(`button.card[data-i="${a}"]`),em=els.board.querySelector(`button.card[data-i="${m}"]`),eb=els.board.querySelector(`button.card[data-i="${b}"]`);
- if(!ea||!em||!eb){await wait(80);return;}
- const ra=ea.getBoundingClientRect(),rm=em.getBoundingClientRect(),rb=eb.getBoundingClientRect();
- const chosenX=rb.left-ra.left,chosenY=rb.top-ra.top;
- const midX=ra.left-rm.left,midY=ra.top-rm.top;
- const destX=rm.left-rb.left,destY=rm.top-rb.top;
- if(reject){
-  const f=.28,opts={duration:360,easing:'cubic-bezier(.18,.72,.2,1)',fill:'forwards'};
-  await Promise.all([
-   ea.animate([{transform:'translate(0,0)'},{transform:`translate(${chosenX*f}px,${chosenY*f}px)`,offset:.45},{transform:'translate(0,0)'}],opts).finished.catch(()=>{}),
-   em.animate([{transform:'translate(0,0)'},{transform:`translate(${midX*f}px,${midY*f}px)`,offset:.45},{transform:'translate(0,0)'}],opts).finished.catch(()=>{}),
-   eb.animate([{transform:'translate(0,0)'},{transform:`translate(${destX*f}px,${destY*f}px)`,offset:.45},{transform:'translate(0,0)'}],opts).finished.catch(()=>{})
-  ]);
-  return;
- }
- const opts={duration:330,easing:'cubic-bezier(.18,.72,.2,1)',fill:'forwards'};
- await Promise.all([
-  ea.animate([{transform:'translate(0,0)'},{transform:`translate(${chosenX}px,${chosenY}px)`}],opts).finished.catch(()=>{}),
-  em.animate([{transform:'translate(0,0)'},{transform:`translate(${midX}px,${midY}px)`}],opts).finished.catch(()=>{}),
-  eb.animate([{transform:'translate(0,0)'},{transform:`translate(${destX}px,${destY}px)`}],opts).finished.catch(()=>{})
- ]);
-}
-
-let slideGesture=null;
-
-function slideStepSize(g,horizontal,dir){
- const rows=boardRows(),cols=boardCols(),r=rowOf(g.index,cols),c=colOf(g.index,cols);
- const rr=horizontal?r:r+dir,cc=horizontal?c+dir:c;
- if(inBoard(rr,cc,rows,cols)){
-  const j=cellIndex(rr,cc,cols),base=g.baseRects?.[j],origin=g.baseRects?.[g.index];
-  if(base&&origin)return Math.abs(horizontal?base.left-origin.left:base.top-origin.top)|| (horizontal?g.rect.width:g.rect.height);
- }
- return horizontal?g.rect.width:g.rect.height;
-}
-
-function slideTargetFromDelta(g,dx,dy){
- const {index:i,rect}=g,w=rect.width,h=rect.height;
- const ax=Math.abs(dx),ay=Math.abs(dy);
- const axisLock=Math.min(w,h)*.08;
- if(!g.axis){
-  if(Math.max(ax,ay)<axisLock)return null;
-  g.axis=ax>=ay?'x':'y';
- }
- const horizontal=g.axis==='x',raw=horizontal?dx:dy,axis=Math.abs(raw),dir=raw>=0?1:-1,cellSize=slideStepSize(g,horizontal,dir);
- // The release position chooses the nearest slot. Under halfway returns home;
- // after halfway it commits to the adjacent slot; after 1.5 cells it commits to slot 2.
- if(axis<cellSize*.5)return null;
- const rows=boardRows(),cols=boardCols(),r=rowOf(i,cols),c=colOf(i,cols);
- const oneR=horizontal?r:r+dir,oneC=horizontal?c+dir:c;
- if(!inBoard(oneR,oneC,rows,cols))return null;
- let distance=1;
- if(state.config.longSlide&&axis>=cellSize*1.5){
-  const twoR=horizontal?r:r+dir*2,twoC=horizontal?c+dir*2:c;
-  if(inBoard(twoR,twoC,rows,cols))distance=2;
- }
- return horizontal?cellIndex(r,c+dir*distance,cols):cellIndex(r+dir*distance,c,cols);
-}
-
-function slidePathCells(g,dx,dy){
- if(!g?.axis)return [];
- const horizontal=g.axis==='x',raw=horizontal?dx:dy;
- if(Math.abs(raw)<1)return [];
- const dir=raw>=0?1:-1,rows=boardRows(),cols=boardCols(),r=rowOf(g.index,cols),c=colOf(g.index,cols);
- const out=[];
- const r1=horizontal?r:r+dir,c1=horizontal?c+dir:c;
- if(inBoard(r1,c1,rows,cols))out.push(cellIndex(r1,c1,cols));
- if(state.config.longSlide){
-  const r2=horizontal?r:r+dir*2,c2=horizontal?c+dir*2:c;
-  if(inBoard(r2,c2,rows,cols))out.push(cellIndex(r2,c2,cols));
- }
- return out;
-}
-
-function clearSlideClasses(){
- els.board.querySelectorAll('.slide-origin,.slide-target').forEach(el=>{
-  el.classList.remove('slide-origin','slide-target');
-  el.style.transform='';
-  el.style.transition='';
- });
-}
-
-function resetLiveSlideStyles(g){
- if(!g)return;
- const set=new Set([g.el,g.targetEl,g.midEl,...(g.liveDisplaced||[]).map(x=>x.el)].filter(Boolean));
- for(const el of set){
-  el.style.transition='';
-  el.style.transform='';
-  el.classList.remove('slide-origin','slide-target');
- }
-}
-
-function clearFinishedSlideAnimations(){
- // A finished Web Animation with fill: forwards can keep visually owning
- // transform even after inline styles are cleared. Cancel finished card
- // animations before every new gesture so each drag starts from true rest.
- els.board.querySelectorAll('button.card[data-i]').forEach(card=>{
-  try{
-   card.getAnimations?.().forEach(anim=>{
-    if(anim.playState==='finished')anim.cancel();
-   });
-  }catch{}
-  card.style.transition='';
-  card.style.transform='';
-  card.classList.remove('slide-origin','slide-target');
- });
-}
-
-function slidePointerDown(e){
- if(state.resolving||state.gameOver||!state.config.slideSwap||!['swap','palmSwap'].includes(state.mode))return;
- if(e.pointerType==='mouse'&&e.button!==0)return;
- clearFinishedSlideAnimations();
- const el=e.currentTarget;
- const i=+el.dataset.i;
- const rect=el.getBoundingClientRect();
- const baseRects={};
- els.board.querySelectorAll('button.card[data-i]').forEach(card=>{baseRects[+card.dataset.i]=card.getBoundingClientRect()});
- slideGesture={
-  pointerId:e.pointerId,
-  index:i,
-  startX:e.clientX,
-  startY:e.clientY,
-  rect,
-  baseRects,
-  target:null,
-  targetEl:null,
-  midEl:null,
-  liveDisplaced:[],
-  progress:0,
-  liveX:0,
-  liveY:0,
-  axis:null,
-  hasDragged:false,
-  el
- };
- el.classList.add('slide-origin');
- el.setPointerCapture?.(e.pointerId);
- e.preventDefault();
-}
-
-function slidePointerMove(e){
- if(!slideGesture||slideGesture.pointerId!==e.pointerId)return;
- const g=slideGesture;
- const rawDx=e.clientX-g.startX,rawDy=e.clientY-g.startY;
- const dragThreshold=Math.max(4,Math.min(g.rect.width,g.rect.height)*.055);
- if(Math.hypot(rawDx,rawDy)>dragThreshold)g.hasDragged=true;
- const target=slideTargetFromDelta(g,rawDx,rawDy);
-
- if(target!==g.target){
-  for(const el of [g.targetEl,g.midEl].filter(Boolean))el.classList.remove('slide-target');
-  g.target=target;g.targetEl=null;g.midEl=null;
-  if(target!==null){
-   g.targetEl=els.board.querySelector(`button.card[data-i="${target}"]`);
-   if(orthogonalMoveDistance(g.index,target)===2){
-    const m=middleCell(g.index,target);
-    g.midEl=els.board.querySelector(`button.card[data-i="${m}"]`);
-   }
-   for(const el of [g.targetEl,g.midEl].filter(Boolean))el.classList.add('slide-target');
-  }
- }
-
- // The selected card and displaced card(s) move together during the drag.
- // This keeps a normal swap visually reciprocal and makes a 2-space Slide
- // backfill progressively as the selected card passes each position.
- const axis=g.axis||(Math.abs(rawDx)>=Math.abs(rawDy)?'x':'y');
- const horizontal=axis==='x';
- const projected=horizontal?rawDx:rawDy;
- const sign=projected>=0?1:-1;
- const path=slidePathCells(g,rawDx,rawDy);
- const maxCells=Math.max(1,path.length);
- const cellSize=slideStepSize(g,horizontal,sign);
- const clamped=Math.max(-cellSize*maxCells,Math.min(cellSize*maxCells,projected));
- g.liveX=horizontal?clamped:0;
- g.liveY=horizontal?0:clamped;
- g.el.style.transform=`translate(${g.liveX}px,${g.liveY}px)`;
-
- const previous=new Set((g.liveDisplaced||[]).map(x=>x.el));
- const next=[];
- const magnitude=Math.abs(clamped);
- path.forEach((idx,k)=>{
-  const el=els.board.querySelector(`button.card[data-i="${idx}"]`);
-  if(!el)return;
-  const amount=Math.max(0,Math.min(cellSize,magnitude-cellSize*k));
-  const tx=horizontal?-sign*amount:0;
-  const ty=horizontal?0:-sign*amount;
-  el.style.transition='none';
-  el.style.transform=`translate(${tx}px,${ty}px)`;
-  next.push({el,tx,ty,index:idx});
-  previous.delete(el);
- });
- for(const el of previous){
-  el.style.transition='none';
-  el.style.transform='translate(0px,0px)';
- }
- g.liveDisplaced=next;
-
- const targetDistance=g.target===null?0:orthogonalMoveDistance(g.index,g.target);
- g.progress=targetDistance?Math.min(1,magnitude/(cellSize*targetDistance)):0;
- e.preventDefault();
-}
-
-async function rejectLiveSlide(g){
- if(!g?.el)return;
- const moved=[{el:g.el,transform:g.el.style.transform||'translate(0px,0px)'},...(g.liveDisplaced||[]).map(x=>({el:x.el,transform:x.el.style.transform||'translate(0px,0px)'}))];
- const animations=moved.map(({el,transform})=>el.animate([
-  {transform},
-  {transform:'translate(0px,0px)'}
- ],{duration:180,easing:'cubic-bezier(.22,.72,.2,1)',fill:'forwards'}));
- playSparkSnap(0,.72,0,.4);
- await Promise.all(animations.map(anim=>anim.finished.catch(()=>{})));
- // Critical cleanup: fill:forwards must not remain attached after cancel.
- animations.forEach(anim=>{try{anim.cancel()}catch{}});
- resetLiveSlideStyles(g);
-}
-
-async function completeLiveSlideAnimation(g){
- if(!g?.el||g.target===null)return;
- const a=g.el,b=g.targetEl,distance=orthogonalMoveDistance(g.index,g.target);
- if(!a||!b||!distance)return;
- const origin=g.baseRects?.[g.index]||g.rect;
- const rb=g.baseRects?.[g.target]||b.getBoundingClientRect();
- const fullX=rb.left-origin.left,fullY=rb.top-origin.top;
- const startA=a.style.transform||`translate(${Number(g.liveX||0)}px,${Number(g.liveY||0)}px)`;
- const remaining=Math.hypot(fullX-Number(g.liveX||0),fullY-Number(g.liveY||0));
- const full=Math.max(1,Math.hypot(fullX,fullY));
- const duration=Math.max(105,Math.min(210,105+120*(remaining/full)));
- const opts={duration,easing:'cubic-bezier(.18,.72,.2,1)',fill:'forwards'};
- const animations=[
-  a.animate([{transform:startA},{transform:`translate(${fullX}px,${fullY}px)`}],opts)
- ];
- if(distance===1){
-  const startB=b.style.transform||'translate(0px,0px)';
-  animations.push(b.animate([
-   {transform:startB},
-   {transform:`translate(${-fullX}px,${-fullY}px)`}
-  ],opts));
- }else{
-  const m=g.midEl||els.board.querySelector(`button.card[data-i="${middleCell(g.index,g.target)}"]`);
-  if(m){
-   const rm=g.baseRects?.[middleCell(g.index,g.target)]||m.getBoundingClientRect();
-   const midX=origin.left-rm.left,midY=origin.top-rm.top;
-   const destX=rm.left-rb.left,destY=rm.top-rb.top;
-   const startM=m.style.transform||'translate(0px,0px)';
-   const startB=b.style.transform||'translate(0px,0px)';
-   animations.push(
-    m.animate([{transform:startM},{transform:`translate(${midX}px,${midY}px)`}],opts),
-    b.animate([{transform:startB},{transform:`translate(${destX}px,${destY}px)`}],opts)
-   );
-  }
- }
- const finalEls=new Set([a,b,...(distance===2&&g.midEl?[g.midEl]:[])]);
- for(const item of (g.liveDisplaced||[])){
-  if(finalEls.has(item.el))continue;
-  const start=item.el.style.transform||'translate(0px,0px)';
-  animations.push(item.el.animate([{transform:start},{transform:'translate(0px,0px)'}],opts));
- }
- await Promise.all(animations.map(anim=>anim.finished.catch(()=>{})));
- // Successful swaps usually re-render immediately, but explicitly cancel
- // completed animations so no filled transform can leak into another grab.
- animations.forEach(anim=>{try{anim.cancel()}catch{}});
- resetLiveSlideStyles(g);
-}
-
-async function finishSlideGesture(e,cancelled=false){
- if(!slideGesture||slideGesture.pointerId!==e.pointerId)return;
- const g=slideGesture;
- slideGesture=null;
- try{g.el.releasePointerCapture?.(e.pointerId)}catch{}
-
- const rawDx=e.clientX-g.startX,rawDy=e.clientY-g.startY;
- // Re-evaluate the release position instead of trusting an earlier target.
- // Returning closer to the origin than the adjacent slot cancels the gesture.
- g.target=cancelled?null:slideTargetFromDelta(g,rawDx,rawDy);
- g.targetEl=g.target===null?null:els.board.querySelector(`button.card[data-i="${g.target}"]`);
- g.midEl=g.target!==null&&orthogonalMoveDistance(g.index,g.target)===2
-  ?els.board.querySelector(`button.card[data-i="${middleCell(g.index,g.target)}"]`)
-  :null;
-
- const moved=Math.hypot(rawDx,rawDy);
- const tapLimit=Math.max(8,Math.min(g.rect.width,g.rect.height)*.18);
- if(!cancelled&&!g.hasDragged&&g.target===null&&moved<=tapLimit&&state.config.tapGlitter&&state.mode==='swap'&&!state.normalUsed){
-  resetLiveSlideStyles(g);
-  const c=state.board[g.index];
-  if(c&&!c.gridPower)await normalGlitter(face(c),false,g.index);
-  e.preventDefault();
-  return;
- }
-
- if(cancelled||g.target===null||!moveAllowed(g.index,g.target)){
-  await rejectLiveSlide(g);e.preventDefault();return;
- }
-
- const a=g.index,b=g.target,distance=orthogonalMoveDistance(a,b);
- const test=[...state.board];applySwapOrSlide(test,a,b);
- const legal=findMatches(test).length>0;
- if(!legal){
-  await rejectLiveSlide(g);state.selected=[];
-  state.message=state.config.matchFlipsDuds?'That move does not create a Firework Match 3+ or Dud formation.':'That move does not create a Match 3+.';
-  render();e.preventDefault();return;
- }
-
- await completeLiveSlideAnimation(g);
- state.board=test;render();
- const settled=[a,...(distance===2?[middleCell(a,b)]:[]),b].map(i=>els.board.querySelector(`button.card[data-i="${i}"]`)).filter(Boolean);
- settled.forEach(el=>el.classList.add('slide-settle'));
- playSparkSnap(0,1.05,0,.62);
- setTimeout(()=>settled.forEach(el=>el.classList.remove('slide-settle')),220);
-
- const power=state.mode==='palmSwap';
- state.selected=[];
- state.resolving=true;
-
- if(power){
-  if(!canUseAnotherPower()){state.resolving=false;state.mode=state.normalUsed?'idle':'swap';state.message='One Power per round is active until the final round.';render();return}
-  consumeBankedPower(currentPowerBank(),'palm');
-  recordPowerUse('palm');
-  state.mode=state.normalUsed?'idle':'swap';
-  render();
-  playPowerSound('palm');
-  await animatePalmPower(orthogonalMoveDistance(a,b)===2?[a,middleCell(a,b),b]:[a,b]);
-  addLog('Palm used: Extra Swap.');
- }else{
-  state.normalUsed=true;
-  state.normalActionUsed='swap';
-  addLog('Normal action: Swap.');
- }
-
- state.resolving=false;
- state.mode=state.normalUsed?'idle':'swap';
- await resolveMatches();
- await maybeAutoEndTurn();
- e.preventDefault();
-}
-
 function orthogonalMoveDistance(a,b,cols=boardCols()){
  const ar=rowOf(a,cols),ac=colOf(a,cols),br=rowOf(b,cols),bc=colOf(b,cols);
  if(ar!==br&&ac!==bc)return 0;
  return Math.abs(ar-br)+Math.abs(ac-bc);
 }
-function moveAllowed(a,b,longSlide=!!state?.config?.longSlide,cols=boardCols()){
- const d=orthogonalMoveDistance(a,b,cols);
- return d===1||(longSlide&&d===2);
-}
-function middleCell(a,b,cols=boardCols()){
- if(orthogonalMoveDistance(a,b,cols)!==2)return null;
- const ar=rowOf(a,cols),ac=colOf(a,cols),br=rowOf(b,cols),bc=colOf(b,cols);
- return cellIndex((ar+br)/2,(ac+bc)/2,cols);
-}
-function applySwapOrSlide(board,a,b,cols=boardCols()){
- const d=orthogonalMoveDistance(a,b,cols);
- if(d===1){[board[a],board[b]]=[board[b],board[a]];return [a,b]}
- if(d===2){
-  const m=middleCell(a,b,cols),chosen=board[a];
-  board[a]=board[m];board[m]=board[b];board[b]=chosen;
-  return [a,m,b];
- }
- return [];
-}
+function moveAllowed(a,b){return orthogonalMoveDistance(a,b)===1}
+function applySwap(board,a,b){if(!moveAllowed(a,b))return [];[board[a],board[b]]=[board[b],board[a]];return [a,b]}
 function adjacent(a,b,cols=boardCols()){return orthogonalMoveDistance(a,b,cols)===1}
+// Swipe moves only one card space. A tap qualifies for Glitter only if the
+// pointer never leaves the small tap tolerance and is released promptly.
+let swipeGesture=null;
+function swipeDirection(g,dx,dy){
+ const horizontal=Math.abs(dx)>=Math.abs(dy),sign=(horizontal?dx:dy)>=0?1:-1;
+ const r=rowOf(g.index),c=colOf(g.index),rr=r+(horizontal?0:sign),cc=c+(horizontal?sign:0);
+ if(!inBoard(rr,cc))return {index:null,horizontal,sign,step:horizontal?g.rect.width:g.rect.height};
+ const index=cellIndex(rr,cc),target=els.board.querySelector(`button.card[data-i="${index}"]`);
+ const rect=g.baseRects?.[index];
+ const step=rect?Math.abs(horizontal?rect.left-g.rect.left:rect.top-g.rect.top):(horizontal?g.rect.width:g.rect.height);
+ return {index,target,horizontal,sign,step:Math.max(1,step)};
+}
+function swipePointerDown(e){
+ if(state.resolving||state.gameOver||state.normalUsed||state.mode!=='swap'||!state.config.swipeMatch)return;
+ if(e.pointerType==='mouse'&&e.button!==0)return;
+ const el=e.currentTarget,rect=el.getBoundingClientRect();
+ const baseRects={};els.board.querySelectorAll('button.card[data-i]').forEach(card=>{baseRects[+card.dataset.i]=card.getBoundingClientRect()});
+ swipeGesture={pointerId:e.pointerId,index:+el.dataset.i,el,rect,baseRects,startX:e.clientX,startY:e.clientY,
+  started:performance.now(),maxDistance:0,target:null,targetIndex:null,offsetX:0,offsetY:0};
+ try{el.setPointerCapture(e.pointerId)}catch{}
+ e.preventDefault();
+}
+function swipePointerMove(e){
+ const g=swipeGesture;if(!g||g.pointerId!==e.pointerId)return;
+ const dx=e.clientX-g.startX,dy=e.clientY-g.startY;
+ g.maxDistance=Math.max(g.maxDistance,Math.hypot(dx,dy));
+ const threshold=Math.max(4,Math.min(g.rect.width,g.rect.height)*.055);
+ if(g.maxDistance<=threshold)return;
+ const dir=swipeDirection(g,dx,dy);
+ if(g.target&&g.target!==dir.target)g.target.style.transform='';
+ g.target=dir.target||null;g.targetIndex=dir.index;
+ const raw=dir.horizontal?dx:dy;
+ const amount=Math.min(dir.step,Math.abs(raw));
+ const signed=dir.sign*amount;
+ g.offsetX=dir.horizontal?signed:0;g.offsetY=dir.horizontal?0:signed;
+ g.el.style.transform=`translate(${g.offsetX}px,${g.offsetY}px)`;
+ if(g.target){
+  g.target.style.transform=`translate(${dir.horizontal?-signed:0}px,${dir.horizontal?0:-signed}px)`;
+ }
+ e.preventDefault();
+}
+async function animateSwipeHome(g){
+ const cards=[g.el,g.target].filter(Boolean);
+ const animations=cards.map(el=>el.animate([
+  {transform:el.style.transform||'translate(0px,0px)'},{transform:'translate(0px,0px)'}
+ ],{duration:170,easing:'ease-out',fill:'forwards'}));
+ await Promise.all(animations.map(a=>a.finished.catch(()=>{})));
+ animations.forEach(a=>{try{a.cancel()}catch{}});
+ cards.forEach(el=>el.style.transform='');
+}
+async function finishSwipe(e,cancelled=false){
+ const g=swipeGesture;if(!g||g.pointerId!==e.pointerId)return;
+ swipeGesture=null;
+ try{g.el.releasePointerCapture(e.pointerId)}catch{}
+ const dx=e.clientX-g.startX,dy=e.clientY-g.startY;
+ g.maxDistance=Math.max(g.maxDistance,Math.hypot(dx,dy));
+ const tapTolerance=Math.max(4,Math.min(g.rect.width,g.rect.height)*.055);
+ const quickTap=!cancelled&&g.maxDistance<=tapTolerance&&performance.now()-g.started<=250;
+ if(quickTap){
+  g.el.style.transform='';if(g.target)g.target.style.transform='';
+  const card=state.board[g.index],type=face(card);
+  if(state.config.tapGlitter&&card&&!card.gridPower)await normalGlitter(type,false,g.index);
+  else await cardClick(g.index);
+  e.preventDefault();return;
+ }
+ // A moved or long-held pointer is never interpreted as a tap, even when it
+ // returns to its starting position before release.
+ const dir=swipeDirection(g,dx,dy);
+ const traveled=Math.abs(dir.horizontal?dx:dy);
+ const commit=!cancelled&&g.maxDistance>tapTolerance&&dir.index!==null&&traveled>=dir.step*.5&&moveAllowed(g.index,dir.index);
+ if(!commit){await animateSwipeHome(g);e.preventDefault();return}
+ const a=g.index,b=dir.index;
+ const trial=[...state.board];applySwap(trial,a,b);
+ if(!findMatches(trial).length){
+  await animateSwipeHome(g);
+  state.selected=[];state.message=state.config.matchFlipsDuds?'That move does not create a Firework Match 3+ or Dud formation.':'That move does not create a Match 3+.';
+  render();e.preventDefault();return;
+ }
+ state.resolving=true;
+ const target=dir.target||els.board.querySelector(`button.card[data-i="${b}"]`);
+ const rect=g.baseRects?.[b];
+ const fullX=rect?rect.left-g.rect.left:0,fullY=rect?rect.top-g.rect.top:0;
+ const animations=[g.el.animate([{transform:g.el.style.transform||'translate(0px,0px)'},{transform:`translate(${fullX}px,${fullY}px)`}],{duration:150,easing:'ease-out',fill:'forwards'})];
+ if(target)animations.push(target.animate([{transform:target.style.transform||'translate(0px,0px)'},{transform:`translate(${-fullX}px,${-fullY}px)`}],{duration:150,easing:'ease-out',fill:'forwards'}));
+ await Promise.all(animations.map(anim=>anim.finished.catch(()=>{})));
+ animations.forEach(anim=>{try{anim.cancel()}catch{}});
+ g.el.style.transform='';if(target)target.style.transform='';
+ state.board=trial;state.selected=[];
+ consumeNormalAction('swap');
+ addLog(`Normal action ${normalActionsUsedCount()}/${normalActionLimit()}: Swap.`);
+ state.resolving=false;state.mode=state.normalUsed?'idle':'swap';
+ render();await resolveMatches();
+ if(!(await maybeAutoEndTurn())&&!state.gameOver){state.message=normalActionStatusMessage();render()}
+ e.preventDefault();
+}
+
 async function attemptSwap(a,b,power){
- if(!moveAllowed(a,b)){state.selected=[b];state.message=state.config.longSlide?'Choose a card 1 or 2 spaces away in the same row or column.':'Choose an orthogonally adjacent card.';render();return}
+ if(!moveAllowed(a,b)){state.selected=[b];state.message='Choose an orthogonally adjacent card.';render();return}
 
  const test=[...state.board];
- applySwapOrSlide(test,a,b);
+ applySwap(test,a,b);
  const legal=findMatches(test).length>0;
  if(!legal){
-  await animateSwapOrSlide(a,b,true);
+  await animateSwapExchange(a,b,true);
   state.selected=[];state.message=state.config.matchFlipsDuds?'That move does not create a Firework Match 3+ or Dud formation.':'That move does not create a Match 3+.';render();return;
  }
 
  state.selected=[];
  state.resolving=true;
- await animateSwapOrSlide(a,b,false);
+ await animateSwapExchange(a,b,false);
  state.board=test;
  render();
 
- if(power){
-  if(!canUseAnotherPower()){state.resolving=false;state.mode=state.normalUsed?'idle':'swap';state.message='One Power per round is active until the final round.';render();return}
-  consumeBankedPower(currentPowerBank(),'palm');
-  recordPowerUse('palm');
-  state.mode=state.normalUsed?'idle':'swap';
-  render();
-  playPowerSound('palm');
-  await animatePalmPower([a,b]);
-  addLog('Palm used: Extra Swap.');
- }else{
-  state.normalUsed=true;
-  state.normalActionUsed='swap';
-  addLog('Normal action: Swap.');
- }
+ consumeNormalAction('swap');
+ addLog(`Normal action ${normalActionsUsedCount()}/${normalActionLimit()}: Swap.`);
  state.resolving=false;
  state.mode=state.normalUsed?'idle':'swap';
  await resolveMatches();
- await maybeAutoEndTurn();
+ if(!(await maybeAutoEndTurn())&&!state.gameOver){state.message=normalActionStatusMessage();render();}
 }
 async function normalGlitter(t,fromBot=false,sourceIndex=null){
  if((state.players[state.current]?.bot&&!fromBot)||state.normalUsed||state.resolving||state.gameOver)return;
@@ -4850,8 +4207,7 @@ async function normalGlitter(t,fromBot=false,sourceIndex=null){
   }
  }
 
- state.normalUsed=true;
- state.normalActionUsed='glitter';
+ consumeNormalAction('glitter');
  const cells=glitterActionAdjacent()
   ?sameTypeNeighborCells(sourceIndex,t)
   :state.board.map((c,i)=>c&&!c.gridPower&&face(c)===t?i:-1).filter(i=>i>=0);
@@ -4865,12 +4221,10 @@ async function normalGlitter(t,fromBot=false,sourceIndex=null){
  else await animatePeonyPower(cells,powerFxColor(t));
  const ordered=glitterActionAdjacent()?[sourceIndex,...cells.filter(i=>i!==sourceIndex)]:cells;
  const n=await flipCellsAnimated(ordered,true);
- addLog(`Normal Glitter: ${n} ${TYPE[t].name} card${n===1?'':'s'} flipped${glitterActionAdjacent()?' around the chosen card':''}.`);
+ addLog(`Normal action ${normalActionsUsedCount()}/${normalActionLimit()}: Glitter — ${n} ${TYPE[t].name} card${n===1?'':'s'} flipped${glitterActionAdjacent()?' around the chosen card':''}.`);
  await wait(80);
  await resolveMatches();
- if(!await maybeAutoEndTurn()){
-  state.message='Glitter resolved. You may use powers or end your turn.';render();
- }
+ if(!(await maybeAutoEndTurn())&&!state.gameOver){state.message=normalActionStatusMessage();render();}
 }
 async function peonyGlitter(t,sourceIndex=null){
  const p=currentPowerBank();
@@ -4948,33 +4302,24 @@ async function cardClick(i){
   }
   return;
  }
- if(state.config.tapGlitter&&state.mode==='swap'&&!state.normalUsed){
-  const c=state.board[i];
-  if(c&&!c.gridPower){await normalGlitter(face(c),false,i);return;}
- }
- if(!['swap','palmSwap'].includes(state.mode))return;
- if(!state.selected.length){state.selected=[i];state.message=state.config.longSlide?'Choose a destination 1 or 2 spaces away in the same row or column.':'Choose an adjacent card.';render();return}
+ if(state.mode!=='swap')return;
+ if(!state.selected.length){state.selected=[i];state.message='Choose an adjacent card.';render();return}
  let a=state.selected[0];if(a===i){state.selected=[];render();return}
- await attemptSwap(a,i,state.mode==='palmSwap');
+ await attemptSwap(a,i,false);
 }
-function powerClick(t){
+
+
+async function powerClick(t){
  const p=currentPowerBank();
  if(powerCount(p,t)<1||state.resolving||state.gameOver||!powersUnlocked())return;
  if(!canUseAnotherPower()){
-  state.message=`One Power per round is active until the final round.`;
+  state.message='One Power is allowed per round, except during an enabled Finale.';
   state.mode=state.normalUsed?'idle':'swap';
   render();
   return;
  }
  state.selected=[];
- if(t==='palm'){
-  if(state.challenge&&!soloCanUsePalm()){
-   soloLose('Palm was still unfired, but no scoring Swap remained for it.');
-   return;
-  }
-  state.mode='palmSwap';state.message='Palm: make one extra legal Swap.';
- }
- else if(t==='peony'){
+ if(t==='peony'){
   if(state.challenge&&!soloHasRegularCard()){
    soloLose('Peony was still unfired, but no regular cards remained to Glitter.');
    return;
@@ -5026,7 +4371,7 @@ function chooseCometDirection(dir){
 
 function cancel(){
  state.selected=[];state.cometOrientation=null;state.glitterType=null;state.mode=state.normalUsed?'idle':'swap';
- state.message=state.normalUsed?'Choose a Power or end your turn.':'Choose Swap or Glitter, or use a Power at any time.';render();
+ state.message=normalActionStatusMessage();render();
 }
 function hasReadyPower(){
  if(!powersUnlocked())return false;
@@ -5044,8 +4389,7 @@ async function rotateChallengeFinalePlayer(){
  const rotatePromise=rotateBoardForNextPlayer();
  await Promise.all([splashPromise,rotatePromise]);
  state.resolving=false;
- state.normalUsed=true;
- state.normalActionUsed=null;
+ resetNormalActions();
  state.mode='idle';
  state.selected=[];
  state.cometOrientation=null;
@@ -5064,10 +4408,17 @@ async function rotateChallengeFinalePlayer(){
 }
 async function maybeAutoEndTurn(){
  if(state.gameOver||state.resolving)return false;
+ if(state.infinite){if(state.normalUsed){resetNormalActions();state.mode='swap';state.turnPoints=0;state.turnMatches=0;}render();return false;}
 
  // Grand Finale Challenge.
  if(state.challenge){
   if(state.soloFinale){
+   if(normalActionsRemaining()>0){
+    state.mode='swap';
+    state.message=`Choose Swap or Glitter. ${normalActionsRemaining()} action${normalActionsRemaining()===1?'':'s'} available.`;
+    render();
+    return false;
+   }
    const remaining=soloPowersRemaining();
    if(remaining===0){
     soloWin();
@@ -5077,12 +4428,13 @@ async function maybeAutoEndTurn(){
     soloLose(`The draw supply ran out with ${remaining} Finale Power${remaining===1?'':'s'} still unfired.`);
     return true;
    }
-   state.normalUsed=true;
+   syncNormalUsed();
    state.mode='idle';
    if(state.players.length>1){
     await rotateChallengeFinalePlayer();
     return true;
    }
+   state.powerUsesThisTurn=0;
    state.message=`GRAND FINALE: fire the remaining ${remaining} shared Power${remaining===1?'':'s'}. ${state.deck.length} cards left.`;
    render();
    return false;
@@ -5107,17 +4459,23 @@ async function maybeAutoEndTurn(){
 
  const competitiveFinale=state.config.finale&&isFinalRound();
 
- // Competitive final-round Finale: no normal action, only Powers.
+ // Competitive Finale allows its normal action and banked Powers.
  if(competitiveFinale){
+  if(normalActionsRemaining()>0){
+   state.mode='swap';
+   state.message=`Choose Swap or Glitter. ${normalActionsRemaining()} action${normalActionsRemaining()===1?'':'s'} available.`;
+   render();
+   return false;
+  }
   if(hasReadyPower()){
-   state.normalUsed=true;
+   syncNormalUsed();
    state.mode='idle';
    const remaining=Object.values(currentPowerBank()).reduce((s,v)=>s+Number(v||0),0);
    state.message=`FINALE: fire all banked Powers — ${remaining} remaining.`;
    render();
    return false;
   }
-  state.normalUsed=true;
+  syncNormalUsed();
   state.message='Finale complete — advancing to the next player.';
   render();
   await wait(360);
@@ -5192,7 +4550,7 @@ function botResolveVisibleWaves(board,initialMatches,maxFollowups=botLookaheadDe
 }
 function botAnalyzeSwap(a,b){
  const b0=[...state.board];
- applySwapOrSlide(b0,a,b);
+ applySwap(b0,a,b);
  const immediate=findMatches(b0);
  if(!immediate.length)return null;
  const immediateScoring=botScoringMatches(immediate);
@@ -5228,11 +4586,6 @@ function botAnalyzedSwaps(){
   for(const [dr,dc] of [[0,1],[1,0]]){
    const rr=r+dr,cc=c+dc;if(inBoard(rr,cc,rows,cols))targets.push(cellIndex(rr,cc,cols));
   }
-  if(state.config.longSlide){
-   for(const [dr,dc] of [[0,2],[0,-2],[2,0],[-2,0]]){
-    const rr=r+dr,cc=c+dc;if(inBoard(rr,cc,rows,cols))targets.push(cellIndex(rr,cc,cols));
-   }
-  }
   for(const j of targets){
    if(!state.board[i]||!state.board[j])continue;
    const move=botAnalyzeSwap(i,j);if(move)moves.push(move);
@@ -5241,7 +4594,7 @@ function botAnalyzedSwaps(){
  return moves;
 }
 function botImmediateSwaps(){
- // Compatibility helper for Palm and power checks.
+ // Compatibility helper for power checks.
  return botAnalyzedSwaps();
 }
 
@@ -5378,7 +4731,7 @@ function botHardSimulateOne(board,initialMatches,rng){
 }
 function botHardExpectedSwap(a,b,samples=BOT_HARD_SAMPLES){
  const base=botVisibleOnlyBoard();
- applySwapOrSlide(base,a,b);
+ applySwap(base,a,b);
  const initial=findMatches(base);
  const rng=botSeededRng(botPublicAnalysisSeed(`hard-swap:${a}:${b}`));
  let points=0,powers=0,duplicatePowers=0,clear=0,cascade=0,maxLen=0,busts=0,zeroClear=0;
@@ -5532,7 +4885,7 @@ function botChallengeNearFourScore(board){
 }
 function botSwapChallengeSetup(move){
  if(botDifficulty()==='easy'||!move)return 0;
- const b=[...state.board];applySwapOrSlide(b,move.a,move.b);
+ const b=[...state.board];applySwap(b,move.a,move.b);
  const immediate=findMatches(b);
  if(immediate.some(m=>m.type==='dud'))return 0;
  const clear=[...new Set(botScoringMatches(immediate).flatMap(m=>m.cells))];
@@ -5797,7 +5150,6 @@ function botUsablePowerTypes(){
  const bank=currentPowerBank();
  return enabledPowerTypes().map(t=>t.id).filter(type=>{
   if(powerCount(bank,type)<1)return false;
-  if(type==='palm')return botAnalyzedSwaps().length>0;
   if(type==='peony')return state.board.some(c=>c&&!c.gridPower&&cardTypes().some(t=>t.id===face(c)));
   return true;
  });
@@ -5837,7 +5189,7 @@ function botOptionalPowerChoice(phase='after',newlyGained=[]){
    return null;
   }
   if(state.deck.length<=20){
-   const flips=types.filter(type=>type!=='palm'&&powerEffect(type)==='flip');
+   const flips=types.filter(type=>powerEffect(type)==='flip');
    if(flips.length&&Math.random()<0.16)return randomChoice(flips);
    return null;
   }
@@ -5857,23 +5209,6 @@ function botOptionalPowerChoice(phase='after',newlyGained=[]){
 async function botUsePower(type){
  if(!type)return false;
 
- if(type==='palm'){
-  const swaps=botAnalyzedSwaps();
-  if(!swaps.length)return false;
-
-  let move;
-  if(state.bust){
-   const minClear=Math.min(...swaps.map(m=>m.guaranteedClear));
-   const safest=swaps.filter(m=>m.guaranteedClear===minClear);
-   move=randomChoice(safest);
-  }else{
-   move=randomChoice(botBestCompetitiveSwaps(swaps));
-  }
-
-  state.mode='palmSwap';
-  await attemptSwap(move.a,move.b,true);
-  return true;
- }
 
  if(type==='peony'){
   const target=botPeonyTarget();
@@ -5893,12 +5228,10 @@ function botRequiredPowerOrder(){
  const available=botUsablePowerTypes();
  if(!available.length)return [];
 
- // During the Grand Finale, Palm is fragile because it requires a legal Swap.
  // Then prefer known clear Powers while refill supply still exists.
  // Flip Powers can safely wait because they do not directly create holes.
  return available.sort((a,b)=>{
   const priority=type=>{
-   if(type==='palm')return 0;
    if(powerEffect(type)==='clear')return 1;
    return 2;
   };
@@ -5911,11 +5244,9 @@ async function botFireRequiredPower(){
  if(!ordered.length)return false;
  const bestPriority=(()=>{
   const first=ordered[0];
-  if(first==='palm')return 0;
   return powerEffect(first)==='clear'?1:2;
  })();
  const samePriority=ordered.filter(type=>{
-  if(type==='palm')return bestPriority===0;
   return (powerEffect(type)==='clear'?1:2)===bestPriority;
  });
  return await botUsePower(randomChoice(samePriority));
@@ -5951,6 +5282,55 @@ function botFallbackNormalMove(){
  return botBestGlitter(stats,state.challenge?'challenge':state.bust?'shortFuse':'competitive')||randomChoice(glitters);
 }
 
+async function botTakeOneNormalAction(expectedIndex){
+ if(state.gameOver||state.current!==expectedIndex||state.resolving||normalActionsRemaining()<=0)return {moved:false,newlyGained:[]};
+ let move=chooseBotNormalMove();
+
+ // If a visible move would waste a capped duplicate Power, spend the held copy
+ // first when allowed, then reassess the changed board.
+ const duplicateToSpend=botHeldPowerThatMoveWouldWaste(move);
+ if(duplicateToSpend){
+  await botUsePower(duplicateToSpend);
+  if(state.gameOver||state.current!==expectedIndex)return {moved:false,newlyGained:[]};
+  if(!(await botWaitForResolution(expectedIndex)))return {moved:false,newlyGained:[]};
+  await wait(140);
+  move=chooseBotNormalMove();
+ }
+
+ if(!move)move=botFallbackNormalMove();
+ if(!move){
+  state.message=`${state.players[state.current].name} has no legal normal action.`;
+  render();
+  if(state.challenge&&!state.soloFinale){
+   soloLose('The display went dead before the Challenge was complete.');
+   return {moved:false,newlyGained:[]};
+  }
+  forceCompleteNormalActions();
+  state.normalActionUsed='none';
+  return {moved:false,newlyGained:[]};
+ }
+
+ const bankBefore=botBankSnapshot();
+ if(move.kind==='swap')await attemptSwap(move.a,move.b,false);
+ else await normalGlitter(move.type,true,move.sourceIndex??null);
+
+ if(state.gameOver||state.current!==expectedIndex)return {moved:true,newlyGained:[]};
+ if(!(await botWaitForResolution(expectedIndex)))return {moved:true,newlyGained:[]};
+ return {moved:true,newlyGained:botNewlyGainedPowers(bankBefore)};
+}
+
+async function botUseRemainingNormalActions(expectedIndex){
+ const gained=[];
+ while(!state.gameOver&&state.current===expectedIndex&&!state.resolving&&normalActionsRemaining()>0){
+  const result=await botTakeOneNormalAction(expectedIndex);
+  gained.push(...(result.newlyGained||[]));
+  if(state.gameOver||state.current!==expectedIndex)return [...new Set(gained)];
+  if(!result.moved||normalActionsRemaining()<=0)break;
+  await wait(180);
+ }
+ return [...new Set(gained)];
+}
+
 async function runBotTurn(expectedIndex){
  if(state.gameOver||state.current!==expectedIndex)return;
  if(state.resolving){
@@ -5959,14 +5339,25 @@ async function runBotTurn(expectedIndex){
  const player=state.players[state.current];
  if(!player?.bot)return;
 
- // Competitive Finale / Grand Finale: required Powers must be fired.
  const mustFire=(!state.challenge&&state.config.finale&&isFinalRound()) ||
                 (state.challenge&&state.soloFinale);
+
+ if(mustFire&&normalActionsRemaining()>0){
+  state.message=`${player.name} 🤖 is choosing Swap or Glitter…`;
+  render();
+  await botUseRemainingNormalActions(expectedIndex);
+  if(state.gameOver||state.current!==expectedIndex)return;
+  if(!state.resolving)setTimeout(()=>scheduleBotTurn(220),20);
+  return;
+ }
+
+ // Competitive Finale / Grand Finale: one required Power at a time. Challenge
+ // multiplayer rotation is performed by maybeAutoEndTurn after that Power resolves.
  if(mustFire){
   const used=await botFireRequiredPower();
   if(state.gameOver||state.current!==expectedIndex)return;
   if(used){
-   setTimeout(()=>scheduleBotTurn(260),20);
+   setTimeout(()=>scheduleBotTurn(normalActionsRemaining()>0?180:260),20);
    return;
   }
   await endTurn();
@@ -5975,81 +5366,56 @@ async function runBotTurn(expectedIndex){
 
  state.message=`${player.name} 🤖 is choosing a move…`;
  render();
- await wait(300);
+ await wait(280);
 
- // Choose from the current visible board. If that exact visible move would earn a
- // duplicate Power that cannot be banked, spend the held copy first, then reassess
- // from the changed board. This never assumes the original move will still exist.
- let move=chooseBotNormalMove();
- const duplicateToSpend=botHeldPowerThatMoveWouldWaste(move);
- if(duplicateToSpend){
-  await botUsePower(duplicateToSpend);
-  if(state.gameOver||state.current!==expectedIndex)return;
-  if(!(await botWaitForResolution(expectedIndex)))return;
-  await wait(180);
-  move=chooseBotNormalMove();
- }
-
- // Optional pre-action Power behavior remains possible outside the final round.
- // Any Power changes the board, so always choose the normal move again afterward.
+ // Optional pre-action Power behavior remains possible.
  if(!isFinalRound()){
   const prePower=botOptionalPowerChoice('before',[]);
   if(prePower){
    await botUsePower(prePower);
    if(state.gameOver||state.current!==expectedIndex)return;
    if(!(await botWaitForResolution(expectedIndex)))return;
-   await wait(180);
-   move=chooseBotNormalMove();
+   await wait(140);
   }
  }
 
- const bankBefore=botBankSnapshot();
- if(!move){
-  move=botFallbackNormalMove();
- }
- if(!move){
-  state.message=`${player.name} has no legal normal action.`;
-  render();
-  if(state.challenge){
-   soloLose('The display went dead before the Challenge was complete.');
-   return;
-  }
-  // A truly dead board should not freeze a bot turn. Treat the unavailable
-  // normal action as spent so the game can advance cleanly.
-  state.normalUsed=true;
-  state.normalActionUsed='none';
-  if(!state.bust&&isFinalRound())await botUseAllFinalRoundPowers();
-  if(!state.gameOver&&state.current===expectedIndex&&!state.resolving)await endTurn();
-  return;
- }
-
- if(move.kind==='swap')await attemptSwap(move.a,move.b,false);
- else await normalGlitter(move.type,true,move.sourceIndex??null);
-
+ const newlyGained=await botUseRemainingNormalActions(expectedIndex);
  if(state.gameOver||state.current!==expectedIndex)return;
- if(!(await botWaitForResolution(expectedIndex)))return;
+ if(state.resolving&&!(await botWaitForResolution(expectedIndex)))return;
 
- const newlyGained=botNewlyGainedPowers(bankBefore);
-
- // Final Competitive round: after the normal action, exhaust the entire usable
- // bank, including Powers newly earned by the action or by subsequent Power matches.
+ // Normal Competitive final round (Finale toggle OFF): use every available Power.
+ // Resolve remaining normal actions before continuing.
  if(!state.challenge&&!state.bust&&isFinalRound()){
-  await botUseAllFinalRoundPowers();
-  if(state.gameOver||state.current!==expectedIndex||state.resolving)return;
+  while(!state.gameOver&&state.current===expectedIndex&&!state.resolving){
+   if(normalActionsRemaining()>0){
+    await botUseRemainingNormalActions(expectedIndex);
+    if(state.gameOver||state.current!==expectedIndex)return;
+    continue;
+   }
+   const types=botUsablePowerTypes();
+   if(!types.length)break;
+   const used=await botFireRequiredPower();
+   if(!used)break;
+   if(state.gameOver||state.current!==expectedIndex)return;
+   if(!(await botWaitForResolution(expectedIndex)))return;
+   await wait(140);
+  }
  }else{
   const postPower=botOptionalPowerChoice('after',newlyGained);
   if(postPower){
-   await wait(180);
+   await wait(140);
    await botUsePower(postPower);
    if(state.gameOver||state.current!==expectedIndex)return;
    if(!(await botWaitForResolution(expectedIndex)))return;
+   if(normalActionsRemaining()>0){
+    await botUseRemainingNormalActions(expectedIndex);
+    if(state.gameOver||state.current!==expectedIndex)return;
+   }
   }
  }
 
- await wait(180);
- if(!state.gameOver&&state.current===expectedIndex&&!state.resolving){
-  await endTurn();
- }
+ await wait(150);
+ if(!state.gameOver&&state.current===expectedIndex&&!state.resolving)await endTurn();
 }
 
 function scheduleBotTurn(delay=520){
@@ -6068,11 +5434,20 @@ function scheduleBotTurn(delay=520){
 
 async function endTurn(){
  if(state.resolving||state.gameOver)return;
+ if(state.infinite){state.message='Infinite continues until you choose New Game.';render();return;}
 
  const competitiveFinale=!state.challenge&&state.config.finale&&isFinalRound();
 
+ if(normalActionsRemaining()>0){
+  const remaining=normalActionsRemaining();
+  state.message=`Take ${remaining} more Swap/Glitter action${remaining===1?'':'s'} before ending the turn.`;
+  render();
+  return;
+ }
+
  if(!state.normalUsed&&!competitiveFinale){
-  state.message='Take your one normal Swap or Glitter before ending the turn.';
+  const remaining=normalActionsRemaining();
+  state.message=`Take ${remaining} more Swap/Glitter action${remaining===1?'':'s'} before ending the turn.`;
   render();
   return;
  }
@@ -6114,8 +5489,7 @@ async function endTurn(){
    state.round++;
   }
 
-  state.normalUsed=false;
-  state.normalActionUsed=null;
+  resetNormalActions();
   state.mode='swap';
   state.selected=[];
   state.turnStart=Date.now();
@@ -6123,7 +5497,7 @@ async function endTurn(){
   state.turnMatches=0;
   state.turnHistoryRecorded=false;
   state.powerUsesThisTurn=0;
-  state.message=`${state.players[state.current].name}: load the Finale — ${soloLoadedCount()}/${powerGoal()} Powers · ${state.deck.length} cards left.`;
+  state.message=`${state.players[state.current].name}: load the Finale — ${soloLoadedCount()}/${powerGoal()} Powers · ${state.deck.length} cards left · ${normalActionLimit()} action${normalActionLimit()===1?'':'s'}.`;
   addLog(`${state.players[state.current].name}'s Challenge turn begins.`);
   render();
   scheduleBotTurn(500);
@@ -6139,8 +5513,7 @@ async function endTurn(){
   const rotatePromise=rotateBoardForNextPlayer();
   await Promise.all([splashPromise,rotatePromise]);
 
-  state.normalUsed=false;
-  state.normalActionUsed=null;
+  resetNormalActions();
   state.mode='swap';
   state.selected=[];
   state.turnStart=Date.now();
@@ -6149,7 +5522,7 @@ async function endTurn(){
   state.turnHistoryRecorded=false;
   state.powerUsesThisTurn=0;
   state.resolving=false;
-  state.message=`Round ${state.round}/${totalRounds()} — ${state.players[state.current].name}: ${state.deck.length} cards remain. Score Match Points; don't BUST.`;
+  state.message=`Round ${state.round}/${totalRounds()} — ${state.players[state.current].name}: ${state.deck.length} cards remain · ${normalActionLimit()} action${normalActionLimit()===1?'':'s'}. Score Match Points; don't BUST.`;
   addLog(`${state.players[state.current].name}'s turn begins in BUST Round ${state.round}.`);
   render();
   scheduleBotTurn(500);
@@ -6204,9 +5577,8 @@ async function endTurn(){
  await Promise.all([splashPromise,rotatePromise]);
 
  const finaleNow=state.config.finale&&isFinalRound();
- state.normalUsed=finaleNow; // Finale round has no normal Swap/Glitter.
- state.normalActionUsed=null;
- state.mode=finaleNow?'idle':'swap';
+ resetNormalActions();
+ state.mode='swap';
  state.selected=[];
  state.turnStart=Date.now();
  state.turnPoints=0;
@@ -6218,8 +5590,8 @@ async function endTurn(){
  if(finaleNow){
   const remaining=Object.values(currentPowerBank()).reduce((s,v)=>s+Number(v||0),0);
   state.message=remaining
-   ?`${state.players[state.current].name}: FINALE — fire all ${remaining} banked Power${remaining===1?'':'s'}.`
-   :`${state.players[state.current].name}: no banked Powers — Finale passes automatically.`;
+   ?`${state.players[state.current].name}: FINALE — take Swap or Glitter and fire all ${remaining} banked Power${remaining===1?'':'s'}.`
+   :`${state.players[state.current].name}: FINALE — take Swap or Glitter.`;
   addLog(`${state.players[state.current].name} begins the Round ${totalRounds()} FINALE.`);
  }else{
   state.message=`${state.players[state.current].name}: choose Swap or Glitter, or use a Power${state.config.finale&&state.round<totalRounds()?` — earned Powers are banking for Round ${totalRounds()}.`:'.'}`;
@@ -6227,11 +5599,7 @@ async function endTurn(){
  }
  render();
 
- if(finaleNow&&!hasReadyPower()){
-  setTimeout(()=>maybeAutoEndTurn(),220);
- }else{
-  scheduleBotTurn(500);
- }
+ scheduleBotTurn(500);
 }
 function renderMatchAverages(){
  if(!els.matchAverages)return;
@@ -6274,7 +5642,106 @@ function showPlaytestResults(){
  requestAnimationFrame(()=>logs.scrollIntoView({behavior:'smooth',block:'start'}));
 }
 
+const INFINITE_TYPES=['comet','ring','crossette','peony'];
+function infiniteGoalOptions(){
+ const type=INFINITE_TYPES[Math.floor(Math.random()*4)],name=TYPE[type].name;
+ const dud=!!state.config.includeDud;
+ return [
+  {kind:'collect',description:'Earn all four Powers before using any',target:4,progress:0},
+  {kind:'size',size:5,description:'Create a match of exactly 5',target:1,progress:0},
+  {kind:'size',size:5,type,description:`Create a 5-card ${name} match`,target:1,progress:0},
+  {kind:'size',size:6,minimum:true,description:'Create a 6+ card match',target:1,progress:0},
+  {kind:'size',size:7+Math.floor(Math.random()*3),minimum:true,merged:true,description:'',target:1,progress:0},
+  ...['T','Plus','L'].map(shape=>({kind:'shape',shape,description:`Create a ${shape}-shaped match`,target:1,progress:0})),
+  {kind:'shape',shape:'T',type,description:`Create a T-shaped ${name} match`,target:1,progress:0},
+  ...['glitter','swap'].map(action=>{const target=10+Math.floor(Math.random()*4)*5;return {kind:'action',action,description:`Earn ${target} matches using only ${action==='swap'?'Swap':'Glitter'}`,target,progress:0}}),
+  ...(dud?[{kind:'dud',target:25+Math.floor(Math.random()*4)*10,progress:0}]:[])
+ ].map(g=>g.kind==='dud'?{...g,description:`Clear ${g.target} Duds`}:g.merged?{...g,description:`Create a merged match of at least ${g.size} cards`}:g);
+}
+function assignInfiniteGoal(){
+ const pool=infiniteGoalOptions().filter(g=>!state.infiniteRecent.includes(g.kind+':'+(g.shape||g.action||g.type||g.size||'')));
+ const options=pool.length?pool:infiniteGoalOptions();
+ state.infiniteGoal=options[Math.floor(Math.random()*options.length)];
+ const g=state.infiniteGoal,key=g.kind+':'+(g.shape||g.action||g.type||g.size||'');
+ state.infiniteRecent.push(key);if(state.infiniteRecent.length>6)state.infiniteRecent.shift();
+ state.infinitePowerSet=[];state.infiniteActionType=null;
+}
+function infiniteComplete(){
+ const g=state.infiniteGoal;if(!g||g.progress<g.target)return;
+ state.infiniteHistory.unshift({description:g.description,status:'Completed'});state.infiniteGoalsCompleted++;state.infiniteNotice=`Completed — ${g.description}`;
+ addLog(`GOAL COMPLETED: ${g.description}`);state.message=`Goal completed: ${g.description}. A new goal is ready!`;
+ assignInfiniteGoal();
+}
+function infiniteForfeit(){
+ if(!state.infinite||!state.infiniteGoal||state.resolving)return;
+ state.infiniteHistory.unshift({description:state.infiniteGoal.description,status:'Forfeited'});
+ state.infiniteNotice=`Forfeited — ${state.infiniteGoal.description}`;
+ addLog(`Goal forfeited: ${state.infiniteGoal.description}`);assignInfiniteGoal();
+ state.message='Goal forfeited. A new goal is ready.';render();
+}
+function infiniteAction(action){if(!state.infinite)return;state.infiniteActionType=action;state.infiniteNotice='';}
+function infinitePowerUsed(){
+ if(!state.infinite)return;
+ const g=state.infiniteGoal;
+ if(g?.kind==='action'){g.progress=0;state.message='Power used: action-only goal progress reset.'}
+ if(g?.kind==='collect'){g.progress=0;state.infinitePowerSet=[];state.message='Power used before collecting all four: progress reset.'}
+ state.infiniteActionType='power';
+}
+function infinitePowerEarned(type){
+ const g=state.infiniteGoal;if(!state.infinite||g?.kind!=='collect')return;
+ if(!state.infinitePowerSet.includes(type))state.infinitePowerSet.push(type);
+ g.progress=state.infinitePowerSet.length;infiniteComplete();
+}
+function infiniteDudCleared(){
+ const g=state.infiniteGoal;if(!state.infinite||g?.kind!=='dud')return;
+ g.progress++;infiniteComplete();
+}
+function infiniteHasShape(cells,shape){
+ const patterns={
+  T:[[0,0],[0,-1],[0,1],[1,0],[2,0]],
+  L:[[0,0],[1,0],[2,0],[0,1],[0,2]],
+  Plus:[[0,0],[-1,0],[1,0],[0,-1],[0,1]]
+ };
+ const pattern=patterns[shape];if(!pattern)return false;
+ const set=new Set(cells),cols=boardCols();
+ for(const anchor of cells){
+  const row=rowOf(anchor,cols),col=colOf(anchor,cols);
+  for(let turns=0;turns<4;turns++){
+   const rotated=pattern.map(([dr,dc])=>{
+    for(let n=0;n<turns;n++)[dr,dc]=[dc,-dr];
+    return [dr,dc];
+   });
+   if(rotated.every(([dr,dc])=>inBoard(row+dr,col+dc)&&set.has(cellIndex(row+dr,col+dc,cols))))return true;
+  }
+ }
+ return false;
+}
+function infiniteShape(cells){
+ return ['Plus','T','L'].find(shape=>infiniteHasShape(cells,shape))||null;
+}
+function infiniteRecordMatch(match){
+ const g=state.infiniteGoal;if(!state.infinite||!g)return;
+ if(g.kind==='action'&&state.infiniteActionType===g.action)g.progress++;
+ else if(g.kind==='size'&&(!g.type||g.type===match.type)&&(g.minimum?match.length>=g.size:match.length===g.size))g.progress=1;
+ else if(g.kind==='shape'&&(!g.type||g.type===match.type)&&infiniteHasShape(match.cells,g.shape))g.progress=1;
+ infiniteComplete();
+}
+function renderInfiniteGoal(){
+ const active=!!state.infinite;
+ els.infiniteGoalPanel.style.display=active?'block':'none';els.infiniteHistoryPanel.style.display=active?'block':'none';
+ if(!active)return;
+ const g=state.infiniteGoal;
+ els.infiniteGoalDescription.textContent=g?.description||'';
+ els.infiniteGoalProgress.textContent=`${g?.progress||0} / ${g?.target||1}`;
+ els.infiniteNotice.textContent=state.infiniteNotice||'';
+ els.infiniteForfeit.disabled=state.resolving;
+ els.infiniteTotals.textContent=`Score: ${state.players[0].score} · Matches: ${state.infiniteMatches} · Goals Completed: ${state.infiniteGoalsCompleted}`;
+ els.infiniteHistorySummary.textContent=`Goal History · Goals Completed: ${state.infiniteGoalsCompleted}`;
+ els.infiniteHistoryList.innerHTML=state.infiniteHistory.map(item=>`<li><b>${item.status}</b> — ${escapeHtml(item.description)}</li>`).join('')||'<li>No goals finished yet.</li>';
+}
+
 function render(){
+ if(tutorial){tutorialDraw();return}
  if(!state.players)return;
  const botTurn=!!state.players[state.current]?.bot;
  document.documentElement.style.setProperty('--player-cols',Math.min(state.players.length,4));
@@ -6292,24 +5759,22 @@ function render(){
   return `<button class="card ${t} ${gp?'grid-power':''} ${state.selected.includes(i)?'selected':''}" data-i="${i}" data-card-id="${c.id}" aria-label="${gp?'Power ':''}${TYPE[t].name}, row ${rowOf(i)+1}, column ${colOf(i)+1}">${icon(t)}<div class="label">${gp?'POWER · ':''}${TYPE[t].name}</div></button>`;
  }).join('');
  const boardCards=[...els.board.querySelectorAll('button.card')];
- const slideActive=!botTurn&&!!state.config.slideSwap&&!state.resolving&&!state.gameOver&&['swap','palmSwap'].includes(state.mode);
- els.board.classList.toggle('slide-swap',slideActive);
  els.board.classList.toggle('peony-target',state.mode==='peony'&&!state.resolving&&!state.gameOver);
- boardCards.forEach(b=>{
-  if(slideActive){
-   b.addEventListener('pointerdown',slidePointerDown);
-   b.addEventListener('pointermove',slidePointerMove);
-   b.addEventListener('pointerup',e=>finishSlideGesture(e,false));
-   b.addEventListener('pointercancel',e=>finishSlideGesture(e,true));
-  }else if(!botTurn){
-   b.addEventListener('click',()=>cardClick(+b.dataset.i));
-  }
+ const swipeActive=!botTurn&&state.config.swipeMatch&&!state.resolving&&!state.gameOver&&state.mode==='swap'&&!state.normalUsed;
+ els.board.classList.toggle('swipe-enabled',swipeActive);
+ if(!botTurn)boardCards.forEach(b=>{
+  if(swipeActive){
+   b.addEventListener('pointerdown',swipePointerDown);
+   b.addEventListener('pointermove',swipePointerMove);
+   b.addEventListener('pointerup',e=>finishSwipe(e,false));
+   b.addEventListener('pointercancel',e=>finishSwipe(e,true));
+  }else b.addEventListener('click',()=>cardClick(+b.dataset.i));
  });
  const shownTypes=cardTypes();
  document.documentElement.style.setProperty('--face-count-cols',String(Math.max(1,shownTypes.length)));
  let counts=Object.fromEntries(shownTypes.map(t=>[t.id,0]));state.board.forEach(c=>{if(c&&!c.gridPower)counts[face(c)]++});
- const competitiveFinale=!state.challenge&&state.config.finale&&isFinalRound();
- let allow=!botTurn&&!state.resolving&&!state.gameOver&&!state.normalUsed&&!(state.challenge&&state.soloFinale)&&!competitiveFinale&&state.mode!=='palmSwap'&&state.mode!=='peony'&&state.mode!=='glitterAdjacent'&&state.mode!=='cometDirection';
+ const competitiveFinale=!state.challenge&&!state.infinite&&state.config.finale&&isFinalRound();
+ let allow=!botTurn&&!state.resolving&&!state.gameOver&&!state.normalUsed&&!(state.challenge&&state.soloFinale&&normalActionsRemaining()===0)&&!(competitiveFinale&&normalActionsRemaining()===0)&&state.mode!=='peony'&&state.mode!=='glitterAdjacent'&&state.mode!=='cometDirection';
  els.glitterAction.style.display=glitterActionAdjacent()?'block':'none';
  els.glitterAction.disabled=!allow||!Object.values(counts).some(n=>n>0);
  els.glitterHeading.textContent=glitterActionAdjacent()?'Card faces on grid':'Card faces · tap one to Glitter';
@@ -6334,47 +5799,43 @@ function render(){
    const earned=!!state.soloEarned?.[t.id];
    const finished=state.soloFinale&&earned&&qty<1;
    const locked=!state.soloFinale;
-   const chosen=(state.mode===t.id)||(t.id==='comet'&&state.mode==='cometDirection')||(t.id==='palm'&&state.mode==='palmSwap')||(t.id==='peony'&&state.mode==='peony');
+   const chosen=(state.mode===t.id)||(t.id==='comet'&&state.mode==='cometDirection')||(t.id==='peony'&&state.mode==='peony');
    const status=finished?'✓ FIRED':earned?(locked?'LOADED':'FIRE'):'';
    const countMarkup=finished?'<span class="counttag spent-check">✓</span>':`<span class="counttag">×${qty}</span>`;
    return `<div class="power-slot ${t.id}"><button class="power ${earned?'ready':''} ${finished?'spent':''} ${locked&&earned?'locked':''} ${chosen?'chosen':''} ${t.id}" data-p="${t.id}" ${!qty||botTurn||botTurn||state.resolving||state.gameOver||locked||!canUseAnotherPower()?'disabled':''}>
-    ${status?`<span class="readytag">${status}</span>`:''}${countMarkup}<strong>${t.name}</strong><span>${powerName(t.id)}${firedCount&&qty?` · ${firedCount} fired`:''}${t.id==='palm'?'':` · ${t.id==='comet'?(state.config.cometEither?'Row/Column choice':'Column')+' · ':''}${powerEffect(t.id)==='flip'?'Flip':'Clear'}`}</span></button>${t.id==='comet'?cometDirectionButtons():''}</div>`;
+    ${status?`<span class="readytag">${status}</span>`:''}${countMarkup}<strong>${t.name}</strong><span>${powerName(t.id)}${firedCount&&qty?` · ${firedCount} fired`:''} · ${t.id==='comet'?'Row/Column choice · ':''}${powerEffect(t.id)==='flip'?'Flip':'Clear'}</span></button>${t.id==='comet'?cometDirectionButtons():''}</div>`;
   }).join('')+`<div class="solo-progress"><b>${loaded}/${powerGoal()} power types acquired</b> · <b>${state.deck.length}</b> cards remaining<br>${state.soloFinale?`${banked} banked Power${banked===1?'':'s'} still to fire.${state.players.length>1?' Play rotates after each Power.':''}`:state.config.challengeBankDuplicates?`${banked} total Power${banked===1?'':'s'} banked. Duplicates must also be fired in the Finale.`:'Draw pile is finite in the Challenge; each shared Power can only ever be earned once.'}</div>`;
   els.powers.querySelectorAll('button.power').forEach(b=>b.addEventListener('click',()=>powerClick(b.dataset.p)));
   els.powers.querySelectorAll('.comet-dir-btn').forEach(b=>b.addEventListener('click',()=>chooseCometDirection(b.dataset.dir)));
  }else{
   const locked=state.config.finale&&!unlocked;
-  els.powersTitle.textContent=locked?'Finale bank':(isFinalRound()?'FINAL ROUND · Power bank':'Power bank');
+  els.powersTitle.textContent=locked?'Finale bank':(state.infinite?'Power bank':isFinalRound()?'FINAL ROUND · Power bank':'Power bank');
   els.powersHelp.textContent=locked
-   ?`Banked until Round ${totalRounds()}. × shows copies held. ${(state.config.powerUnlimited||state.config.unlimitedEarnBeforeFinal)?'Duplicates can stack.':'Max 1 of each.'}`
-   :`${isFinalRound()?(state.config.unlimitedEarnBeforeFinal?'Final round: fire all banked Powers; no new Powers can be earned. ':'Final round: fire all banked and newly earned Powers. '):''}× shows usable copies. ${state.config.powersNextRound?'NEXT = queued for next round. ':''}${state.config.onePowerPerTurn&&!isFinalRound()?'One Power may be fired this round.':'All available Powers may be fired this round.'} ${(state.config.powerUnlimited||state.config.unlimitedEarnBeforeFinal)?'Duplicates can stack.':'Max 1 of each.'}`;
-  els.powers.innerHTML=enabledPowerTypes().map(t=>{
-   const qty=powerCount(p,t.id);
-   const queued=state.config.powersNextRound?powerCount(playerPendingBank(state.players[state.current]),t.id):0;
-   const chosen=(state.mode===t.id)||(t.id==='comet'&&state.mode==='cometDirection')||(t.id==='palm'&&state.mode==='palmSwap')||(t.id==='peony'&&state.mode==='peony');
-   return `<div class="power-slot ${t.id}"><button class="power ${qty?'ready':''} ${locked&&qty?'locked':''} ${chosen?'chosen':''} ${t.id}" data-p="${t.id}" ${!qty||botTurn||botTurn||state.resolving||state.gameOver||locked||!canUseAnotherPower()?'disabled':''}>
-    ${qty?`<span class="readytag">${locked?'BANKED':'READY'}</span>`:queued?`<span class="readytag">NEXT ×${queued}</span>`:''}<span class="counttag">×${qty}</span><strong>${t.name}</strong><span>${powerName(t.id)}${queued?` · Next round ×${queued}`:''}${t.id==='palm'?'':` · ${t.id==='comet'?(state.config.cometEither?'Row/Column choice':'Column')+' · ':''}${powerEffect(t.id)==='flip'?'Flip':'Clear'}`}</span></button>${t.id==='comet'?cometDirectionButtons():''}</div>`;
-  }).join('');
+   ?`Banked until Round ${totalRounds()}. × shows copies held. Duplicates can stack.`
+   :`${state.config.finale&&isFinalRound()?'Finale: normal actions continue; fire all banked Powers; Match 4+ earns no new Power. ':''}× shows usable copies. ${state.infinite?'Use powers freely.':state.config.finale&&isFinalRound()?'Fire all banked Powers.':'One Power may be fired this round.'} Duplicates can stack.`;
+  els.powers.innerHTML=powerBankMarkup(p,locked,botTurn||state.resolving||state.gameOver||!canUseAnotherPower());
   els.powers.querySelectorAll('button.power').forEach(b=>b.addEventListener('click',()=>powerClick(b.dataset.p)));
   els.powers.querySelectorAll('.comet-dir-btn').forEach(b=>b.addEventListener('click',()=>chooseCometDirection(b.dataset.dir)));
+  if(state.infinite)els.powersHelp.textContent='Match 4+ earns a Power. Use any number of banked Powers at any time.';
  }
- els.gameFormat.textContent=state.challenge
-  ?`Grand Finale Challenge · ${state.players.length} player${state.players.length===1?'':'s'} · ${state.config.cardTotal} cards · ${enabledCardTypes().length} card types · ${powerGoal()} Power types${state.config.challengeBankDuplicates?' · duplicates banked':''} · ${state.config.slideSwap?'Swipe':'Tap'} Swap${state.config.longSlide?' · Slide 1–2':' · 1-space'} · Comet ${state.config.cometEither?'Row/Column':'Column'}`
+ els.gameFormat.textContent=state.infinite?`BURST Infinite · Score ${state.players[0].score} · Matches ${state.infiniteMatches} · Goals ${state.infiniteGoalsCompleted}`:state.challenge
+  ?`Grand Finale Challenge · ${state.players.length} player${state.players.length===1?'':'s'} · ${state.config.cardTotal} cards · ${enabledCardTypes().length} card types · ${powerGoal()} Power types${state.config.challengeBankDuplicates?' · duplicates banked':''} · ${state.config.twoActions?'2 actions/turn':'1 action/turn'} · ${state.config.swipeMatch?'Swipe':'Tap'} Swap · Comet Row/Column`
   :state.bust
-   ?`SHORT FUSE · ${totalRounds()} rounds · ${state.config.cardTotal} cards · finite draw pile · ${state.config.onePowerPerTurn?'1 Power/round until final':'Unlimited Powers/round'}`
-   :`${totalRounds()} rounds · ${state.config.cardTotal} cards · Palm ${state.config.includePalm?'ON':'OFF'} · ${state.config.slideSwap?'Swipe':'Tap'} Swap${state.config.longSlide?' · Slide 1–2':' · 1-space'} · Finale ${state.config.finale?'ON':'OFF'} · ${(state.config.powerUnlimited||state.config.unlimitedEarnBeforeFinal)?'Unlimited':'Max 1'} Powers${state.config.unlimitedEarnBeforeFinal?' · Unlimited earn pre-final · No final earn':state.config.oneEarnPerTypePerRound?' · 1 earn/type/round':''}${state.config.powersNextRound?' · Earn→Next Round':''} · Comet ${state.config.cometEither?'Row/Column':'Column'}`;
- els.roundCounter.textContent=state.challenge
+   ?`SHORT FUSE · ${totalRounds()} rounds · ${state.config.cardTotal} cards · finite draw pile · ${state.config.twoActions?'2 actions/turn':'1 action/turn'} · 1 Power/round`
+   :`${totalRounds()} rounds · ${state.config.cardTotal} cards · ${state.config.twoActions?'2 actions/turn':'1 action/turn'} · ${state.config.swipeMatch?'Swipe':'Tap'} Swap · Finale ${state.config.finale?'ON':'OFF'} · Unlimited duplicate Powers · Comet Row/Column`;
+ els.roundCounter.textContent=state.infinite?'INFINITE':state.challenge
   ?(state.soloFinale?'FINALE':'CHALLENGE')
   :`ROUND ${state.round}/${totalRounds()}`;
- els.turnBadge.textContent=state.gameOver
+ els.turnBadge.textContent=state.infinite?state.players[0].name:state.gameOver
   ?(state.challenge&&state.soloWon?'CHALLENGE WIN':'Game over')
   :state.challenge
    ?(state.soloFinale?'GRAND FINALE':`${state.players[state.current].name} · ${soloLoadedCount()}/${powerGoal()} loaded`)
    :state.bust
     ?`SHORT FUSE · ${state.players[state.current].name}`
     :state.players[state.current].name;
+ renderInfiniteGoal();
  els.gameFormat.textContent+=` · Grid ${state.config.boardCols}×${state.config.boardRows} · Cards ${enabledCardTypes().length} · Powers ${enabledPowerTypes().length} · Bot difficulty individual · Dud ${state.config.includeDud?`${state.config.dudPercent}%${state.config.matchFlipsDuds?' + Dud formations':''}`:'OFF'}`;
- let names={swap:'Swap ready',idle:'Normal action used',palmSwap:'Palm targeting',peony:'Peony targeting',glitterAdjacent:'Glitter targeting',cometDirection:'Comet direction',comet:'Comet targeting',ring:'Ring targeting',crossette:'Crossette targeting'};
+ let names={swap:`Swap ready · ${normalActionsRemaining()} action${normalActionsRemaining()===1?'':'s'} left`,idle:'Normal actions complete',peony:'Peony targeting',glitterAdjacent:'Glitter targeting',cometDirection:'Comet direction',comet:'Comet targeting',ring:'Ring targeting',crossette:'Crossette targeting'};
  els.modeText.textContent=names[state.mode]||'';els.message.textContent=state.message||'';
  els.turnPoints.textContent=state.turnPoints;
  const finiteMode=state.challenge||state.bust;
@@ -6389,20 +5850,21 @@ function render(){
  }else{
   els.cardsRemainingBox.classList.remove('hot');
  }
- els.swapAction.disabled=botTurn||state.normalUsed||state.resolving||state.gameOver||(state.challenge&&state.soloFinale)||competitiveFinale;
- els.swapAction.textContent=competitiveFinale?'Powers only':'Swap';
- const usedAction=state.normalActionUsed;
- els.swapAction.classList.toggle('action-used',state.normalUsed&&usedAction==='swap');
- els.swapAction.classList.toggle('action-blocked',state.normalUsed&&usedAction==='glitter');
- els.glitterAction.classList.toggle('action-used',state.normalUsed&&usedAction==='glitter');
- els.glitterAction.classList.toggle('action-blocked',state.normalUsed&&usedAction==='swap');
- els.endTurn.disabled=botTurn||state.resolving||state.gameOver;
+ els.swapAction.disabled=botTurn||state.normalUsed||state.resolving||state.gameOver||((state.challenge&&state.soloFinale)||competitiveFinale)&&normalActionsRemaining()===0;
+ els.swapAction.textContent='Swap';
+ const actionHistory=Array.isArray(state.normalActionHistory)?state.normalActionHistory:[];
+ const swapWasUsed=actionHistory.includes('swap'),glitterWasUsed=actionHistory.includes('glitter');
+ els.swapAction.classList.toggle('action-used',state.normalUsed&&swapWasUsed);
+ els.swapAction.classList.toggle('action-blocked',state.normalUsed&&!swapWasUsed&&actionHistory.length>0);
+ els.glitterAction.classList.toggle('action-used',state.normalUsed&&glitterWasUsed);
+ els.glitterAction.classList.toggle('action-blocked',state.normalUsed&&!glitterWasUsed&&actionHistory.length>0);
+ els.endTurn.disabled=botTurn||state.resolving||state.gameOver||state.infinite;
  const finaleMustFire=competitiveFinale;
- els.endTurn.style.display=(state.challenge||finaleMustFire)?'none':'';
+ els.endTurn.style.display=(state.infinite||state.challenge||finaleMustFire)?'none':'';
  const showTurnPrompt=!botTurn&&!state.challenge&&!finaleMustFire&&!state.gameOver&&!state.resolving&&state.normalUsed&&hasReadyPower()&&state.mode==='idle';
  els.turnEndPrompt.classList.toggle('show',showTurnPrompt);
  els.turnEndPrompt.setAttribute('aria-hidden',showTurnPrompt?'false':'true');
- els.cancelTarget.style.display=['palmSwap','peony','glitterAdjacent','cometDirection','comet','ring','crossette'].includes(state.mode)?'block':'none';
+ els.cancelTarget.style.display=['peony','glitterAdjacent','cometDirection','comet','ring','crossette'].includes(state.mode)?'block':'none';
  let avg=state.history.length?state.history.reduce((s,h)=>s+h.seconds,0)/state.history.length:null;els.avgTime.textContent=avg===null?'—':fmt(avg);
  els.eventLog.innerHTML=state.log.map(x=>`<div class="line">${escapeHtml(x)}</div>`).join('');
  els.history.innerHTML=state.history.length?state.history.slice(0,12).map(h=>`<div class="line" style="display:flex;justify-content:space-between"><span>R${h.round} · ${escapeHtml(h.player)} · +${h.points}</span><b>${fmt(h.seconds)}</b></div>`).join(''):'Completed turns will appear here.';
@@ -6410,41 +5872,16 @@ function render(){
  renderCascadeStats();
 }
 els.newGame.addEventListener('click',()=>openGameSetup(false));
+els.infiniteForfeit.addEventListener('click',infiniteForfeit);
 els.setupPlayerCount.addEventListener('change',()=>renderSetupNames(currentSetupPlayers()));
-els.setupGameMode.addEventListener('change',()=>{handleSetupModeRuleChange(els.setupGameMode.value);updateSetupMode(true);updateFireworkTypeToggleState();});
-els.setupChallengeBankDuplicates.addEventListener('change',()=>{updateSetupOptionState();renderModeInstructions();});
+els.setupGameMode.addEventListener('change',()=>{updateSetupMode(true);updateFireworkTypeToggleState();});
 els.setupRounds.addEventListener('input',()=>{
  updateRoundCountDisplay();
  renderModeInstructions();
  renderSetupNames(currentSetupPlayers());
 });
-els.setupCardTotal.addEventListener('input',()=>{updateCardCountDisplay();updateDudPercentDisplay();updateFireworkTypeToggleState();});
-els.setupCardTotal.addEventListener('pointerup',snapCardTotalToFive);
-els.setupCardTotal.addEventListener('change',()=>{updateCardCountDisplay();updateDudPercentDisplay();updateFireworkTypeToggleState();});
-els.cardTotalMinus.addEventListener('click',()=>setCardTotalExact(clampCardTotal(els.setupCardTotal.value)-1));
-els.cardTotalPlus.addEventListener('click',()=>setCardTotalExact(clampCardTotal(els.setupCardTotal.value)+1));
-els.setupBoardCols.addEventListener('input',updateBoardSizeDisplay);
-els.setupBoardRows.addEventListener('input',updateBoardSizeDisplay);
-els.setupPalm.addEventListener('change',()=>{
- renderSetupNames(currentSetupPlayers());
-});
-els.setupDud.addEventListener('change',()=>{
- updateSetupOptionState();
- renderModeInstructions();
- updateFireworkTypeToggleState();
-});
-els.setupDudPercent.addEventListener('input',()=>{updateDudPercentDisplay();updateFireworkTypeToggleState();renderModeInstructions()});
-els.dudSymmetrySummary.addEventListener('click',e=>{const chip=e.target.closest('[data-dud-pct]');if(!chip)return;els.setupDudPercent.value=String(clampDudPercent(chip.dataset.dudPct));updateDudPercentDisplay();updateFireworkTypeToggleState();renderModeInstructions()});
-els.setupMatchFlipsDuds.addEventListener('change',renderModeInstructions);
-els.setupSlideSwap.addEventListener('change',()=>{if(!els.setupSlideSwap.checked)els.setupTapGlitter.checked=false;updateSetupOptionState();renderModeInstructions();});
-els.setupLongSlide.addEventListener('change',renderModeInstructions);
-els.setupTapGlitter.addEventListener('change',()=>{if(els.setupTapGlitter.checked)els.setupSlideSwap.checked=true;updateSetupOptionState();renderModeInstructions();});
-els.setupGlitterScope.addEventListener('change',renderModeInstructions);
-els.setupOnePowerPerTurn.addEventListener('change',renderModeInstructions);
-els.setupOneEarnPerTypeRound.addEventListener('change',renderModeInstructions);
-els.setupUnlimitedEarnBeforeFinal.addEventListener('change',()=>{updateSetupOptionState();renderModeInstructions();});
-els.setupPowersNextRound.addEventListener('change',renderModeInstructions);
-[...Object.values(setupCardToggleMap()),...Object.values(setupPowerToggleMap())].forEach(input=>input.addEventListener('change',updateFireworkTypeToggleState));
+els.setupSwipeMatch.addEventListener('change',()=>{updateSetupOptionState();renderModeInstructions()});
+els.setupTapGlitter.addEventListener('change',renderModeInstructions);
 els.setupCancel.addEventListener('click',closeGameSetup);
 els.setupStart.addEventListener('click',()=>{
  const names=collectPlayerNames();
@@ -6509,7 +5946,7 @@ els.setupNameFields.addEventListener('keydown',e=>{
 
 els.swapAction.addEventListener('click',()=>{if(!state.normalUsed&&!state.resolving&&!state.gameOver){
  state.mode='swap';state.selected=[];
- state.message=state.config.slideSwap?(state.config.longSlide?'Swap: slide a card 1 or 2 spaces orthogonally.':'Swap: slide a card 1 space orthogonally.'):(state.config.longSlide?'Swap: tap a card, then a destination 1 or 2 spaces away.':'Swap: tap one card, then an orthogonally adjacent card.');
+ state.message=state.config.swipeMatch?'Swap: drag a card toward an adjacent card; release past halfway to swap.':'Swap: tap one card, then an orthogonally adjacent card.';
  render();
 }});
 els.glitterAction.addEventListener('click',()=>normalGlitter(null));
@@ -6559,6 +5996,266 @@ if('serviceWorker' in navigator && (location.protocol==='https:' || location.hos
  window.addEventListener('load',()=>{
   navigator.serviceWorker.register('./sw.js').catch(()=>{});
  });
+}
+
+let tutorial=null;
+const TUTORIAL_STEPS=[
+ ...['comet','ring','crossette','peony','dud'].map(type=>({kind:'intro',type})),
+ {kind:'three'},{kind:'glitter'},{kind:'four'},{kind:'shape'},
+ {kind:'power',type:'comet'},{kind:'power',type:'crossette'},{kind:'power',type:'ring'},{kind:'power',type:'peony'},{kind:'practice'},{kind:'done'}
+];
+function tutorialCard(type,i){const reverse=type==='dud'?'comet':CORE_FIREWORK_IDS[(CORE_FIREWORK_IDS.indexOf(type)+1)%4];return{id:uid++,faces:[type,reverse],side:0}}
+function tutorialBase(){return Array.from({length:25},(_,i)=>tutorialCard(CORE_FIREWORK_IDS[(Math.floor(i/5)+i%5)%4],i))}
+function tutorialSet(i,t){state.board[i]=tutorialCard(t,i)}
+function tutorialStart(){
+ if(tutorial?.busy)return;
+ if(tutorial)tutorialExit(false);
+ const saved=state;
+ tutorial={saved,index:0,score:0,bank:0,busy:false,selected:null,token:0,focus:[],complete:false,bindings:{board:els.board,fxLayer:els.fxLayer,powers:els.powers},armed:false,anchor:12};
+ state={...saved,rows:5,cols:5,board:tutorialBase(),config:{...(saved.config||{}),boardRows:5,boardCols:5,mergedMatch:true,includeDud:true,matchFlipsDuds:false,enabledCards:[...CORE_FIREWORK_IDS]},players:[],log:[],deck:[],discard:[],bust:false,infinite:false,challenge:false,gameOver:true,resolving:true};
+ els.board=$('tutorialBoard');els.fxLayer=$('tutorialFx');els.powers=$('tutorialBank');
+ closeGameSetup();document.querySelector('.wrap').inert=true;
+ $('tutorialOverlay').classList.add('open');tutorialLoad();$('tutorialExit').focus();
+}
+function tutorialExit(menu=true){
+ if(!tutorial||tutorial.busy)return;clearFx();Object.assign(els,tutorial.bindings);state=tutorial.saved;tutorial=null;
+ $('tutorialOverlay').classList.remove('open');document.querySelector('.wrap').inert=false;
+ if(state.players?.length)render();
+ if(menu){openGameSetup(!state.players);$('setupGameMode').focus()}
+}
+function tutorialText(title,text){$('tutorialGuide').innerHTML=`<h3>${title}</h3><p>${text}</p>`}
+function tutorialDraw(){
+ if(!tutorial)return;
+ $('tutorialExit').disabled=tutorial.busy;
+ tutorialRenderBank();
+ $('tutorialMeter').textContent=`Lesson ${Math.min(tutorial.index+1,TUTORIAL_STEPS.length-1)} / ${TUTORIAL_STEPS.length-1} · Score ${tutorial.score} · Banked Powers ${tutorial.bank}`;
+ $('tutorialBoard').innerHTML=state.board.map((c,i)=>`<button class="card ${face(c)||'dud'} ${tutorial.focus.includes(i)?'focus':''} ${tutorial.selected===i?'chosen':''} ${tutorial.armed&&i===tutorial.anchor?'tutorial-anchor':''}" data-i="${i}" data-card-id="${c?.id||i}" data-tut-cell="${i}" aria-label="${c?TYPE[face(c)].name:'Empty'}, row ${Math.floor(i/5)+1}, column ${i%5+1}" ${tutorial.busy?'disabled':''}>${c?icon(face(c)):''}<span class="label">${c?TYPE[face(c)].name:''}</span></button>`).join('');
+}
+function tutorialButtons(next=false){
+ $('tutorialActions').innerHTML=`${next?'<button class="btn primary" data-tut-next>Next</button>':''}<button class="btn" data-tut-skip>Skip step</button>`;
+}
+function tutorialLoad(){
+ const t=tutorial;if(!t)return;$('tutorialOverlay').classList.remove('tutorial-finished','tutorial-celebrating');t.token++;t.complete=false;t.busy=false;t.selected=null;t.armed=false;t.anchor=12;t.focus=[];t.pause=null;t.powerType=null;t.practiceActions=0;t.practiceMode='swap';t.practiceFinale=false;t.copies=blankPowers();state.mode='idle';state.board=tutorialBase();state.cometOrientation='row';
+ const step=TUTORIAL_STEPS[t.index];tutorialButtons(step.kind==='intro');
+ if(step.kind==='intro'){
+  tutorialSet(12,step.type);t.focus=[12];tutorialText(TYPE[step.type].name,step.type==='dud'?'This is a Dud. Duds never match or score. Glitter and applicable Powers can flip them; clearing Powers can remove them.':(t.index===0?'Match three or more of the same firework in a horizontal or vertical line. Recognize each type by its symbol and color.':`This is ${TYPE[step.type].name}.`));
+ }else if(step.kind==='practice'){
+  tutorialPracticeBoard();tutorialText('Your practice turn','Play on a full 5×5 board with 20% Dud faces. Swap neighboring cards or choose Glitter. Make a match, earn a Power with 4+, then fire it!');tutorialPracticeControls();
+ }else if(['three','four'].includes(step.kind)){
+  state.board=Array.from({length:25},(_,i)=>tutorialCard('dud',i));
+  [20,21].forEach(i=>tutorialSet(i,'comet'));tutorialSet(17,'comet');tutorialSet(22,'ring');
+  if(step.kind==='four')tutorialSet(23,'comet');
+  t.focus=step.kind==='four'?[17,20,21,22,23]:[17,22];
+  tutorialText(step.kind==='practice'?'Your practice turn':step.kind==='four'?'Make a 4-card match':'Make a 3-card match',step.kind==='practice'?'Find a Swap that makes a match. No move is highlighted. You may tap two neighboring cards or swipe between them.':`Swap the Comet directly above the Ring with that Ring: tap one, then the other, or swipe between them. ${step.kind==='four'?'This larger match is still only 1 point—but it also earns a Comet Power.':'Three Comets will line up. Watch what happens after they clear.'}`);
+ }else if(step.kind==='glitter'){
+  state.board=Array.from({length:25},(_,i)=>tutorialCard('dud',i));tutorialSet(0,'ring');tutorialSet(24,'peony');tutorialSet(6,'ring');tutorialSet(13,'peony');tutorialSet(17,'crossette');t.focus=sameTypeNeighborCells(12,'dud');t.focus.forEach(i=>state.board[i].faces[1]=CORE_FIREWORK_IDS[(Math.floor(i/5)+i%5)%4]);
+  tutorialText('Your second action: Glitter','You get two actions each turn: two Swaps, two Glitters, or one of each. Tap the center Dud. Glitter flips it and matching neighbors, including diagonals. Only the highlighted Duds will flip. The neighboring Ring, Peony, and Crossette do not match the tapped Dud, so they stay unchanged.');
+ }else if(step.kind==='shape'){
+  state.board=Array.from({length:25},(_,i)=>tutorialCard('dud',i));[6,2,8,12,17].forEach(i=>tutorialSet(i,'ring'));t.focus=[2,6,7,8,12,17];
+  tutorialText('One connected shape = 1 point','Swap the topmost Ring with the Dud directly below it to form a T of five Rings. All five Rings and the Dud are highlighted. The connected matching lines earn 1 point and one Ring Power. There are many possible shapes, including L, +, rotated shapes, and large connected clusters. Each connected same-type match is still only 1 point.');
+ }else if(step.kind==='power'){
+  t.bank=1;t.copies[step.type]=1;
+  state.board=Array.from({length:25},(_,i)=>tutorialCard('dud',i));
+  // Deliberately omit the banked Power's own face from the entire board.
+  const target=step.type==='ring'?'comet':'ring';
+  [6,12,18,24].forEach(i=>tutorialSet(i,target));
+  state.board.forEach((c,i)=>{if(face(c)==='dud')c.faces[1]=(Math.floor(i/5)+i%5)%2?'peony':'crossette'});
+  t.focus=[];
+  tutorialText(step.type==='comet'?'Time to Burst — Select your Power':`${TYPE[step.type].name} Power`,
+   `First tap ${TYPE[step.type].name} in the Power bank. Then tap any card on the grid to target it. The target does NOT need to match the Power, and no ${TYPE[step.type].name} card needs to be on the board.`);
+
+ }else{
+  $('tutorialOverlay').classList.add('tutorial-finished');$('tutorialBank').innerHTML='';$('tutorialMeter').textContent='';$('tutorialBoard').innerHTML='';tutorialText('Tutorial Completed. Ready?','');$('tutorialActions').innerHTML='<button class="btn" data-tut-replay>No - Replay Tutorial</button><button class="btn primary" data-tut-ready>Yes - Ready to Burst</button>';return;
+ }
+ tutorialDraw();
+}
+function tutorialPowerCells(type,i=12){return type==='peony'?state.board.map((c,j)=>face(c)===face(state.board[i])?j:-1).filter(j=>j>=0):gridPowerCells(type,i)}
+
+function tutorialPrepareDraw(types=[]){state.deck=Array.from({length:100},(_,i)=>tutorialCard('dud',i));state.deck.push(...types.slice().reverse().map((type,i)=>tutorialCard(type,i)))}
+
+
+$('tutorialBank').addEventListener('click',tutorialBankClick);
+function tutorialPreview(e){const b=e.target.closest('[data-tut-cell]');if(!b||!tutorial||!tutorial.armed||tutorial.busy||tutorial.complete)return;const i=Number(b.dataset.tutCell);if(tutorial.anchor===i)return;tutorial.anchor=i;const type=tutorial.powerType||TUTORIAL_STEPS[tutorial.index].type;if(type==='comet'&&!state.cometOrientation)return;tutorial.focus=tutorialPowerCells(type,i);for(const el of $('tutorialBoard').children){const j=Number(el.dataset.tutCell);el.classList.toggle('focus',tutorial.focus.includes(j));el.classList.toggle('tutorial-anchor',j===i)}}
+$('tutorialBoard').addEventListener('pointerover',tutorialPreview);$('tutorialBoard').addEventListener('focusin',tutorialPreview);
+$('tutorialStart').addEventListener('click',tutorialStart);
+$('tutorialExit').addEventListener('click',()=>tutorialExit());
+let tutorialPointer=null,tutorialSuppressClickUntil=0;
+$('tutorialBoard').addEventListener('click',e=>{
+ if(Date.now()<tutorialSuppressClickUntil){e.preventDefault();return}
+ const b=e.target.closest('[data-tut-cell]');if(b)tutorialCell(Number(b.dataset.tutCell));
+});
+$('tutorialBoard').addEventListener('pointerdown',e=>{
+ const b=e.target.closest('[data-tut-cell]');if(b&&tutorial&&!tutorial.busy)tutorialPointer={id:Number(b.dataset.tutCell),x:e.clientX,y:e.clientY,pointer:e.pointerId,moved:0};
+});
+$('tutorialBoard').addEventListener('pointermove',e=>{
+ const p=tutorialPointer;if(p&&p.pointer===e.pointerId)p.moved=Math.max(p.moved,Math.hypot(e.clientX-p.x,e.clientY-p.y));
+});
+$('tutorialBoard').addEventListener('pointercancel',()=>{tutorialPointer=null;tutorialSuppressClickUntil=Date.now()+600});
+$('tutorialBoard').addEventListener('pointerup',e=>{
+ const p=tutorialPointer;tutorialPointer=null;if(!p||!tutorial||tutorial.busy||p.pointer!==e.pointerId)return;
+ const dx=e.clientX-p.x,dy=e.clientY-p.y,moved=Math.max(p.moved,Math.hypot(dx,dy));
+ if(moved<8)return; // A real tap is handled once by click.
+ tutorialSuppressClickUntil=Date.now()+600;e.preventDefault();
+ if(tutorial.armed||tutorial.pause||tutorial.complete||tutorial.practiceMode==='glitter')return;
+ const first=$('tutorialBoard').querySelector(`[data-tut-cell="${p.id}"]`),rect=first?.getBoundingClientRect();
+ const gap=parseFloat(getComputedStyle($('tutorialBoard')).columnGap)||7;
+ const horizontal=Math.abs(dx)>Math.abs(dy),step=(horizontal?rect?.width:rect?.height)+gap;
+ if(!step||Math.max(Math.abs(dx),Math.abs(dy))<step*.5)return;
+ const j=p.id+(horizontal?Math.sign(dx):5*Math.sign(dy));
+ if(j<0||j>24||!moveAllowed(p.id,j))return;
+ const kind=TUTORIAL_STEPS[tutorial.index].kind,pair=kind==='shape'?[2,7]:[17,22];
+ if(kind!=='practice'&&(!pair.includes(p.id)||!pair.includes(j)))return;
+ tutorial.selected=p.id;tutorialCell(j);
+});
+$('tutorialActions').addEventListener('click',tutorialActionClick);
+$('tutorialOverlay').addEventListener('keydown',e=>{if(e.key==='Escape'){tutorialExit();return}if(e.key==='Tab'){const buttons=[...$('tutorialOverlay').querySelectorAll('button:not([disabled])')];const first=buttons[0],last=buttons.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
+
+// Shared by normal Competitive play and its guided tutorial.
+function powerBankMarkup(bank,locked,disabled){
+ return enabledPowerTypes().map(t=>{
+  const qty=powerCount(bank,t.id),chosen=state.mode===t.id||(t.id==='comet'&&state.mode==='cometDirection');
+  return `<div class="power-slot ${t.id}"><button class="power ${qty?'ready':''} ${locked&&qty?'locked':''} ${chosen?'chosen':''} ${t.id}" data-p="${t.id}" ${!qty||disabled||locked?'disabled':''}>
+  ${qty?`<span class="readytag">${locked?'BANKED':'READY'}</span>`:''}<span class="counttag">×${qty}</span><strong>${t.name}</strong><span>${powerName(t.id)} · ${t.id==='comet'?'Row/Column choice · ':''}${powerEffect(t.id)==='flip'?'Flip':'Clear'}</span></button>${t.id==='comet'?cometDirectionButtons():''}</div>`;
+ }).join('');
+}
+function tutorialRenderBank(){
+ const t=tutorial,step=TUTORIAL_STEPS[t.index];t.copies??=blankPowers();
+ $('tutorialBank').innerHTML=powerBankMarkup(t.copies,!(step.kind==='power'||t.practiceFinale),t.busy||t.complete);
+}
+function tutorialPracticeControls(){
+ $('tutorialActions').innerHTML='<button class="btn" data-tut-mode="swap">Swap</button><button class="btn" data-tut-mode="glitter">Glitter</button>';
+ $('tutorialActions').querySelectorAll('[data-tut-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.tutMode===tutorial.practiceMode)));
+}
+function tutorialFindPowerMove(){
+ for(let a=0;a<25;a++)for(const b of [a+1,a+5]){
+  if(b>=25||!adjacent(a,b,5))continue;
+  const board=[...state.board];applySwap(board,a,b);
+  if(findMatches(board,5,5,false).some(m=>m.length>=4))return{mode:'swap',cells:[a,b]};
+ }
+ for(let i=0;i<25;i++){
+  const board=state.board.map(c=>({...c,faces:[...c.faces]}));
+  const cells=sameTypeNeighborCells(i,face(board[i]));cells.forEach(j=>board[j].side=1-board[j].side);
+  if(findMatches(board,5,5,false).some(m=>m.length>=4))return{mode:'glitter',cells:[i]};
+ }
+ return null;
+}
+function tutorialPracticeBoard(){
+ // Same four fireworks and Dud distribution, with a guaranteed teachable move.
+ for(let attempt=0;attempt<1000;attempt++){
+  const faces=shuffle(['dud','dud','dud','dud','dud',...CORE_FIREWORK_IDS.flatMap(type=>Array(5).fill(type))]);
+  // shuffle mutates in place in the game; retain the array explicitly below.
+  if(!faces)break;
+  state.board=faces.map((type,i)=>tutorialCard(type,i));
+  if(!findMatches(state.board,5,5,false).length&&tutorialFindPowerMove())break;
+ }
+ if(findMatches(state.board,5,5,false).length||!tutorialFindPowerMove()||state.board.filter(c=>face(c)==='dud').length!==5){
+  // Deterministic valid fallback, found and verified by the same match detector.
+  let done=false;
+  while(!done){const faces=['dud','dud','dud','dud','dud',...CORE_FIREWORK_IDS.flatMap(type=>Array(5).fill(type))];shuffle(faces);state.board=faces.map((type,i)=>tutorialCard(type,i));done=!findMatches(state.board,5,5,false).length&&!!tutorialFindPowerMove()}
+ }
+ state.deck=buildDeck(100,true,20,CORE_FIREWORK_IDS);state.discard=[];
+ tutorial.focus=Array.from({length:25},(_,i)=>i);
+}
+function tutorialHint(){
+ const t=tutorial;
+ if(Object.values(t.copies).some(n=>n>0)){
+  t.practiceFinale=true;t.armed=false;t.selected=null;state.mode='idle';t.focus=Array.from({length:25},(_,i)=>i);
+  tutorialText('Power earned — time to Burst!','You earned a Power! Tap your READY Power in the bank below the grid, then choose a target card. Finish by firing your Power.');
+ }else{
+  const move=tutorialFindPowerMove();
+  if(!move){t.pause='practiceRefresh';tutorialText('Set up a Power','This board needs more setup to reach 4+. Tap Next for a fresh practice board with a guided Power-earning move.');tutorialButtons(true);return}
+  t.hint=move;t.focus=move.cells;t.practiceMode=move.mode;
+  tutorialText('Now earn a Power',move.mode==='swap'?'Swap the two highlighted cards to make a 4+ match and earn a Power.':'Glitter the highlighted card. Its reverse face and neighboring flips will create a 4+ match and earn a Power.');
+ }
+ tutorialPracticeControls();tutorialDraw();
+}
+async function tutorialResolve(cascade=false,earn=true){
+ const t=tutorial,practice=TUTORIAL_STEPS[t.index].kind==='practice';t.busy=true;
+ for(let wave=0;;wave++){
+  const matches=findMatches(state.board,5,5,false);if(!matches.length)break;
+  const cells=[...new Set(matches.flatMap(m=>m.cells))];t.focus=cells;tutorialDraw();
+  popMatchScores(matches);await flashMatched(cells);t.score+=matches.length;
+  if(earn)for(const m of matches.filter(m=>m.length>=4)){t.bank++;t.copies[m.type]=(t.copies[m.type]||0)+1;tutorialRenderBank();await animatePowerBankLoad(m.type,null)}
+  clearCells(cells);
+  if(cascade&&wave===0){
+   t.pause='cascadeRefill';t.busy=false;t.complete=false;t.focus=[20,21,22];tutorialDraw();
+   tutorialText('Your match cleared — 1 point','The three Comets have cleared, earning you 1 point. Tap Next to watch gravity pull the cards down and bring 3 new cards in.');tutorialButtons(true);return;
+  }
+  if(!practice)tutorialPrepareDraw();
+  await cascadeGravity();await wait(350);
+ }
+ t.busy=false;t.focus=Array.from({length:25},(_,i)=>i);
+ if(practice){t.complete=false;t.busy=!earn;tutorialDraw();if(earn)tutorialHint();return}
+ t.complete=true;tutorialDraw();tutorialButtons(true);
+ if(TUTORIAL_STEPS[t.index].kind==='four')tutorialText('1 point + 1 Comet Power','Four Comets cleared as one match, earning 1 point and a Comet Power. You’ll learn more about Powers shortly. First, let’s learn more about 4+ matches.');
+}
+async function tutorialCascadeNext(){
+ const t=tutorial;
+ if(t.pause==='cascadeRefill'){
+  t.busy=true;tutorialDraw();tutorialPrepareDraw(['ring','ring','ring']);await cascadeGravity();
+  t.pause='cascadeMatch';t.busy=false;t.focus=[0,1,2];tutorialDraw();
+  tutorialText('A Cascade!','Lucky Dog! The replacement cards matched! You earn another point. Tap Next to watch the match clear.');tutorialButtons(true);
+ }else if(t.pause==='cascadeMatch'){
+  t.pause=null;await tutorialResolve(false);t.index++;tutorialLoad();
+ }
+}
+async function tutorialFire(i){
+ const t=tutorial,type=t.powerType,practice=TUTORIAL_STEPS[t.index].kind==='practice';
+ if(!t.armed||!type||(type==='comet'&&!state.cometOrientation))return;
+ t.anchor=i;t.busy=true;const cells=tutorialPowerCells(type,i);t.focus=cells;tutorialDraw();await wait(350);
+ if(type==='peony')await animatePeonyPower(cells,powerFxColor(face(state.board[i])));else await animatePowerEffect(type,i,cells);
+ if(powerEffect(type)==='flip')await flipCellsAnimated(cells,true);
+ else{await flashMatched(cells);clearCells(cells);if(!practice)tutorialPrepareDraw();await cascadeGravity()}
+ t.copies[type]=Math.max(0,t.copies[type]-1);t.bank=Math.max(0,t.bank-1);t.armed=false;state.mode='idle';await tutorialResolve(false,false);
+ if(practice){t.busy=true;tutorialDraw();await wait(2000);await tutorialCelebrate();return}
+ tutorialText(`${TYPE[type].name} used`,'You chose the Power in the bank, then targeted a grid card. The target does not need to match the Power. Direct clears score 0; any resulting match scores 1.');
+}
+async function tutorialCell(i){
+ const t=tutorial;if(!t||t.busy||t.complete||t.pause||!Number.isInteger(i)||i<0||i>=25||!state.board[i])return;
+ const kind=TUTORIAL_STEPS[t.index].kind;
+ if(kind==='power'||(kind==='practice'&&t.armed)){await tutorialFire(i);return}
+ if(kind==='practice'&&t.practiceFinale){tutorialHint();return}
+ if(kind==='glitter'||(kind==='practice'&&t.practiceMode==='glitter')){
+  if(kind==='glitter'&&i!==12)return;t.busy=true;const cells=sameTypeNeighborCells(i,face(state.board[i]));t.focus=cells;tutorialDraw();
+  await animateAdjacentGlitter(cells,i,powerFxColor(face(state.board[i])));await flipCellsAnimated([i,...cells.filter(j=>j!==i)],true);t.practiceActions++;await tutorialResolve(false);return;
+ }
+ if(!['three','four','shape','practice'].includes(kind))return;
+ const pair=kind==='shape'?[2,7]:[17,22];if(kind!=='practice'&&!pair.includes(i))return;
+ if(t.selected===null){t.selected=i;tutorialDraw();return}
+ const a=t.selected;t.selected=null;if(!moveAllowed(a,i)){tutorialText('Choose neighboring cards','A Swap moves one card horizontally or vertically into its neighbor’s space. Choose two neighboring cards that will make a match.');tutorialDraw();return}
+ const trial=[...state.board];applySwap(trial,a,i,5);t.busy=true;tutorialDraw();
+ if(!findMatches(trial,5,5,false).length){await animateSwapExchange(a,i,true);t.busy=false;tutorialText('That Swap needs a match','A valid Swap must create a match of three or more fireworks. The cards return to their original spaces; no action is used. Try another Swap, or choose Glitter.');tutorialDraw();return}
+ await animateSwapExchange(a,i,false);state.board=trial;t.practiceActions++;tutorialDraw();await tutorialResolve(kind==='three');
+}
+function tutorialBankClick(e){
+ const t=tutorial;if(!t||t.busy||t.complete||t.pause)return;
+ const dir=e.target.closest('.comet-dir-btn');if(dir){chooseCometDirection(dir.dataset.dir);t.focus=tutorialPowerCells('comet',t.anchor);tutorialDraw();return}
+ const button=e.target.closest('button[data-p]');if(!button||button.disabled)return;
+ t.powerType=button.dataset.p;t.armed=true;t.selected=null;t.anchor=12;state.mode=t.powerType==='comet'?'cometDirection':t.powerType;state.cometOrientation=null;
+ t.focus=t.powerType==='comet'?[]:tutorialPowerCells(t.powerType,12);
+ const explanation={comet:'Choose Row or Column in the bank, then tap any card in that line.',ring:'Tap any center card. Its eight neighbors flip; the center stays.',crossette:'Tap any card. It and its four orthogonal neighbors clear (+). You can target a corner, an edge, or anywhere else on the grid. Only the card you tap must be on the grid; any part of the Power’s pattern extending beyond the edge is ignored.',peony:'Tap any card—including a Dud—to flip all cards of that face type across the board. Choose a Dud to flip every Dud.'};
+ tutorialText(`${TYPE[t.powerType].name} enabled`,explanation[t.powerType]+' Your target does not have to match the Power.');tutorialDraw();
+}
+async function tutorialCelebrate(){
+ const t=tutorial;t.busy=true;t.complete=false;t.focus=Array.from({length:25},(_,i)=>i);tutorialDraw();
+ tutorialText('Congratulations!','You completed the tutorial! You matched, earned a Power, and fired it.');$('tutorialOverlay').classList.add('tutorial-celebrating');$('tutorialActions').innerHTML='';
+ const jobs=[];
+ for(let i=0;i<25;i++){
+  const center=cellCenter(i);if(center){const color=powerFxColor(CORE_FIREWORK_IDS[i%4]);sprayBurst(center.x,center.y,color,75,22,i*65);shockwave(center.x,center.y,color,i*65,2)}
+  const el=els.board.querySelector(`[data-i="${i}"]`);if(el)jobs.push(el.animate([{transform:'scale(1)',opacity:1},{transform:'scale(1.3)',filter:'brightness(3)',offset:.25},{transform:'scale(0)',opacity:0}],{duration:650,delay:i*65,fill:'forwards'}).finished.catch(()=>{}));
+ }
+ await Promise.all(jobs);await wait(1000);clearFx();$('tutorialOverlay').classList.remove('tutorial-celebrating');t.busy=false;t.index=TUTORIAL_STEPS.length-1;tutorialLoad();$('tutorialExit').disabled=false;$('tutorialActions').querySelector('[data-tut-ready]').focus();
+}
+async function tutorialActionClick(e){
+ const t=tutorial;if(!t||t.busy)return;
+ if(e.target.closest('[data-tut-ready]')){tutorialExit();return}
+ if(e.target.closest('[data-tut-replay]')){t.index=0;t.score=0;t.bank=0;tutorialLoad();return}
+ const mode=e.target.closest('[data-tut-mode]');if(mode){if(t.practiceFinale){tutorialHint();return}t.practiceMode=mode.dataset.tutMode;t.selected=null;tutorialPracticeControls();return}
+ if(e.target.closest('[data-tut-next]')&&t.pause){
+  if(t.pause==='practiceRefresh'){t.pause=null;tutorialPracticeBoard();tutorialHint();return}
+  await tutorialCascadeNext();return;
+ }
+ if(e.target.closest('[data-tut-next],[data-tut-skip]')){t.index++;tutorialLoad()}
 }
 
 initSetupCollapsibles();
